@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">FandomoviesProject</string>
+    <string name="botonIniciarSesion">Iniciar Sesión</string>
+    <string name="passwordHint">Contraseña</string>
+    <string name="numeroDeMovilOEmailHint">Número de móvil o Email</string>
+    <string name="nombreApp">Fandomovies</string>
+    <string name="registrateBoton">¿No tienes una cuenta? Regístrate.</string>
+
+
 </resources>
