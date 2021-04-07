@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_width="328dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutBotonInputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorColor="@color/black"
+        app:tabTextColor="@color/black60">
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabNumero"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/tabNumero" />
+
+        <com.google.android.material.tabs.TabItem
+            android:id="@+id/tabEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:baselineAlignBottom="false"
+            android:clickable="true"
+            android:focusable="true"
+            android:text="@string/tabEmail" />
+    </com.google.android.material.tabs.TabLayout>
+
+    <LinearLayout
+        android:id="@+id/layoutBotonInputs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="41dp"
+        android:layout_marginBottom="130dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/InputLayoutNombreEmail"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:foregroundTint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCollapsedPaddingTop="0dp"
+            app:boxStrokeErrorColor="#FFFFFF"
+            app:boxStrokeWidth="1dp"
+            app:counterEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:passwordToggleEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputNombreOemail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="@string/nombreYApellidosHint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/espacio1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/InputLayoutPasswordd"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:counterEnabled="false"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPasswordd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:hint="@string/passwordHint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/espacioo2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:orientation="horizontal">
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:entries="@array/prefijosMovil"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeWidth="10dp" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/InputLayoutNumeroMovil"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:foregroundTint="@color/black"
+                app:boxBackgroundMode="outline"
+                app:boxStrokeWidth="1dp"
+                app:counterEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:passwordToggleEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/InputNumeroMovil"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/numeroDeMovilHint" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <Space
+            android:id="@+id/espacio2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/botonRegistrarme"
+            android:layout_width="328dp"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/azulApp"
+            android:text="@string/botonRegistrarme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+
+    <View
+        android:id="@+id/lineaDivisoria2"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toTopOf="@+id/botonIniciaSesion"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/botonIniciaSesion"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/white"
+        android:text="@string/iniciaSesion"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

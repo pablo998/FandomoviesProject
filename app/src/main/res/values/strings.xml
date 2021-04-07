@@ -1,10 +1,29 @@
 <resources>
     <string name="app_name">FandomoviesProject</string>
     <string name="botonIniciarSesion">Iniciar Sesión</string>
+    <string name="botonRegistrarme">Registrarme</string>
     <string name="passwordHint">Contraseña</string>
     <string name="numeroDeMovilOEmailHint">Número de móvil o Email</string>
+    <string name="numeroDeMovilHint">Número de móvil</string>
+    <string name="nombreYApellidosHint">Nombre y apellidos</string>
     <string name="nombreApp">Fandomovies</string>
     <string name="registrateBoton">¿No tienes una cuenta? Regístrate.</string>
+    <string name="iniciaSesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
+    <string name="tabNumero">Número de móvil</string>
+    <string name="tabEmail">Email</string>
+
+
+    <integer-array name="prefijosMovil">
+        <item>+34</item>
+        <item>+48</item>
+        <item>+49</item>
+        <item>+26</item>
+        <item>+25</item>
+    </integer-array>
+
+
+
+
 
 
 </resources>
