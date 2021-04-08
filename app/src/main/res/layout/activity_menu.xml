@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="187dp"
+        android:layout_height="179dp"
+        android:layout_marginTop="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@android:drawable/ic_menu_camera" />
+
+    <Button
+        android:id="@+id/moviesButton"
+        android:layout_width="291dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="104dp"
+        android:text="@string/movies"
+        android:textSize="20sp"
+        app:backgroundTint="@color/azulApp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/seriesButton"
+        android:layout_width="291dp"
+        android:layout_height="88dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/series"
+        android:textSize="20sp"
+        app:backgroundTint="@color/azulApp"
+        app:layout_constraintBottom_toTopOf="@+id/documentaryButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/moviesButton"
+        app:layout_constraintVertical_bias="0.577" />
+
+    <Button
+        android:id="@+id/documentaryButton"
+        android:layout_width="291dp"
+        android:layout_height="88dp"
+        android:layout_marginBottom="64dp"
+        android:text="@string/documentaries"
+        android:textSize="20sp"
+        app:backgroundTint="@color/azulApp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

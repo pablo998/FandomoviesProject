@@ -11,6 +11,9 @@
     <string name="iniciaSesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
     <string name="tabNumero">Número de móvil</string>
     <string name="tabEmail">Email</string>
+    <string name="series">Series</string>
+    <string name="documentaries">Documentaries</string>
+    <string name="movies">Movies</string>
 
 
     <integer-array name="prefijosMovil">
