@@ -7,17 +7,26 @@
     android:contentDescription="@string/logoRegistro">
 
     <ImageView
-        android:id="@+id/imageView4"
+        android:id="@+id/imageView2"
         android:layout_width="160dp"
         android:layout_height="160dp"
         android:layout_marginTop="47dp"
         android:layout_marginBottom="29dp"
         android:contentDescription="@string/logoRegistro"
-        app:layout_constraintBottom_toTopOf="@+id/tabLayout"
+        app:layout_constraintBottom_toTopOf="@+id/viewPager"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logoregistrate" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/viewPager"
+        android:layout_width="328dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="25dp"
+        app:layout_constraintBottom_toTopOf="@+id/layoutBotonInputs"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <com.google.android.material.tabs.TabLayout
         android:id="@+id/tabLayout"
@@ -27,15 +36,16 @@
         app:layout_constraintBottom_toTopOf="@+id/layoutBotonInputs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:tabIndicatorAnimationMode="linear"
         app:tabIndicatorColor="@color/black"
+        app:tabInlineLabel="false"
         app:tabTextColor="@color/black60">
 
         <com.google.android.material.tabs.TabItem
-            android:id="@+id/tabNumero"
+            android:id="@+id/tabNumero2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:clickable="true"
-            android:contentDescription="@string/logoRegistro"
+            android:clickable="false"
             android:focusable="true"
             android:text="@string/tabNumero" />
 
@@ -47,6 +57,7 @@
             android:clickable="true"
             android:focusable="true"
             android:text="@string/tabEmail" />
+
     </com.google.android.material.tabs.TabLayout>
 
     <LinearLayout
@@ -111,41 +122,26 @@
             android:layout_width="match_parent"
             android:layout_height="20dp" />
 
-        <LinearLayout
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/InputLayoutNumeroMovil"
             android:layout_width="match_parent"
-            android:layout_height="56dp"
-            android:orientation="horizontal">
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:foregroundTint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="1dp"
+            app:counterEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:passwordToggleEnabled="false">
 
-            <Spinner
-                android:id="@+id/spinner"
-                android:layout_width="100dp"
-                android:layout_height="match_parent"
-                android:entries="@array/prefijosMovil"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeWidth="10dp" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/InputNumeroMovil"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="@string/tabEmail" />
 
-            <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/InputLayoutNumeroMovil"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:foregroundTint="@color/black"
-                app:boxBackgroundMode="outline"
-                app:boxStrokeWidth="1dp"
-                app:counterEnabled="false"
-                app:hintAnimationEnabled="false"
-                app:passwordToggleEnabled="false">
-
-                <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/InputNumeroMovil"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:backgroundTint="@color/white"
-                    android:hint="@string/numeroDeMovilHint" />
-
-            </com.google.android.material.textfield.TextInputLayout>
-
-        </LinearLayout>
+        </com.google.android.material.textfield.TextInputLayout>
 
         <Space
             android:id="@+id/espacio2"

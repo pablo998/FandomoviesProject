@@ -14,6 +14,7 @@
     <string name="series">Series</string>
     <string name="documentaries">Documentaries</string>
     <string name="movies">Movies</string>
+    <string name="logoRegistro">Logo de registro</string>
 
 
     <integer-array name="prefijosMovil">
@@ -23,10 +24,6 @@
         <item>+26</item>
         <item>+25</item>
     </integer-array>
-
-
-
-
 
 
 </resources>
