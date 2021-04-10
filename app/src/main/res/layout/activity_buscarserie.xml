@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layoutBuscar"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity_buscar1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="65.71dp"
+            android:background="@color/azulApp"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:id="@+id/lupaa"
+                android:layout_width="0dp"
+                android:layout_height="20dp"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="25dp"
+                android:layout_weight="1"
+                android:background="@color/azulApp"
+                android:contentDescription="@string/buscarpeli"
+                app:srcCompat="@drawable/ic_baseline_search_24" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input"
+                android:layout_width="300dp"
+                android:layout_height="match_parent"
+                android:layout_marginEnd="25dp"
+                android:layout_weight="1"
+                android:foregroundTint="@color/white"
+                android:textColorHint="@color/white"
+                app:boxBackgroundMode="outline"
+                app:boxCollapsedPaddingTop="0dp"
+                app:boxStrokeColor="@color/white"
+                app:boxStrokeErrorColor="@color/white"
+                app:boxStrokeWidth="1dp"
+                app:counterEnabled="false"
+                app:hintAnimationEnabled="false"
+                app:hintTextAppearance="@color/white"
+                app:passwordToggleEnabled="false">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/input2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@color/white"
+                    android:hint="@string/buscarserie"
+                    android:textColor="@color/white"
+                    android:textColorHint="@color/white" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+        <com.google.android.material.tabs.TabLayout
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            app:tabIndicatorColor="@color/azulApp"
+            app:tabTextAppearance="@android:style/TextAppearance.Widget.TabWidget"
+            app:tabTextColor="@color/black60">
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/pelistab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/peli" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/seriestab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/series" />
+
+            <com.google.android.material.tabs.TabItem
+                android:id="@+id/docustab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/documentales" />
+        </com.google.android.material.tabs.TabLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical" />
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
