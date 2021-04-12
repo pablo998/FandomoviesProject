@@ -24,20 +24,6 @@
     <string name="carrito">carrito</string>
     <string name="heart">heart like</string>
     <string name="director">Director/a y Año de publicación</string>
-
-
-
-
-
-
-
-    <integer-array name="prefijosMovil">
-        <item>+34</item>
-        <item>+48</item>
-        <item>+49</item>
-        <item>+26</item>
-        <item>+25</item>
-    </integer-array>
     <string name="title_activity_login">LoginActivity</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -52,6 +38,15 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="large_text">
+
+    <integer-array name="prefijosMovil">
+        <item>+34</item>
+        <item>+48</item>
+        <item>+49</item>
+        <item>+26</item>
+        <item>+25</item>
+    </integer-array>
+
         "Material is the metaphor.\n\n"
 
         "A material metaphor is the unifying theory of a rationalized space and a system of motion."
@@ -141,6 +136,18 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="button_trailerPelicula">Ver tráiler</string>
+    <string name="nombre_pelicula">Nombre de la película</string>
+    <string name="fecha_pelicula">Fecha</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="sinopsis">Sinopsis</string>
+    <string name="sinopsis_contenido">Prueba de texto para ver el texto en el TextView salta de linea para ajustar el contenido</string>
+    <string name="reparto">Reparto</string>
+    <string name="nombre_actor_pelicula">Actor Pelicula</string>
+    <string name="valoraciones">Valoraciones</string>
+    <string name="ver_reparto_completo">Ver reparto completo >></string>
+    <string name="_5_estrellas">5 estrellas</string>
+    <string name="valoracion_nombre">Usuario</string>
 
 
 </resources>
