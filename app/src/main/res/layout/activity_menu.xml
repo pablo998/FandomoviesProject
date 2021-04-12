@@ -13,6 +13,7 @@
         android:layout_height="179dp"
         android:layout_marginTop="60dp"
         android:contentDescription="@string/descripcion"
+        app:layout_constraintBottom_toTopOf="@+id/moviesButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -22,34 +23,31 @@
         android:id="@+id/moviesButton"
         android:layout_width="291dp"
         android:layout_height="88dp"
-        android:layout_marginTop="104dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/movies"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
+        app:layout_constraintBottom_toTopOf="@+id/seriesButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/seriesButton"
         android:layout_width="291dp"
         android:layout_height="88dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="40dp"
         android:text="@string/series"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
         app:layout_constraintBottom_toTopOf="@+id/documentaryButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/moviesButton"
-        app:layout_constraintVertical_bias="0.577" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/documentaryButton"
         android:layout_width="291dp"
         android:layout_height="88dp"
-        android:layout_marginBottom="64dp"
+        android:layout_marginBottom="36dp"
         android:text="@string/documentaries"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
