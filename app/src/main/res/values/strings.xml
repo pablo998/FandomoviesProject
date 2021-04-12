@@ -148,9 +148,10 @@
     <string name="reparto">Reparto</string>
     <string name="nombre_actor_pelicula">Actor Pelicula</string>
     <string name="valoraciones">Valoraciones</string>
-    <string name="ver_reparto_completo">Ver reparto completo >></string>
+    <string name="ver_reparto_completo">Ver el reparto completo >></string>
     <string name="_5_estrellas">5 estrellas</string>
     <string name="valoracion_nombre">Usuario</string>
+    <string name="ver_valoraciones_completo">Ver todas las valoraciones >></string>
 
 
 </resources>

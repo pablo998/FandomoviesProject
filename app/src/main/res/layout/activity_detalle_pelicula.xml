@@ -7,8 +7,8 @@
     android:layout_height="match_parent">
 
     <ScrollView
-        android:layout_width="401dp"
-        android:layout_height="728dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -17,7 +17,9 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp">
 
             <Space
                 android:layout_width="match_parent"
@@ -155,22 +157,22 @@
 
                     <ImageView
                         android:id="@+id/imageView_actor1"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/actor1"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/actor1"
-                        android:layout_width="350dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_actor1"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
@@ -204,22 +206,22 @@
 
                     <ImageView
                         android:id="@+id/imageView_actor2"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/actor2"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/actor2"
-                        android:layout_width="350dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_actor2">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -250,22 +252,22 @@
 
                     <ImageView
                         android:id="@+id/imageView_actor3"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/actor3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/actor3"
-                        android:layout_width="350dp"
+                        android:layout_width="0dp"
                         android:layout_height="50dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent">
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_actor3">
 
                         <androidx.constraintlayout.widget.ConstraintLayout
                             android:layout_width="match_parent"
@@ -349,21 +351,22 @@
                     <ImageView
                         android:id="@+id/imageView_usuario1"
                         android:layout_width="50dp"
-                        android:layout_height="52dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/linearLayout5"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/linearLayout5"
-                        android:layout_width="338dp"
+                        android:layout_width="0dp"
                         android:layout_height="56dp"
+                        android:layout_marginStart="4dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_usuario1"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
@@ -395,21 +398,22 @@
                     <ImageView
                         android:id="@+id/imageView_usuario2"
                         android:layout_width="50dp"
-                        android:layout_height="52dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/linearLayout4"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/linearLayout4"
-                        android:layout_width="338dp"
+                        android:layout_width="0dp"
                         android:layout_height="56dp"
+                        android:layout_marginStart="4dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_usuario2"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
@@ -441,21 +445,22 @@
                     <ImageView
                         android:id="@+id/imageView_usuario3"
                         android:layout_width="50dp"
-                        android:layout_height="52dp"
+                        android:layout_height="50dp"
                         android:contentDescription="@string/descripcion"
                         app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toStartOf="@+id/linearLayout3"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:srcCompat="@drawable/logoregistrate" />
 
                     <LinearLayout
                         android:id="@+id/linearLayout3"
-                        android:layout_width="338dp"
+                        android:layout_width="0dp"
                         android:layout_height="56dp"
+                        android:layout_marginStart="4dp"
                         android:orientation="vertical"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_usuario3"
                         app:layout_constraintTop_toTopOf="parent">
 
                         <TextView
@@ -487,7 +492,7 @@
                     android:background="#00FFFFFF"
                     android:paddingTop="0dp"
                     android:paddingBottom="0dp"
-                    android:text="@string/ver_reparto_completo"
+                    android:text="@string/ver_valoraciones_completo"
                     android:textAllCaps="false"
                     android:textColor="#5F70CF"
                     android:textSize="12sp" />
@@ -497,7 +502,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:padding="5sp"
-                    android:text="@string/ver_reparto_completo"
+                    android:text="@string/ver_valoraciones_completo"
                     android:textAlignment="center"
                     android:textColor="#5F70CF"
                     android:textStyle="bold" />
