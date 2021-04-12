@@ -86,7 +86,7 @@
                             android:id="@+id/button_trailerPelicula"
                             android:layout_width="216dp"
                             android:layout_height="45dp"
-                            android:text="@string/button_trailerPelicula"
+                            android:text="@string/button_trailer_pelicula"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"

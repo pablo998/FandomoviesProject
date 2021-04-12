@@ -15,7 +15,6 @@
         android:textColor="@android:color/holo_blue_dark"
         android:textSize="30sp"
         android:gravity="center"
-        android:dividerHeigth= "10.0 sp"
         android:divider="@color/black"
         tools:text="@string/item_category" />
 </LinearLayout>

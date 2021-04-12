@@ -1,20 +1,20 @@
 <resources>
     <string name="app_name">FandomoviesProject</string>
-    <string name="botonIniciarSesion">Iniciar Sesión</string>
-    <string name="botonRegistrarme">Registrarme</string>
-    <string name="passwordHint">Contraseña</string>
-    <string name="numeroDeMovilOEmailHint">Número de móvil o Email</string>
-    <string name="numeroDeMovilHint">Número de móvil</string>
-    <string name="nombreYApellidosHint">Nombre y apellidos</string>
-    <string name="nombreApp">Fandomovies</string>
-    <string name="registrateBoton">¿No tienes una cuenta? Regístrate.</string>
-    <string name="iniciaSesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
-    <string name="tabNumero">Número de móvil</string>
-    <string name="tabEmail">Email</string>
+    <string name="boton_iniciar_sesion">Iniciar Sesión</string>
+    <string name="boton_registrarme">Registrarme</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="numero_de_movil_email_hint">Número de móvil o Email</string>
+    <string name="numero_de_movil_hint">Número de móvil</string>
+    <string name="nombre_apellidos_hint">Nombre y apellidos</string>
+    <string name="nombre_app">Fandomovies</string>
+    <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
+    <string name="inicia_sesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
+    <string name="tab_numero">Número de móvil</string>
+    <string name="tab_email">Email</string>
     <string name="series">Series</string>
     <string name="documentaries">Documentaries</string>
     <string name="movies">Movies</string>
-    <string name="logoRegistro">Logo de registro</string>
+    <string name="logo_registro">Logo de registro</string>
     <string name="buscarpeli">Buscar película</string>
     <string name="peli">Películas</string>
     <string name="buscarserie">Buscar serie</string>
@@ -37,15 +37,17 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="large_text">
+    <string name="item_category">Categoria</string>
 
-    <integer-array name="prefijosMovil">
+    <string-array name="prefijosMovil">
         <item>+34</item>
         <item>+48</item>
         <item>+49</item>
         <item>+26</item>
         <item>+25</item>
-    </integer-array>
+    </string-array>
+
+    <string name="large_text">
 
         "Material is the metaphor.\n\n"
 
@@ -135,8 +137,9 @@
         "For example, position the FAB to one side of stream of a cards so the FAB won’t interfere "
         "when a user tries to pick up one of cards.\n\n"
     </string>
+
     <string name="action_settings">Settings</string>
-    <string name="button_trailerPelicula">Ver tráiler</string>
+    <string name="button_trailer_pelicula">Ver tráiler</string>
     <string name="nombre_pelicula">Nombre de la película</string>
     <string name="fecha_pelicula">Fecha</string>
     <string name="descripcion">Descripcion</string>
