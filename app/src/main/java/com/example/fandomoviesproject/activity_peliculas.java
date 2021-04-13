@@ -1,24 +1,22 @@
 package com.example.fandomoviesproject;
 
-
-
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.google.android.material.appbar.AppBarLayout;
 
-public class MenuPrincipalActivity extends AppCompatActivity {
+public class activity_peliculas extends AppCompatActivity {
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-
+        setContentView(R.layout.category_movies);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Menú");
+        toolbar.setTitle("Películas");
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -26,6 +24,6 @@ public class MenuPrincipalActivity extends AppCompatActivity {
             actionBar.hide();
         }
 
-
     }
+
 }

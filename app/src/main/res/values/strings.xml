@@ -12,8 +12,8 @@
     <string name="tab_numero">Número de móvil</string>
     <string name="tab_email">Email</string>
     <string name="series">Series</string>
-    <string name="documentaries">Documentaries</string>
-    <string name="movies">Movies</string>
+    <string name="documentaries">Documentales</string>
+    <string name="movies">Películas</string>
     <string name="logo_registro">Logo de registro</string>
     <string name="buscarpeli">Buscar película</string>
     <string name="peli">Películas</string>
@@ -37,7 +37,7 @@
     <string name="tab_text_1">Tab 1</string>
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
-    <string name="item_category">Categoria</string>
+    <string name="item_category">CATEGORÍA</string>
 
     <string-array name="prefijosMovil">
         <item>+34</item>
