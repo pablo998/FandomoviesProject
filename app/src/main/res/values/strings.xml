@@ -41,6 +41,7 @@
     <string name="infocuenta">Información de la cuenta</string>
     <string name="infocuenta3">Email o número de móvil</string>
     <string name="deseaborrar">¿Desea borrar su cuenta? Borrar cuenta.</string>
+    <string name="categoria_pelicula">Categorias de Peliculas</string>
 
 
     <string-array name="prefijosMovil">
