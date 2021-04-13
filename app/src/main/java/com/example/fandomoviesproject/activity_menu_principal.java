@@ -42,7 +42,7 @@ public class activity_menu_principal extends AppCompatActivity {
     }
 
     public void goToPeliculasCategorias(View view) {
-        Intent intent = new Intent(this,activity_categorias_de_peliculas.class);
+        Intent intent = new Intent(this,MoviesCategoryActivity.class);
         startActivity(intent);
     }
 }

@@ -8,7 +8,9 @@
     <string name="nombre_apellidos_hint">Nombre y apellidos</string>
     <string name="nombre_app">Fandomovies</string>
     <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
+    <string name="peliculas">Peliculas</string>
     <string name="inicia_sesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
+    <string name="categoria_elegida">Categoria 1</string>
     <string name="tab_numero">Número de móvil</string>
     <string name="tab_email">Email</string>
     <string name="series">Series</string>
