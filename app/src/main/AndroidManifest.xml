@@ -34,7 +34,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_peliculas">
+        <activity android:name=".MoviesList.activity_peliculas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

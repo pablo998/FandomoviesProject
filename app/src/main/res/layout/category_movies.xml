@@ -48,6 +48,7 @@
 
         </androidx.cardview.widget.CardView>
 
+
         <LinearLayout
             android:id="@+id/container_indicator"
             android:layout_width="wrap_content"
@@ -60,14 +61,17 @@
 
     </RelativeLayout>
 
-    <ScrollView
+    <FrameLayout
         android:layout_width="411dp"
-        android:layout_height="448dp"
-        android:layout_marginTop="42dp"
+        android:layout_height="441dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/relativeLayout" />
+        app:layout_constraintStart_toStartOf="parent">
+
+        <include
+            layout="@layout/category_moviecontent"
+            android:layout_width="match_parent"
+            tools:layout_height="wrap_content" />
+    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
