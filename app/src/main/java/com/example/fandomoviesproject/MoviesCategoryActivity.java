@@ -14,6 +14,8 @@ import java.util.ArrayList;
 
 public class MoviesCategoryActivity extends AppCompatActivity {
 
+
+    //Cambios pequeños
     RecyclerView recycler;
     ArrayList<String> listDatos;
     TextView categoria;
