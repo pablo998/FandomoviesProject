@@ -11,5 +11,6 @@
     <color name="azulApp">#003FDF</color>
     <color name="grisApp">#DADADA</color>
     <color name="transparent">#00000000</color>
+    <color name="rojo">#FFFF0000</color>
 
 </resources>

@@ -38,6 +38,10 @@
     <string name="tab_text_2">Tab 2</string>
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="item_category">CATEGORÍA</string>
+    <string name="infocuenta">Información de la cuenta</string>
+    <string name="infocuenta3">Email o número de móvil</string>
+    <string name="deseaborrar">¿Desea borrar su cuenta? Borrar cuenta.</string>
+
 
     <string-array name="prefijosMovil">
         <item>+34</item>

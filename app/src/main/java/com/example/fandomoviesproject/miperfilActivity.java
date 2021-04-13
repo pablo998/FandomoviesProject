@@ -9,21 +9,21 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
-public class MenuPrincipalActivity extends AppCompatActivity {
+public class miperfilActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
+        setContentView(R.layout.activity_miperfil);
 
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle("Menú");
+        Toolbar toolbar = findViewById(R.id.toolbar2);
+        setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(false);
-            actionBar.hide();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setTitle("Mi Perfil");
         }
 
 
