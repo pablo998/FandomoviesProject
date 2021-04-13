@@ -5,5 +5,5 @@
     android:id="@+id/categories_movieslist"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".MoviesList.activity_peliculas"
-    tools:listitem="@layout/category_moviecontent" />
+    tools:context=".activity_categorias_de_peliculas"
+    tools:listitem="@layout/activity_categorias_de_peliculaslista_content" />

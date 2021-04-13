@@ -7,7 +7,7 @@ import android.os.Bundle;
 
 import com.google.android.material.tabs.TabLayout;
 
-public class activity_registrate2 extends AppCompatActivity {
+public class activity_registrarte_emailtab extends AppCompatActivity {
 
     TabLayout tabLayout = findViewById(R.id.tabLayout);
     ViewPager viewPager = findViewById(R.id.viewPager);
@@ -15,7 +15,7 @@ public class activity_registrate2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrate2);
+        setContentView(R.layout.activity_registrarte_emailtab);
         selectPage(2);
 
     }

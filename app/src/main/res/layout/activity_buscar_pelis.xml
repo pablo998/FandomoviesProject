@@ -5,7 +5,7 @@
     android:id="@+id/layoutBuscar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity_buscar1">
+    tools:context=".activity_buscar_pelis">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -52,7 +52,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:backgroundTint="@color/white"
-                    android:hint="@string/buscardocums"
+                    android:hint="@string/buscarpeli"
                     android:textColor="@color/white"
                     android:textColorHint="@color/white" />
 
