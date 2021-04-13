@@ -25,7 +25,7 @@ public class MoviesCategoryActivity extends AppCompatActivity {
         listDatos = new ArrayList<String>();
 
         for(int i=0; i<=10; i++){
-            listDatos.add("Category " + i);
+            listDatos.add("Categoria " + i);
         }
 
         MoviesAdapter adapter = new MoviesAdapter(listDatos);
