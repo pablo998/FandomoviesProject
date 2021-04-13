@@ -1,51 +1,39 @@
 package com.example.fandomoviesproject;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.viewpager.widget.ViewPager;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
 
-public class activity_registrarte_emailtab extends AppCompatActivity {
 
-    TabLayout tabLayout = findViewById(R.id.tabLayout);
-    ViewPager viewPager = findViewById(R.id.viewPager);
+public class activity_registrarte_numerodemoviltab extends AppCompatActivity {
+
+
     Button registrarme, tengoCuenta;
-    TabItem numeroDeMovilTab;
-
+    TabItem emailTab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_registrarte_emailtab);
-        selectPage(2);
-
+        setContentView(R.layout.activity_registrarte_numerodemoviltab);
         registrarme = findViewById(R.id.botonRegistrarme);
         tengoCuenta = findViewById(R.id.botonIniciaSesion);
-        numeroDeMovilTab = findViewById(R.id.tabNumero2);
+        emailTab = findViewById(R.id.tabEmail);
 
         registrarme.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 goToMenu(v);
             }
         });
+
     }
 
-
-
-    void selectPage(int pageIndex){
-        tabLayout.setScrollPosition(pageIndex,0f,true);
-        viewPager.setCurrentItem(pageIndex);
-    }
-
-
-    public void goToNumeroDeMovilTab(View view) {
-        Intent intent = new Intent(this,activity_registrarte_numerodemoviltab.class);
+    public void goToEmailTab(View view) {
+        Intent intent = new Intent(this,activity_registrarte_emailtab.class);
         startActivity(intent);
     }
 
@@ -57,7 +45,7 @@ public class activity_registrarte_emailtab extends AppCompatActivity {
     public void backToIniciarSesion(View view) {
         //se mata a todas las activities hasta llegar a MainActivity.
         //Sin embargo de momento pondremos un Intent aunque no es correcto, hasta que implementemos
-        //funcionalidad de las tab
+          //funcionalidad de las tab
         finish();
     }
 }

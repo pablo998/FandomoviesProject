@@ -44,6 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:baselineAlignBottom="false"
+            android:onClick="goToEmailTab"
             android:clickable="true"
             android:focusable="true"
             android:text="@string/tab_email" />
@@ -156,6 +157,7 @@
             android:id="@+id/botonRegistrarme"
             android:layout_width="328dp"
             android:layout_height="56dp"
+            android:onClick="backToIniciarSesion"
             android:backgroundTint="@color/azulApp"
             android:text="@string/boton_registrarme"
             android:textAppearance="@style/TextAppearance.AppCompat.Body2"
@@ -177,6 +179,7 @@
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/white"
+        android:onClick="backToIniciarSesion"
         android:text="@string/inicia_sesion"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/black"
