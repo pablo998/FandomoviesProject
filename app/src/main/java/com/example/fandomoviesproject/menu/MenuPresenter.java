@@ -73,6 +73,21 @@ public class MenuPresenter implements MenuContract.Presenter {
     }
 
     @Override
+    public void moviesButtonClicked() {
+        //falta implementación
+    }
+
+    @Override
+    public void seriesButtonClicked() {
+        //falta implementación
+    }
+
+    @Override
+    public void documentaryButtonClicked() {
+        //falta implementación
+    }
+
+    @Override
     public void onBackPressed() {
         // Log.e(TAG, "onBackPressed()");
     }

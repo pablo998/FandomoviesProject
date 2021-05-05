@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">FandomoviesProject</string>
+    <string name="app_name">Fandomovies</string>
     <string name="boton_iniciar_sesion">Iniciar Sesión</string>
     <string name="boton_registrarme">Registrarme</string>
     <string name="password_hint">Contraseña</string>

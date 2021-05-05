@@ -2,6 +2,8 @@ package com.example.fandomoviesproject.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,12 +16,41 @@ public class MenuActivity
     public static String TAG = MenuActivity.class.getSimpleName();
 
     private MenuContract.Presenter presenter;
+    Button moviesButton, seriesButton, documentaryButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
         getSupportActionBar().setTitle(R.string.app_name);
+
+        moviesButton = findViewById(R.id.moviesButton);
+        seriesButton = findViewById(R.id.seriesButton);
+        documentaryButton = findViewById(R.id.documentaryButton);
+
+        moviesButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                presenter.moviesButtonClicked();
+            }
+        });
+
+        seriesButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                presenter.seriesButtonClicked();
+            }
+        });
+
+        documentaryButton.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                presenter.documentaryButtonClicked();
+            }
+        });
 
     /*
     if(savedInstanceState == null) {

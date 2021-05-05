@@ -12,6 +12,9 @@ public interface MenuContract {
 
     interface Presenter{
         void injectView(WeakReference<View> view);
+        void moviesButtonClicked();
+        void seriesButtonClicked();
+        void documentaryButtonClicked();
 
     }
 
