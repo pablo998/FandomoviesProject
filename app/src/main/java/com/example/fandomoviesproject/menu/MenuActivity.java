@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.fandomoviesproject.MoviesActivity;
+import com.example.fandomoviesproject.MoviesCategoryActivity;
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.app.AppMediator;
 
@@ -126,7 +127,7 @@ public class MenuActivity
 
     @Override
     public void navigateToMoviesScreen() {
-        Intent intent = new Intent(this, MoviesActivity.class);
+        Intent intent = new Intent(this, MoviesCategoryActivity.class);
         startActivity(intent);
     }
 
