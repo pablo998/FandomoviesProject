@@ -7,9 +7,11 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.example.fandomoviesproject.MoviesActivity;
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.app.AppMediator;
 
 public class MenuActivity
         extends AppCompatActivity implements MenuContract.View {
@@ -23,7 +25,10 @@ public class MenuActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        getSupportActionBar().setTitle(R.string.app_name);
+        //getSupportActionBar().setTitle(R.string.app_name);
+
+        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar.setTitle(R.string.app_name);
 
         moviesButton = findViewById(R.id.moviesButton);
         seriesButton = findViewById(R.id.seriesButton);
@@ -53,53 +58,59 @@ public class MenuActivity
             }
         });
 
-    /*
-    if(savedInstanceState == null) {
-      AppMediator.resetInstance();
-    }
-    */
+
+   // if(savedInstanceState == null) {
+    //  AppMediator.resetInstance();
+   // }
+
 
         // do the setup
         MenuScreen.configure(this);
 
-       /* if (savedInstanceState == null) {
-            presenter.onStart();
+        //if (savedInstanceState == null) {
+          //  super.onStart();
 
-        } else {
-            presenter.onRestart();
-        }
+        //} else {
+          //  presenter.onRestart();
+        //}
 
-        */
+
     }
 
-    /*@Override
-    protected void onResume() {
+    @Override
+    protected void onResume(){
         super.onResume();
 
         // load the data
-        presenter.onResume();
+        //presenter.onResume();
     }
-    */
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        //presenter.onPause();
+    }
 
 
-    /*@Override
+    @Override
     public void onBackPressed() {
         super.onBackPressed();
 
-        presenter.onBackPressed();
+        //presenter.onBackPressed();
     }
 
-     */
 
 
 
-    /*@Override
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
 
-        presenter.onDestroy();
+        //presenter.onDestroy();
     }
-    */
+
 
 
     /*@Override
