@@ -24,61 +24,43 @@
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="187dp"
-        android:layout_height="179dp"
-        android:layout_marginTop="40dp"
-        android:layout_marginBottom="35dp"
-        android:contentDescription="@string/descripcion"
-        android:onClick="goToPeliculasCategorias"
-        app:layout_constraintBottom_toTopOf="@+id/moviesButton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/app_bar"
-        app:srcCompat="@drawable/imagenlogo" />
-
     <Button
         android:id="@+id/moviesButton"
-        android:layout_width="375dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="574dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="24dp"
         android:text="@string/movies"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
-        app:layout_constraintBottom_toTopOf="@+id/seriesButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+        app:layout_constraintTop_toBottomOf="@+id/app_bar" />
 
     <Button
         android:id="@+id/seriesButton"
-        android:layout_width="375dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginBottom="11dp"
+        android:layout_width="574dp"
+        android:layout_height="79dp"
+        android:layout_marginTop="8dp"
         android:text="@string/series"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
         app:layout_constraintBottom_toTopOf="@+id/documentaryButton"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/moviesButton" />
 
     <Button
         android:id="@+id/documentaryButton"
-        android:layout_width="375dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="574dp"
+        android:layout_height="79dp"
         android:layout_marginBottom="16dp"
         android:text="@string/documentaries"
         android:textSize="20sp"
         app:backgroundTint="@color/azulApp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.555"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/seriesButton" />
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
