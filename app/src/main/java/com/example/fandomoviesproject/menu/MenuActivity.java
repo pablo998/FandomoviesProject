@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.fandomoviesproject.MoviesActivity;
 import com.example.fandomoviesproject.R;
 
 public class MenuActivity
@@ -61,55 +62,60 @@ public class MenuActivity
         // do the setup
         MenuScreen.configure(this);
 
-        if (savedInstanceState == null) {
+       /* if (savedInstanceState == null) {
             presenter.onStart();
 
         } else {
             presenter.onRestart();
         }
+
+        */
     }
 
-    @Override
+    /*@Override
     protected void onResume() {
         super.onResume();
 
         // load the data
         presenter.onResume();
     }
+    */
 
-    @Override
+
+    /*@Override
     public void onBackPressed() {
         super.onBackPressed();
 
         presenter.onBackPressed();
     }
 
-    @Override
-    protected void onPause() {
-        super.onPause();
+     */
 
-        presenter.onPause();
-    }
 
-    @Override
+
+    /*@Override
     protected void onDestroy() {
         super.onDestroy();
 
         presenter.onDestroy();
     }
+    */
 
-    @Override
+
+    /*@Override
     public void onDataUpdated(MenuViewModel viewModel) {
         //Log.e(TAG, "onDataUpdated()");
 
         // deal with the data
         ((TextView) findViewById(R.id.data)).setText(viewModel.data);
     }
+    */
+
 
 
     @Override
-    public void navigateToNextScreen() {
-        Intent intent = new Intent(this, MenuActivity.class);
+    public void navigateToMoviesScreen() {
+        Intent intent = new Intent(this, MoviesActivity.class);
         startActivity(intent);
     }
 

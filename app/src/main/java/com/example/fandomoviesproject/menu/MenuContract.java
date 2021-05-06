@@ -6,7 +6,7 @@ public interface MenuContract {
 
     interface View{
         void injectPresenter(Presenter presenter);
-
+        void navigateToMoviesScreen();
 
     }
 
