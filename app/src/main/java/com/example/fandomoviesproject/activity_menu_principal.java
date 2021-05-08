@@ -1,33 +1,31 @@
 package com.example.fandomoviesproject;
 
+
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ListView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 
-public class activity_categorias_de_peliculas extends AppCompatActivity {
-    ListView lista;
-    Button categoria;
+public class activity_menu_principal extends AppCompatActivity {
 
+    Button peliculas;
 
-    private static final String TAG = activity_categorias_de_peliculas.class.getSimpleName();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_categorias_de_peliculas);
+        setContentView(R.layout.activity_menu_principal);
 
-         lista = findViewById(R.id.categories_movieslist);
-         categoria = findViewById(R.id.comprado);
+        peliculas = findViewById(R.id.moviesButton);
 
         Toolbar toolbar = findViewById(R.id.toolbar4);
-        toolbar.setTitle("Películas");
+        toolbar.setTitle("Menú");
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
@@ -35,17 +33,16 @@ public class activity_categorias_de_peliculas extends AppCompatActivity {
             actionBar.hide();
         }
 
-        categoria.setOnClickListener(new View.OnClickListener() {
+        peliculas.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                goToPeliculasdeEsaCategoria(v);
+                goToPeliculasCategorias(v);
             }
         });
 
     }
 
-    public void goToPeliculasdeEsaCategoria(View view) {
-        Intent intent = new Intent(this,activity_peliculas_de_una_categoria.class);
+    public void goToPeliculasCategorias(View view) {
+        Intent intent = new Intent(this,MoviesCategoryActivity.class);
         startActivity(intent);
     }
-
 }

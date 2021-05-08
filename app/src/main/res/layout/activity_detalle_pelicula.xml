@@ -16,8 +16,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbarDetail"
-            app:theme="@style/ToolbarTheme"
+            android:id="@+id/toolbar4"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:titleTextColor="@color/white" />
@@ -44,7 +43,7 @@
                 android:layout_height="10dp" />
 
             <LinearLayout
-                android:id="@+id/docu"
+                android:id="@+id/pelicula"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:orientation="horizontal">
@@ -79,7 +78,7 @@
                         android:layout_height="10dp" />
 
                     <TextView
-                        android:id="@+id/textView_nombreDocu"
+                        android:id="@+id/textView_nombrePelicula"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -88,7 +87,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_fechaDocu"
+                        android:id="@+id/textView_fechaPelicula"
                         android:layout_width="wrap_content"
                         android:layout_height="19dp"
                         android:layout_marginTop="5dp"
@@ -103,10 +102,10 @@
                         android:layout_height="match_parent">
 
                         <Button
-                            android:id="@+id/button_trailerDocu"
+                            android:id="@+id/button_trailerPelicula"
                             android:layout_width="216dp"
                             android:layout_height="45dp"
-                            android:text="@string/button_trailer"
+                            android:text="@string/button_trailer_pelicula"
                             app:layout_constraintBottom_toBottomOf="parent"
                             app:layout_constraintEnd_toEndOf="parent"
                             app:layout_constraintStart_toStartOf="parent"
@@ -338,7 +337,7 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/button_reparto_completo_docu"
+                        android:id="@+id/button_reparto_completo_peliculas"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF"
