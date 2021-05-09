@@ -2,11 +2,15 @@ package com.example.fandomoviesproject.menu;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NavUtils;
 
 import com.example.fandomoviesproject.R;
 
@@ -22,14 +26,19 @@ public class MenuActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu_principal);
-        //getSupportActionBar().setTitle(R.string.app_name);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
-        toolbar.setTitle(R.string.app_name);
+        setSupportActionBar(toolbar);
 
         moviesButton = findViewById(R.id.moviesButton);
         seriesButton = findViewById(R.id.seriesButton);
         documentaryButton = findViewById(R.id.documentaryButton);
+
+        // Show the title in the action bar
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(R.string.menu);
+        }
 
         moviesButton.setOnClickListener(new View.OnClickListener() {
 
@@ -72,6 +81,27 @@ public class MenuActivity
         //}
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        // Inflate the menu: this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        return true;
+    }
+
+
+    // Determines if Action bar item was selected. If true then do corresponding action.
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        // handle presses on the action bar items
+        switch (item.getItemId()) {
+
+            case R.id.searchTool:
+                startActivity(new Intent(this, com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity.class));
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override

@@ -65,10 +65,6 @@ public class CategoryListActivity
         // handle presses on the action bar items
         switch (item.getItemId()) {
 
-            case android.R.id.home:
-                NavUtils.navigateUpFromSameTask(this);
-                return true;
-
             case R.id.searchTool:
                 startActivity(new Intent(this, com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity.class));
                 return true;

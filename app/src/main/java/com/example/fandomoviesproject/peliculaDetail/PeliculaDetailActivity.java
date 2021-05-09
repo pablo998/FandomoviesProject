@@ -69,5 +69,13 @@ public class PeliculaDetailActivity
         }
         return super.onOptionsItemSelected(item);
     }
+
+
+    @Override
+    public void onBackPressed()
+    {
+        finish();
+    }
+
 }
 

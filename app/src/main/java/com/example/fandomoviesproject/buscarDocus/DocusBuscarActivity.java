@@ -162,7 +162,7 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     @Override
     public boolean onCreateOptionsMenu (Menu menu){
         // Inflate the menu: this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_search, menu);
+        getMenuInflater().inflate(R.menu.buscar_lupa, menu);
 
         MenuItem searchItem = menu.findItem(R.id.app_bar_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
@@ -182,6 +182,19 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         });
 
         return true;
+    }
+
+    // Determines if Action bar item was selected. If true then do corresponding action.
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        // handle presses on the action bar items
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     //TODO Quitar cuando el repositorio este hecho
@@ -212,6 +225,12 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     @Override
     public void injectPresenter(DocusBuscarContract.Presenter presenter) {
         this.presenter = presenter;
+    }
+
+    @Override
+    public void onBackPressed()
+    {
+        finish();
     }
 
 }
