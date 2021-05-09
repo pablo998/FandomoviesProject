@@ -158,6 +158,12 @@ public class MenuActivity
     }
 
     @Override
+    public void navigateToSeriesScreen() {
+        Intent intent = new Intent(this, com.example.fandomoviesproject.categoriasSeries.CategorySerieListActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void injectPresenter(MenuContract.Presenter presenter) {
         this.presenter = presenter;
     }

@@ -73,7 +73,7 @@ public class MenuPresenter implements MenuContract.Presenter {
 
     @Override
     public void seriesButtonClicked() {
-        //falta implementación
+        view.get().navigateToSeriesScreen();
     }
 
     @Override

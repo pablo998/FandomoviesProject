@@ -35,7 +35,7 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
     }
 
     private void passDataToPeliculaScreen(CategoryItemCatalog item) {
-        mediator.setPeliculaInPeliculaListScreen(item);
+        mediator.setCategoriaInPeliculaListScreen(item);
     }
 
     @Override
