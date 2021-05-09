@@ -9,12 +9,9 @@ import android.view.View;
 import android.widget.Button;
 
 import com.google.android.material.tabs.TabItem;
-import com.google.android.material.tabs.TabLayout;
 
 public class activity_registrarte_emailtab extends AppCompatActivity {
 
-    TabLayout tabLayout = findViewById(R.id.tabLayout);
-    ViewPager viewPager = findViewById(R.id.viewPager);
     Button registrarme, tengoCuenta;
     TabItem numeroDeMovilTab;
 
@@ -23,7 +20,6 @@ public class activity_registrarte_emailtab extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrarte_emailtab);
-        selectPage(2);
 
         registrarme = findViewById(R.id.botonRegistrarme);
         tengoCuenta = findViewById(R.id.botonIniciaSesion);
@@ -38,10 +34,6 @@ public class activity_registrarte_emailtab extends AppCompatActivity {
 
 
 
-    void selectPage(int pageIndex){
-        tabLayout.setScrollPosition(pageIndex,0f,true);
-        viewPager.setCurrentItem(pageIndex);
-    }
 
 
     public void goToNumeroDeMovilTab(View view) {

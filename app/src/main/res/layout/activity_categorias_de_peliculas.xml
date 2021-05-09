@@ -69,9 +69,11 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <include
-            layout="@layout/activity_categorias_de_peliculaslista_content"
+            layout="@layout/activity_categorias_de_peliculaslista"
             android:layout_width="match_parent"
             tools:layout_height="wrap_content" />
     </FrameLayout>
 
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+

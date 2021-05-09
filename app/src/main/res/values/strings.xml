@@ -147,7 +147,7 @@
 
     <string name="action_settings">Settings</string>
     <string name="button_trailer_pelicula">Ver tráiler</string>
-    <string name="nombre_pelicula">Nombre de la película</string>
+    <string name="nombre_pelicula">PELÍCULA</string>
     <string name="fecha_pelicula">Fecha</string>
     <string name="descripcion">Descripcion</string>
     <string name="sinopsis">Sinopsis</string>
@@ -159,6 +159,8 @@
     <string name="_5_estrellas">5 estrellas</string>
     <string name="valoracion_nombre">Usuario</string>
     <string name="ver_valoraciones_completo">Ver todas las valoraciones >></string>
+    <string name="buscarItem">Buscar</string>
+
 
 
 </resources>

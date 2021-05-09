@@ -21,9 +21,9 @@
             <ImageView
                 android:id="@+id/lupaa"
                 android:layout_width="0dp"
-                android:layout_height="20dp"
-                android:layout_marginStart="25dp"
-                android:layout_marginTop="25dp"
+                android:layout_height="35dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:background="@color/azulApp"
                 android:contentDescription="@string/buscarpeli"
@@ -31,9 +31,10 @@
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/input"
-                android:layout_width="300dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="25dp"
+                android:layout_marginTop="15dp"
                 android:layout_weight="1"
                 android:foregroundTint="@color/white"
                 android:textColorHint="@color/white"
@@ -49,8 +50,8 @@
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/input2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_width="320dp"
+                    android:layout_height="30dp"
                     android:backgroundTint="@color/white"
                     android:hint="@string/buscarpeli"
                     android:textColor="@color/white"
