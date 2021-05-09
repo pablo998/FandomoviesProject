@@ -161,6 +161,125 @@
     <string name="ver_valoraciones_completo">Ver todas las valoraciones >></string>
     <string name="buscarItem">Buscar</string>
 
+    <array name="buscar_docus_Titulos">
+        <item>Titulo 13456</item>
+        <item>Titulo 2</item>
+        <item>Titulo 3</item>
+        <item>Titulo 4</item>
+        <item>Titulo 5</item>
+        <item>Titulo 6</item>
+        <item>Titulo 7</item>
+        <item>Titulo 8</item>
+        <item>Titulo 9</item>
+        <item>Titulo 10</item>
+        <item>Titulo 11</item>
+    </array>
 
+
+    <array name="buscar_docus_Informacion">
+        <item>Director Pablo Santana y Año de publicación 1998</item>
+        <item>Director Raúl Sanchez y Año de publicación 1991</item>
+        <item>Director María y Año de publicación 2010</item>
+        <item>Director Fran y Año de publicación 2001</item>
+        <item>Director Pedro y Año de publicación 2000</item>
+        <item>Director Juan y Año de publicación 2000</item>
+        <item>Director Alberto y Año de publicación 2000</item>
+        <item>Director Laura y Año de publicación 2000</item>
+        <item>Director Juana y Año de publicación 2000</item>
+        <item>Director Gilberto y Año de publicación 2000</item>
+        <item>Director Alejandra y Año de publicación 2000</item>
+    </array>
+
+
+    <array name="buscar_docus_imageLogo">
+        <item>@drawable/docuslogo</item>
+    </array>
+    <array name="buscar_docus_imageLike">
+        <item>@drawable/favorito</item>
+    </array>
+    <array name="buscar_docus_imageCarro">
+        <item>@drawable/carrito</item>
+    </array>
+
+    <array name="buscar_series_Titulos">
+        <item>Titulo 87638</item>
+        <item>Titulo 2</item>
+        <item>Titulo 33873</item>
+        <item>Titulo 4</item>
+        <item>Titulo 5</item>
+        <item>Titulo 396</item>
+        <item>Titulo 7</item>
+        <item>Titulo 8</item>
+        <item>Titulo 9</item>
+        <item>Titulo 10</item>
+        <item>Titulo 11</item>
+    </array>
+
+
+    <array name="buscar_series_Informacion">
+        <item>Director Pablo Santana y Año de publicación 1998</item>
+        <item>Director Raúl Sanchez y Año de publicación 1991</item>
+        <item>Director María y Año de publicación 2010</item>
+        <item>Director Fran y Año de publicación 2001</item>
+        <item>Director Pedro y Año de publicación 2000</item>
+        <item>Director Juan y Año de publicación 2000</item>
+        <item>Director Alberto y Año de publicación 2000</item>
+        <item>Director Laura y Año de publicación 2000</item>
+        <item>Director Juana y Año de publicación 2000</item>
+        <item>Director Gilberto y Año de publicación 2000</item>
+        <item>Director Alejandra y Año de publicación 2000</item>
+    </array>
+
+
+    <array name="buscar_series_imageLogo">
+        <item>@drawable/play</item>
+    </array>
+    <array name="buscar_series_imageLike">
+        <item>@drawable/favorito</item>
+    </array>
+    <array name="buscar_series_imageCarro">
+        <item>@drawable/carrito</item>
+    </array>
+
+
+    <array name="buscar_pelis_Titulos">
+        <item>Titulo 028</item>
+        <item>Titulo 23</item>
+        <item>Titulo 33873</item>
+        <item>Titulo 4</item>
+        <item>Titulo 54</item>
+        <item>Titulo 7</item>
+        <item>Titulo 7</item>
+        <item>Titulo 839</item>
+        <item>Titulo 9</item>
+        <item>Titulo 199</item>
+        <item>Titulo 11</item>
+    </array>
+
+
+    <array name="buscar_pelis_Informacion">
+        <item>Director Pablo Santana y Año de publicación 1998</item>
+        <item>Director Raúl Sanchez y Año de publicación 1991</item>
+        <item>Director María y Año de publicación 2010</item>
+        <item>Director Fran y Año de publicación 2001</item>
+        <item>Director Pedro y Año de publicación 2000</item>
+        <item>Director Juan y Año de publicación 2000</item>
+        <item>Director Alberto y Año de publicación 2000</item>
+        <item>Director Laura y Año de publicación 2000</item>
+        <item>Director Juana y Año de publicación 2000</item>
+        <item>Director Gilberto y Año de publicación 2000</item>
+        <item>Director Alejandra y Año de publicación 2000</item>
+    </array>
+
+
+    <array name="buscar_pelis_imageLogo">
+        <item>@drawable/pelis</item>
+    </array>
+    <array name="buscar_pelis_imageLike">
+        <item>@drawable/favorito</item>
+    </array>
+    <array name="buscar_pelis_imageCarro">
+        <item>@drawable/carrito</item>
+    </array>
 
 </resources>

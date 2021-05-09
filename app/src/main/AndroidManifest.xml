@@ -9,40 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FandomoviesProject">
-        <activity android:name=".activity_detalle_pelicula">
-            <intent-filter>
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity
-            android:name=".activity_buscar_pelis"
-            android:label="@string/title_activity_main2"
-            android:theme="@style/Theme.FandomoviesProject.NoActionBar" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
 
         <activity android:name=".MainActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MoviesActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".MoviesCategoryActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -57,13 +25,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity_peliculas_de_una_categoria">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".activity_miperfil">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -72,13 +33,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".menu.MenuActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
-        <activity android:name=".activity_categorias_de_peliculas">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
