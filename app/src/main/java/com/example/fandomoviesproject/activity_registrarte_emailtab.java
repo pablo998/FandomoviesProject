@@ -42,7 +42,7 @@ public class activity_registrarte_emailtab extends AppCompatActivity {
     }
 
     public void goToMenu(View view) {
-        Intent intent = new Intent(this,activity_menu_principal.class);
+        Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
         startActivity(intent);
     }
 

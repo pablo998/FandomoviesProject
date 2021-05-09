@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view) {
-        Intent intent = new Intent(this,activity_menu_principal.class);
+        Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
         startActivity(intent);
     }
 
