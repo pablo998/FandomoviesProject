@@ -129,7 +129,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity_compras">
+        <activity android:name=".compras.activity_compras">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -137,7 +137,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".activity_ayuda">
+        <activity android:name=".ayuda.activity_ayuda">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

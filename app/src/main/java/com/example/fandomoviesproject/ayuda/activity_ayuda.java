@@ -1,10 +1,12 @@
-package com.example.fandomoviesproject;
+package com.example.fandomoviesproject.ayuda;
 
 import android.os.Bundle;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+
+import com.example.fandomoviesproject.R;
 
 public class activity_ayuda extends AppCompatActivity {
     @Override
