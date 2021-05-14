@@ -79,11 +79,11 @@
                         android:layout_height="10dp" />
 
                     <TextView
-                        android:id="@+id/textView_nombrePelicula"
+                        android:id="@+id/textView_nombreDocu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
-                        android:text="@string/nombre_pelicula"
+                        android:text="@string/nombre_docu"
                         android:textSize="18sp"
                         android:textStyle="bold" />
 
@@ -92,7 +92,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="19dp"
                         android:layout_marginTop="5dp"
-                        android:text="@string/fecha_pelicula" />
+                        android:text="@string/fecha_docu" />
 
                     <Space
                         android:layout_width="match_parent"
@@ -221,7 +221,7 @@
                                     android:id="@+id/textView_nombre_actor3"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/nombre_actor_pelicula"
+                                    android:text="@string/nombre_actor_docu"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -272,7 +272,7 @@
                                     android:id="@+id/textView_nombre_actor1"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/nombre_actor_pelicula"
+                                    android:text="@string/nombre_actor_docu"
                                     android:textAlignment="textStart"
                                     android:textAllCaps="false"
                                     android:textSize="16sp"
@@ -316,7 +316,7 @@
                                     android:id="@+id/textView_nombre_actor2"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/nombre_actor_pelicula"
+                                    android:text="@string/nombre_actor_docu"
                                     android:textSize="16sp"
                                     android:textStyle="bold"
                                     app:layout_constraintBottom_toBottomOf="parent"
@@ -349,15 +349,15 @@
                         android:textColor="#5F70CF"
                         android:textSize="12sp" />
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/textView_reparto_completo"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="5sp"-->
-<!--                        android:text="@string/ver_reparto_completo"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textColor="#5F70CF"-->
-<!--                        android:textStyle="bold" />-->
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/textView_reparto_completo"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:padding="5sp"-->
+                    <!--                        android:text="@string/ver_reparto_completo"-->
+                    <!--                        android:textAlignment="center"-->
+                    <!--                        android:textColor="#5F70CF"-->
+                    <!--                        android:textStyle="bold" />-->
                 </LinearLayout>
 
             </LinearLayout>
@@ -550,15 +550,15 @@
                     android:textColor="#5F70CF"
                     android:textSize="12sp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/textView_valoraciones_completo2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="5sp"-->
-<!--                    android:text="@string/ver_valoraciones_completo"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="#5F70CF"-->
-<!--                    android:textStyle="bold" />-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textView_valoraciones_completo2"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:padding="5sp"-->
+                <!--                    android:text="@string/ver_valoraciones_completo"-->
+                <!--                    android:textAlignment="center"-->
+                <!--                    android:textColor="#5F70CF"-->
+                <!--                    android:textStyle="bold" />-->
             </LinearLayout>
 
         </LinearLayout>

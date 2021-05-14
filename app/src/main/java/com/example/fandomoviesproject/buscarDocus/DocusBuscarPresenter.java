@@ -1,7 +1,7 @@
 package com.example.fandomoviesproject.buscarDocus;
 
 import com.example.fandomoviesproject.app.AppMediator;
-import com.example.fandomoviesproject.data.DocumentalItem;
+import com.example.fandomoviesproject.data.DocuItem;
 
 import java.lang.ref.WeakReference;
 
@@ -45,22 +45,22 @@ public class DocusBuscarPresenter implements DocusBuscarContract.Presenter {
 
      */
 
-    private void passDataToFavoritosListActivity(DocumentalItem item) {
+    private void passDataToFavoritosListActivity(DocuItem item) {
         //  mediator.setLikedDocumental(item);
     }
 
-    private void passDataToComprasListActivity(DocumentalItem item) {
+    private void passDataToComprasListActivity(DocuItem item) {
         //  mediator.setComprarDocumental(item);
     }
 
     @Override
-    public void clickLike(DocumentalItem item) {
+    public void clickLike(DocuItem item) {
         passDataToFavoritosListActivity(item);
         view.get().changeCorazonColor();
     }
 
     @Override
-    public void clickComprar(DocumentalItem item) {
+    public void clickComprar(DocuItem item) {
         passDataToComprasListActivity(item);
         view.get().goToPaginaWeb();
     }
