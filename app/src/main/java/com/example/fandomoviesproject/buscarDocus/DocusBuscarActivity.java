@@ -20,7 +20,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity;
 import com.example.fandomoviesproject.buscarSeries.SeriesBuscarActivity;
-import com.example.fandomoviesproject.data.DocumentalItem;
+import com.example.fandomoviesproject.data.DocuItem;
 
 import java.util.ArrayList;
 
@@ -32,7 +32,7 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     private DocusBuscarAdapter mAdapter;
 
     //TODO ESTO NO IRÍA AQUÍ
-    private final ArrayList<DocumentalItem> mDocuList = new ArrayList<>();
+    private final ArrayList<DocuItem> mDocuList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private Context context = this;
     private TabHost tabHost;
@@ -212,7 +212,7 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         mDocuList.clear(); // Clear data (to avoid duplication)
 
         for (int i = 0; i < titulosList.length; i++) {
-            mDocuList.add(new DocumentalItem(
+            mDocuList.add(new DocuItem(
                     titulosList[i], infoDocuList[i], imageLogo.getResourceId(0, 0),
                     imageLike.getResourceId(0, 0), imageCarro.getResourceId(0, 0))
             );

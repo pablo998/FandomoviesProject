@@ -1,6 +1,6 @@
 package com.example.fandomoviesproject.buscarDocus;
 
-import com.example.fandomoviesproject.data.DocumentalItem;
+import com.example.fandomoviesproject.data.DocuItem;
 
 import java.lang.ref.WeakReference;
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
@@ -27,8 +27,8 @@ interface DocusBuscarContract {
         void navigateToBuscarSeriesActivity();
         void navigateToBuscarPelisActivity();
 
-        void clickLike(DocumentalItem documental);
-        void clickComprar(DocumentalItem documental);
+        void clickLike(DocuItem documental);
+        void clickComprar(DocuItem documental);
     }
 
     interface Model {

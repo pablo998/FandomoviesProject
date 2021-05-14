@@ -1,8 +1,13 @@
 package com.example.fandomoviesproject.app;
 
+import com.example.fandomoviesproject.categoriasDocu.CategoryDocuListState;
+import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.docuDetail.DocuDetailState;
+import com.example.fandomoviesproject.docusDeUnaCategoria.DocuListState;
 import com.example.fandomoviesproject.menu.MenuState;
 
-import com.example.fandomoviesproject.data.DocumentalItem;
+import com.example.fandomoviesproject.data.DocuItem;
 import com.example.fandomoviesproject.data.SerieItem;
 
 import com.example.fandomoviesproject.data.PeliculaItemCatalog;
@@ -35,6 +40,10 @@ public class AppMediator {
     private SerieListState SerieListState = new SerieListState();
     private SerieDetailState serieDetailState = new SerieDetailState();
 
+    private CategoryDocuListState categoryDocuListState = new CategoryDocuListState();
+    private DocuListState docuListState = new DocuListState();
+    private DocuDetailState docuDetailState = new DocuDetailState();
+
     private PelisBuscarState pelisBuscarState = new PelisBuscarState();
     private DocusBuscarState docusBuscarState = new DocusBuscarState();
     private SeriesBuscarState seriesBuscarState = new SeriesBuscarState();
@@ -43,9 +52,12 @@ public class AppMediator {
     private CategoryItemCatalog product1;
     private CategorySerieItemCatalog product1Serie;
     private SerieItemCatalog product2Serie;
+    private CategoryDocuItemCatalog product1Docu;
+    private DocuItemCatalog product2Docu;
+
 
     private PeliculaItemCatalog pelicula;
-    private DocumentalItem documental;
+    private DocuItem documental;
     private SerieItem serie;
 
     private MenuState menuState;
@@ -97,6 +109,17 @@ public class AppMediator {
     }
 
 
+    public DocuDetailState getDocuDetailState() {
+        return docuDetailState;
+    }
+    public CategoryDocuListState getCategoryDocuListState() {
+        return categoryDocuListState;
+    }
+    public DocuListState getDocuListState() {
+        return docuListState;
+    }
+
+
 
     public PelisBuscarState getPelisBuscarState() {
         return pelisBuscarState;
@@ -136,6 +159,12 @@ public class AppMediator {
         product2Serie = item;
     }
 
+    public void setCategoriaInDocuListScreen(CategoryDocuItemCatalog item) {
+        product1Docu = item;
+    }
+    public void setDocuInDocuDetailScreen(DocuItemCatalog item) {
+        product2Docu = item;
+    }
 
 
 
@@ -151,6 +180,18 @@ public class AppMediator {
         return item;
     }
 
+    public CategoryDocuItemCatalog getProduct1Docu() {
+        CategoryDocuItemCatalog item = product1Docu;
+        //product1Serie = null;
+        return item;
+    }
+
+    public DocuItemCatalog getProduct2Docu() {
+        DocuItemCatalog item = product2Docu;
+        //product2Serie = null;
+        return item;
+    }
+
     public void setPelicula(PeliculaItemCatalog item) {
         pelicula = item;
     }
@@ -161,12 +202,12 @@ public class AppMediator {
         return item;
     }
 
-    public void setDocumental(DocumentalItem item) {
+    public void setDocumental(DocuItem item) {
         documental = item;
     }
 
-    public DocumentalItem getDocumental() {
-        DocumentalItem item = documental;
+    public DocuItem getDocumental() {
+        DocuItem item = documental;
         //documental = null;
         return item;
     }

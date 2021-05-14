@@ -1,4 +1,4 @@
-package com.example.fandomoviesproject.peliculasDeUnaCategoria;
+package com.example.fandomoviesproject.categoriasDocu;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,19 +7,19 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+
 import java.util.List;
 
-import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+public class CategoryDocuListAdapter extends ArrayAdapter<CategoryDocuItemCatalog> {
 
-public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
-
-    private final List<PeliculaItemCatalog> itemList;
+    private final List<CategoryDocuItemCatalog> itemList;
     private final View.OnClickListener clickListener;
 
-
-    public PeliculaListAdapter(
-            Context context, List<PeliculaItemCatalog> items, View.OnClickListener listener) {
+    public CategoryDocuListAdapter(
+            Context context, List<CategoryDocuItemCatalog> items, View.OnClickListener listener) {
 
         super(context, 0, items);
 
@@ -27,14 +27,13 @@ public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
         clickListener = listener;
     }
 
-
     @Override
     public int getCount() {
         return itemList.size();
     }
 
     @Override
-    public PeliculaItemCatalog getItem(int position) {
+    public CategoryDocuItemCatalog getItem(int position) {
         return itemList.get(position);
     }
 
@@ -50,18 +49,15 @@ public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
         if (itemView == null) {
             itemView = LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.activity_peliculas_de_una_categorialistacontent, parent, false);
+                    .inflate(R.layout.activity_categorias_de_documentaleslistacontent, parent, false);
         }
 
         itemView.setTag(itemList.get(position));
         itemView.setOnClickListener(clickListener);
 
-        final TextView contentView = itemView.findViewById(R.id.documentalText);
+        final TextView contentView = itemView.findViewById(R.id.categoriaText);
         contentView.setText(itemList.get(position).content);
 
         return itemView;
     }
-
-
 }
-

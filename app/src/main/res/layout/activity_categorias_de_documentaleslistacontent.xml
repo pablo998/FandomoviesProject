@@ -8,12 +8,13 @@
     app:cardBackgroundColor="@color/transparent">
 
     <TextView
-        android:id="@+id/documentalText"
+        android:id="@+id/categoriaText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="30dp"
-        android:text="@string/nombre_pelicula"
+        android:text="@string/item_category"
         android:textColor="@color/black"
         android:textSize="24sp" />
+
 </androidx.cardview.widget.CardView>

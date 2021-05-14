@@ -1,4 +1,4 @@
-package com.example.fandomoviesproject.peliculasDeUnaCategoria;
+package com.example.fandomoviesproject.docusDeUnaCategoria;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,19 +7,20 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
+
 import java.util.List;
 
-import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.PeliculaItemCatalog;
 
-public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
+public class DocuListAdapter extends ArrayAdapter<DocuItemCatalog> {
 
-    private final List<PeliculaItemCatalog> itemList;
+    private final List<DocuItemCatalog> itemList;
     private final View.OnClickListener clickListener;
 
-
-    public PeliculaListAdapter(
-            Context context, List<PeliculaItemCatalog> items, View.OnClickListener listener) {
+    public DocuListAdapter(
+            Context context, List<DocuItemCatalog> items, View.OnClickListener listener) {
 
         super(context, 0, items);
 
@@ -27,14 +28,13 @@ public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
         clickListener = listener;
     }
 
-
     @Override
     public int getCount() {
         return itemList.size();
     }
 
     @Override
-    public PeliculaItemCatalog getItem(int position) {
+    public DocuItemCatalog getItem(int position) {
         return itemList.get(position);
     }
 
@@ -50,7 +50,7 @@ public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
         if (itemView == null) {
             itemView = LayoutInflater
                     .from(parent.getContext())
-                    .inflate(R.layout.activity_peliculas_de_una_categorialistacontent, parent, false);
+                    .inflate(R.layout.activity_documentales_de_una_categorialistacontent, parent, false);
         }
 
         itemView.setTag(itemList.get(position));
@@ -61,7 +61,4 @@ public class PeliculaListAdapter extends ArrayAdapter<PeliculaItemCatalog> {
 
         return itemView;
     }
-
-
 }
-

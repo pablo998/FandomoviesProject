@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.DocumentalItem;
+import com.example.fandomoviesproject.data.DocuItem;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -22,13 +22,13 @@ import java.util.Collection;
 public class DocusBuscarAdapter
         extends RecyclerView.Adapter<DocusBuscarAdapter.DocuViewHolder> implements Filterable {
 
-    private ArrayList<DocumentalItem> mDocuList;
-    private ArrayList<DocumentalItem> mDocuListFull;
+    private ArrayList<DocuItem> mDocuList;
+    private ArrayList<DocuItem> mDocuListFull;
 
     private LayoutInflater mInflater;
     private Context mContext;
 
-    public DocusBuscarAdapter(Context context , ArrayList<DocumentalItem> mDocuList){
+    public DocusBuscarAdapter(Context context , ArrayList<DocuItem> mDocuList){
         this.mContext = context;
         mInflater = LayoutInflater.from(context);
         this.mDocuList = mDocuList;
@@ -55,7 +55,7 @@ public class DocusBuscarAdapter
             mBuyImage = itemView.findViewById(R.id.carroboton);
         }
 
-        void bindTo(DocumentalItem mCurrent) {
+        void bindTo(DocuItem mCurrent) {
             mTitleText.setText(mCurrent.getTitle());
             mInfoText.setText(mCurrent.getInfo());
 
@@ -96,7 +96,7 @@ public class DocusBuscarAdapter
 
     @Override
     public void onBindViewHolder(DocuViewHolder holder,int position) {
-        DocumentalItem mCurrent= mDocuList.get(position);
+        DocuItem mCurrent= mDocuList.get(position);
         holder.bindTo(mCurrent);
     }
 
@@ -117,13 +117,13 @@ public class DocusBuscarAdapter
         protected FilterResults performFiltering(CharSequence constraint) {
 
             FilterResults results = new FilterResults();
-            ArrayList<DocumentalItem> filteredList = new ArrayList<>();
+            ArrayList<DocuItem> filteredList = new ArrayList<>();
 
 
             if(constraint != null || constraint.length() != 0) {
                 String filterPattern = constraint.toString().toLowerCase();
                 
-                for (DocumentalItem item : mDocuListFull) {
+                for (DocuItem item : mDocuListFull) {
                     if (item.getTitle().toLowerCase().contains(filterPattern) ||
                             item.getInfo().toLowerCase().contains(filterPattern)) {
 
@@ -142,7 +142,7 @@ public class DocusBuscarAdapter
         @Override
         protected void publishResults(CharSequence constraint, FilterResults filterResults) {
             mDocuList.clear();
-            mDocuList.addAll((Collection<? extends DocumentalItem>) filterResults.values);
+            mDocuList.addAll((Collection<? extends DocuItem>) filterResults.values);
             notifyDataSetChanged();
         }
     };
