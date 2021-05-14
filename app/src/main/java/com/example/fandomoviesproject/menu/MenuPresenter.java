@@ -79,6 +79,7 @@ public class MenuPresenter implements MenuContract.Presenter {
     @Override
     public void documentaryButtonClicked() {
         //falta implementación
+        view.get().navigateToDocuScreen();
     }
 
    // @Override

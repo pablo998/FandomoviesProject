@@ -28,6 +28,15 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".categoriasDocu.CategoryDocuListActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".serieDetail.SerieDetailActivity">
 
             <intent-filter>
@@ -37,7 +46,25 @@
             </intent-filter>
         </activity>
 
+        <activity android:name=".docuDetail.DocuDetailActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity android:name=".seriesDeUnaCategoria.SerieListActivity">
+
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".docusDeUnaCategoria.DocuListActivity">
 
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

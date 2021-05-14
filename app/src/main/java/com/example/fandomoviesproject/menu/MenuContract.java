@@ -8,6 +8,7 @@ public interface MenuContract {
         void injectPresenter(Presenter presenter);
         void navigateToMoviesScreen();
         void navigateToSeriesScreen();
+        void navigateToDocuScreen();
 
     }
 
