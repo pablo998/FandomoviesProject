@@ -44,7 +44,7 @@
                 android:layout_height="10dp" />
 
             <LinearLayout
-                android:id="@+id/pelicula"
+                android:id="@+id/docu"
                 android:layout_width="match_parent"
                 android:layout_height="170dp"
                 android:orientation="horizontal">
@@ -79,7 +79,7 @@
                         android:layout_height="10dp" />
 
                     <TextView
-                        android:id="@+id/textView_nombrePelicula"
+                        android:id="@+id/textView_nombreDocu"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="10dp"
@@ -88,7 +88,7 @@
                         android:textStyle="bold" />
 
                     <TextView
-                        android:id="@+id/textView_fechaPelicula"
+                        android:id="@+id/textView_fechaDocu"
                         android:layout_width="wrap_content"
                         android:layout_height="19dp"
                         android:layout_marginTop="5dp"
@@ -103,7 +103,7 @@
                         android:layout_height="match_parent">
 
                         <Button
-                            android:id="@+id/button_trailerPelicula"
+                            android:id="@+id/button_trailerDocu"
                             android:layout_width="216dp"
                             android:layout_height="45dp"
                             android:text="@string/button_trailer"
@@ -338,7 +338,7 @@
                     android:orientation="vertical">
 
                     <Button
-                        android:id="@+id/button_reparto_completo_peliculas"
+                        android:id="@+id/button_reparto_completo_docu"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:background="#00FFFFFF"

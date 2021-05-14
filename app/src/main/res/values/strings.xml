@@ -151,14 +151,17 @@
     <string name="action_settings">Settings</string>
     <string name="button_trailer">Ver tráiler</string>
     <string name="nombre_pelicula">PELÍCULA</string>
+    <string name="nombre_docu">DOCUMENTAL</string>
     <string name="fecha_pelicula">Fecha</string>
     <string name="fecha_serie">Fecha</string>
+    <string name="fecha_docu">Fecha</string>
     <string name="descripcion">Descripcion</string>
     <string name="sinopsis">Sinopsis</string>
     <string name="sinopsis_contenido">Prueba de texto para ver el texto en el TextView salta de linea para ajustar el contenido</string>
     <string name="reparto">Reparto</string>
     <string name="nombre_actor_pelicula">Actor Pelicula</string>
     <string name="nombre_actor_serie">Actor Serie</string>
+    <string name="nombre_actor_docu">Actor Documental</string>
     <string name="valoraciones">Valoraciones</string>
     <string name="ver_reparto_completo">Ver el reparto completo >></string>
     <string name="_5_estrellas">5 estrellas</string>
