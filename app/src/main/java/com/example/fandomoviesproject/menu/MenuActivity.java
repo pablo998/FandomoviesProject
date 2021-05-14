@@ -164,6 +164,12 @@ public class MenuActivity
     }
 
     @Override
+    public void navigateToDocuScreen() {
+        Intent intent = new Intent(this, com.example.fandomoviesproject.categoriasDocu.CategoryDocuListActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
     public void injectPresenter(MenuContract.Presenter presenter) {
         this.presenter = presenter;
     }
