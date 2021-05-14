@@ -39,7 +39,7 @@ public class CategoryDocuListActivity
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(getString(R.string.series));
+            actionBar.setTitle(getString(R.string.documentaries));
         }
 
         listView = findViewById(R.id.categories_doculist);
