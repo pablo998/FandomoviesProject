@@ -26,8 +26,8 @@ public class PeliculaDetailActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_pelicula);
 
-       Toolbar toolbar = findViewById(R.id.toolbarDetail);
-       setSupportActionBar(toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbarDetail);
+        setSupportActionBar(toolbar);
 
         // do the setup
         PeliculaDetailScreen.configure(this);

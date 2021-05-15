@@ -56,7 +56,7 @@ public class CategoryListAdapter extends ArrayAdapter<CategoryItemCatalog> {
         itemView.setTag(itemList.get(position));
         itemView.setOnClickListener(clickListener);
 
-        final TextView contentView = itemView.findViewById(R.id.comprado);
+        final TextView contentView = itemView.findViewById(R.id.categoriaText);
         contentView.setText(itemList.get(position).content);
 
         return itemView;

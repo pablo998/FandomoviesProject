@@ -14,7 +14,7 @@ public class activity_ayuda extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_ayuda);
 
-        Toolbar toolbar = findViewById(R.id.toolbar4);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         ActionBar actionBar = getSupportActionBar();

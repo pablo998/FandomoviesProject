@@ -19,11 +19,11 @@
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed"
 
-            app:toolbarId="@+id/toolbar4">
+            app:toolbarId="@+id/toolbar">
 
 
             <androidx.appcompat.widget.Toolbar
-                android:id="@+id/toolbar4"
+                android:id="@+id/toolbar"
                 android:layout_width="match_parent"
                 android:layout_height="?attr/actionBarSize"
                 android:background="@color/azulApp"></androidx.appcompat.widget.Toolbar>
