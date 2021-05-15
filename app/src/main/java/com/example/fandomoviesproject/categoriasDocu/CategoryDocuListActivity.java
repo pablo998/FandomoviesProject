@@ -3,6 +3,7 @@ package com.example.fandomoviesproject.categoriasDocu;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
@@ -50,6 +51,13 @@ public class CategoryDocuListActivity
         CategoryDocuListScreen.configure(this);
 
         presenter.fetchCategoryListData();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu (Menu menu){
+        // Inflate the menu: this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_search, menu);
+        return true;
     }
 
     @Override

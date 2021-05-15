@@ -8,8 +8,10 @@ import android.widget.Button;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.example.fandomoviesproject.MoviesCategoryActivity;
+
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.categoriasPelis.CategoryListActivity;
+import com.example.fandomoviesproject.categoriasSeries.CategorySerieListActivity;
 
 public class MenuActivity
         extends AppCompatActivity implements MenuContract.View {
@@ -124,7 +126,13 @@ public class MenuActivity
 
     @Override
     public void navigateToMoviesScreen() {
-        Intent intent = new Intent(this, MoviesCategoryActivity.class);
+        Intent intent = new Intent(this, CategoryListActivity.class);
+        startActivity(intent);
+    }
+
+    @Override
+    public void navigateToSeriesScreen() {
+        Intent intent = new Intent(this, CategorySerieListActivity.class);
         startActivity(intent);
     }
 
