@@ -27,6 +27,7 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
     TextInputEditText emailTyped;
     TextInputEditText numMovilTyped;
+    private int tabSelected;
 
     private Context context = this;
     private TabHost tabHost;
@@ -72,7 +73,9 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
 
     public void onClickRegistrarme(View view) {
-        presenter.onClickRegistrarme(tabHost.getCurrentTab());
+        tabSelected = tabHost.getCurrentTab();
+        presenter.onClickRegistrarme(tabSelected, nombreYapellidosTyped, contraseñaTyped,
+                numMovilTyped, emailTyped);
         /* Va comprueba que todos los campos esten rellenados y
           le pide al modelo que busque en la base de datos si hay
           un email que sea igual. Warning por pantalla si hay igual/campos no rellenados

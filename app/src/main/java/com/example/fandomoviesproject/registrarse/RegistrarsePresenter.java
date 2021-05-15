@@ -29,7 +29,40 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
 
 
     @Override
-    public void onClickRegistrarme(int currentTab) {
+    public void onClickRegistrarme(int currentTab, TextView nombreYapellidos, TextView contraseña,
+                                   TextView numMovil, TextView email){
+        switch (currentTab){
+            case 0:
+                if(nombreYapellidos == null || contraseña == null || email == null){
+                    view.get().faltanCamposPorRellenar();
+                }else {
+                    state.contraseña = contraseña.getText().toString();
+                    state.email = email.getText().toString();
+                    state.nombreYapellidos = nombreYapellidos.getText().toString();
+                    state.tabSelected = currentTab;
+                    //if(model.comprobarQueNoEstaEmail(email) == true){
+                    // model.guardarEnBaseDeDatos(email);
+                    // view.get().navigateToMenuActivity();
+                    //}else{ view.get.emailYaRegistrado();}
+                }
+                break;
+            case 1:
+                if(nombreYapellidos == null || contraseña == null || numMovil == null){
+                    view.get().faltanCamposPorRellenar();
+                }else{
+                    state.contraseña = contraseña.getText().toString();
+                    state.numeroDeMovil = numMovil.getText().toString();
+                    state.nombreYapellidos = nombreYapellidos.getText().toString();
+                    state.tabSelected = currentTab;
+                    //if(model.comprobarQueNoEstaNumMovil(email) == true){
+                    // model.guardarEnBaseDeDatos(numMovil);
+                    // view.get().navigateToMenuActivity();
+                    //}else{ view.get.numeroDeMovilYaRegistrado();}
+                }
+                break;
+        }
+
+
         //TODO pendiente
         //comprobar tab
         //si todos los campos estan rellenos (si no, view faltan campos) voy al modelo y chequeo que no este repe

@@ -3,6 +3,8 @@ package com.example.fandomoviesproject.registrarse;
 
 
 
+import android.widget.TextView;
+
 import java.lang.ref.WeakReference;
 
 
@@ -18,7 +20,8 @@ public interface RegistrarseContract {
     interface Presenter {
         void injectView(WeakReference<RegistrarseContract.View> view);
         void injectModel(RegistrarseContract.Model model);
-        void onClickRegistrarme(int currentTab);
+        void onClickRegistrarme(int currentTab, TextView nombreYapellidos, TextView contraseña,
+                                TextView numMovil, TextView email);
     }
 
 
@@ -26,9 +29,9 @@ public interface RegistrarseContract {
 
         //TODO ESTO QUEDA PENDIENTE
         /*
-        void comprobarQueNoEstaEmail(
+        boolean comprobarQueNoEstaEmail(
                 RepositoryContract.GetCategoryListCallback callback);
-        void comprobarQueNoEstaNumMovil(
+        boolean comprobarQueNoEstaNumMovil(
                 RepositoryContract.GetCategoryListCallback callback);
 
         void guardarEnBaseDeDatos(
