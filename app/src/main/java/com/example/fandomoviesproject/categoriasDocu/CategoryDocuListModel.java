@@ -27,7 +27,7 @@ public class CategoryDocuListModel implements CategoryDocuListContract.Model {
 
     @Override
     public List<CategoryDocuItemCatalog> fetchCategoryDocuListData() {
-        return null;
+        return itemList;
     }
 
     private CategoryDocuItemCatalog createProduct(int position) {

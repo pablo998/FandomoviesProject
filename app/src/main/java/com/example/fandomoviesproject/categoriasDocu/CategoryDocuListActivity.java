@@ -7,7 +7,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ListView;
-import android.widget.TextView;
+
 //import android.widget.Toolbar;
 
 import androidx.appcompat.app.ActionBar;
@@ -15,17 +15,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.categoriasSeries.CategorySerieListAdapter;
-import com.example.fandomoviesproject.categoriasSeries.CategorySerieListViewModel;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
-import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+
 
 public class CategoryDocuListActivity
         extends AppCompatActivity implements CategoryDocuListContract.View {
 
     public static String TAG = CategoryDocuListActivity.class.getSimpleName();
 
-    private CategoryDocuListContract.Presenter presenter;
+    CategoryDocuListContract.Presenter presenter;
 
     private ListView listView;
 
