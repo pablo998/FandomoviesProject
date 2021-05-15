@@ -62,8 +62,8 @@
     </RelativeLayout>
 
     <FrameLayout
-        android:layout_width="411dp"
-        android:layout_height="441dp"
+        android:layout_width="414dp"
+        android:layout_height="406dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
