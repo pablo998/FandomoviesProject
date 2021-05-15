@@ -30,28 +30,33 @@ import com.example.fandomoviesproject.peliculasDeUnaCategoria.PeliculaListState;
 
 public class AppMediator {
 
-
+    //Peliculas
     private PeliculaListState peliculaListState = new PeliculaListState();
     private PeliculaDetailState peliculaDetailState = new PeliculaDetailState();
     private CategoryListState productCategoryListState = new CategoryListState();
 
-
+    //Series
     private CategorySerieListState CategorySerieListState = new CategorySerieListState();
     private SerieListState SerieListState = new SerieListState();
     private SerieDetailState serieDetailState = new SerieDetailState();
 
+    //Documentales
     private CategoryDocuListState categoryDocuListState = new CategoryDocuListState();
     private DocuListState docuListState = new DocuListState();
     private DocuDetailState docuDetailState = new DocuDetailState();
 
+    //Pantallas buscar
     private PelisBuscarState pelisBuscarState = new PelisBuscarState();
     private DocusBuscarState docusBuscarState = new DocusBuscarState();
     private SeriesBuscarState seriesBuscarState = new SeriesBuscarState();
 
+    //Peliculas
     private PeliculaItemCatalog product2;
     private CategoryItemCatalog product1;
+    //Series
     private CategorySerieItemCatalog product1Serie;
     private SerieItemCatalog product2Serie;
+    //Documentales
     private CategoryDocuItemCatalog product1Docu;
     private DocuItemCatalog product2Docu;
 
@@ -86,7 +91,7 @@ public class AppMediator {
         return menuState;
     }
 
-
+    //Peliculas
     public PeliculaListState getPeliculaListState() {
         return peliculaListState;
     }
@@ -97,18 +102,18 @@ public class AppMediator {
         return productCategoryListState;
     }
 
+    //Series
     public CategorySerieListState getCategorySerieListState() {
         return CategorySerieListState;
     }
     public SerieListState getSerieListState() {
         return SerieListState;
     }
-
     public SerieDetailState getSerieDetailState() {
         return serieDetailState;
     }
 
-
+    //Documentales
     public DocuDetailState getDocuDetailState() {
         return docuDetailState;
     }
@@ -146,18 +151,16 @@ public class AppMediator {
     public void setCategoriaInPeliculaListScreen(CategoryItemCatalog item) {
         product1 = item;
     }
-
     public void setPeliculaInPeliculaDetailScreen(PeliculaItemCatalog item) {
         product2 = item;
     }
 
-    public void setCategoriaInSerieListScreen(CategorySerieItemCatalog item) {
-        product1Serie = item;
-    }
 
+    public void setCategoriaInSerieListScreen(CategorySerieItemCatalog item) { product1Serie = item; }
     public void setSerieInSerieDetailScreen(SerieItemCatalog item) {
         product2Serie = item;
     }
+
 
     public void setCategoriaInDocuListScreen(CategoryDocuItemCatalog item) {
         product1Docu = item;
