@@ -33,7 +33,7 @@ public class AyudaActivity extends AppCompatActivity {
         AyudaScreen.configure(this);
 
     }
-
+   // no va
     @Override
     public void injectPresenter(AyudaContract.Presenter presenter) {
         injectPresenter(this.presenter = presenter);
