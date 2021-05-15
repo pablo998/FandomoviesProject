@@ -30,14 +30,16 @@ public class AyudaActivity extends AppCompatActivity {
 
 
         // do the setup
-        AyudaScreen.configure(this);
+//        AyudaScreen.configure(this);
 
     }
    // no va
-    @Override
+   /* @Override
     public void injectPresenter(AyudaContract.Presenter presenter) {
         injectPresenter(this.presenter = presenter);
     }
+
+    */
 
 
 }

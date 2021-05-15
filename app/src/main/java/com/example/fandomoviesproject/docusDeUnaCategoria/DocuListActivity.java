@@ -49,7 +49,7 @@ public class DocuListActivity
 
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
-            actionBar.setTitle(R.string.series);
+            actionBar.setTitle(R.string.documentales);
         }
 
     }
