@@ -1,6 +1,8 @@
 package com.example.fandomoviesproject.ayuda;
 
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,8 +12,10 @@ import com.example.fandomoviesproject.R;
 
 
 
-public class AyudaActivity extends AppCompatActivity {
+public class AyudaActivity extends AppCompatActivity implements AyudaContract.View {
     AyudaContract.Presenter presenter;
+
+    TextView informacionText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,25 +25,39 @@ public class AyudaActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        informacionText = findViewById(R.id.ayuda_text);
+
 
         ActionBar actionBar = getSupportActionBar();
         if(actionBar !=null){
             actionBar.setDisplayHomeAsUpEnabled(true);
-            actionBar.setTitle("Ayuda");
+            actionBar.setTitle(R.string.ayuda_text);
         }
 
 
-        // do the setup
-//        AyudaScreen.configure(this);
+          //do the setup
+         AyudaScreen.configure(this);
 
     }
-   // no va
-   /* @Override
+
+    @Override
     public void injectPresenter(AyudaContract.Presenter presenter) {
-        injectPresenter(this.presenter = presenter);
+        this.presenter = presenter;
     }
 
-    */
+    @Override
+    public void displayAyudaData(AyudaViewModel viewModel) {
+        informacionText.setText(viewModel.informacion);
+    }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == android.R.id.home) {
+            this.finish();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 }

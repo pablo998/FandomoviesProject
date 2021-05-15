@@ -12,21 +12,20 @@ public interface AyudaContract {
 
         void displayAyudaData(AyudaViewModel viewModel);
 
-
-
     }
 
     interface Presenter {
         void injectView(WeakReference<AyudaContract.View> view);
 
         void injectModel(AyudaContract.Model model);
-
         void fetchAyudaData();
-
     }
 
 
     public interface Model {
+
+        //void fetchAyudaData();
+
     }
 }
 

@@ -31,7 +31,7 @@ public class AyudaPresenter implements AyudaContract.Presenter {
 
     @Override
     public void fetchAyudaData() {
-
+        //TODO pendiente
     }
 
 }
