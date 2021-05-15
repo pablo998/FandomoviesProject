@@ -164,7 +164,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ayuda.activity_ayuda">
+        <activity android:name=".ayuda.AyudaActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
