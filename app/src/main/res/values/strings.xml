@@ -9,6 +9,12 @@
     <string name="nombre_app">Fandomovies</string>
     <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
     <string name="peliculas">Peliculas</string>
+    <string name="camposporRellenarTitle">Faltan campos por rellenar</string>
+    <string name="camposporRellenar">Rellene todos los campos para poder registrarse</string>
+    <string name="emailYaEnUsoTitle">Email en uso</string>
+    <string name="emailYaEnUso">Esta dirección de email ya está en uso</string>
+    <string name="numMovilYaEnUso">Este número de móvil ya tiene una cuenta registrada</string>
+    <string name="numMovilYaEnUsoTitle">Número de móvil en uso</string>
     <string name="inicia_sesion">¿Ya tienes una cuenta? Inicia Sesión.</string>
     <string name="categoria_elegida">Categoria 1</string>
     <string name="tab_numero">Número de móvil</string>

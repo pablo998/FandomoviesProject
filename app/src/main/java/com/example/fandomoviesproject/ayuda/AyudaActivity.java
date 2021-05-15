@@ -1,5 +1,6 @@
 package com.example.fandomoviesproject.ayuda;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
@@ -15,6 +16,7 @@ import com.example.fandomoviesproject.R;
 public class AyudaActivity extends AppCompatActivity implements AyudaContract.View {
     AyudaContract.Presenter presenter;
 
+    private Context context = this;
     TextView informacionText;
 
     @Override

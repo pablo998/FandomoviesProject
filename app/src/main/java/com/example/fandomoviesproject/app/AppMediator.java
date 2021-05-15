@@ -26,6 +26,7 @@ import com.example.fandomoviesproject.buscarDocus.DocusBuscarState;
 
 import com.example.fandomoviesproject.categoriasSeries.CategorySerieListState;
 import com.example.fandomoviesproject.perfil.perfilState;
+import com.example.fandomoviesproject.registrarse.RegistrarseState;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListState;
 import com.example.fandomoviesproject.serieDetail.SerieDetailState;
 
@@ -47,9 +48,10 @@ public class AppMediator {
     private SerieListState SerieListState = new SerieListState();
     private SerieDetailState serieDetailState = new SerieDetailState();
 
-    //Compras y Favoritos
+    //Compras , Favoritos y Registrarse
     private FavoritosState favoritosState = new FavoritosState();
     private ComprasState comprasState = new ComprasState();
+    private RegistrarseState registrarseState = new RegistrarseState();
 
     //Documentales
     private CategoryDocuListState categoryDocuListState = new CategoryDocuListState();
@@ -159,6 +161,10 @@ public class AppMediator {
     public ComprasState getComprasState() {
         return comprasState;
     }
+    public RegistrarseState getRegistrarseState() {
+        return registrarseState;
+    }
+
 
 
 
@@ -279,8 +285,5 @@ public class AppMediator {
     public ArrayList<ComprasItem> getCompradoItems(){
         return comprasList;
     }
-
-
-
 
 }

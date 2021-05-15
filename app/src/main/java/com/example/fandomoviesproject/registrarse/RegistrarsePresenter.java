@@ -1,0 +1,52 @@
+package com.example.fandomoviesproject.registrarse;
+
+import android.widget.TextView;
+
+import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.ComprasItem;
+import com.example.fandomoviesproject.data.FavoritoItem;
+import com.example.fandomoviesproject.data.SerieItem;
+import com.example.fandomoviesproject.registrarse.RegistrarseContract;
+
+import java.lang.ref.WeakReference;
+//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
+
+
+public class RegistrarsePresenter implements RegistrarseContract.Presenter {
+
+    public static String TAG = RegistrarsePresenter.class.getSimpleName();
+
+    private WeakReference<RegistrarseContract.View> view;
+    private RegistrarseState state;
+    private RegistrarseContract.Model model;
+    private AppMediator mediator;
+
+
+    public RegistrarsePresenter(AppMediator mediator) {
+        this.mediator = mediator;
+        state = mediator.getRegistrarseState();
+    }
+
+
+    @Override
+    public void onClickRegistrarme(int currentTab) {
+        //TODO pendiente
+        //comprobar tab
+        //si todos los campos estan rellenos (si no, view faltan campos) voy al modelo y chequeo que no este repe
+        //si esta repe llamo a view repetido
+        //si no esta llamo al modelo y guardo datos
+        //mediador set contraseña/email ¡¡¡¡NO!!!! PORQUE EL mediador tiene el estado
+        //llamo a view y voy al menu
+    }
+
+    @Override
+    public void injectView(WeakReference<RegistrarseContract.View> view) {
+        this.view = view;
+    }
+
+    @Override
+    public void injectModel(RegistrarseContract.Model model) {
+        this.model = model;
+    }
+
+}
