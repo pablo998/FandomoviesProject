@@ -8,12 +8,11 @@
 
     <TabHost
         android:id="@+id/tabHostRegistro"
-        android:layout_width="match_parent"
-        android:layout_height="350dp"
+        android:layout_width="400dp"
+        android:layout_height="330dp"
         android:layout_marginStart="130dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginEnd="130dp"
-        app:layout_constraintBottom_toTopOf="@+id/lineaDivisoria2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -39,19 +38,22 @@
                     android:id="@+id/tab1"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:scrollbarAlwaysDrawVerticalTrack="true">
 
                     <include
                         layout="@layout/activity_registrarse_tabemail"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent" />
+
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/tab2"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:orientation="vertical">
+                    android:orientation="vertical"
+                    android:scrollbarAlwaysDrawVerticalTrack="true">
 
                     <include
                         layout="@layout/activity_registrarse_tabnummovil"
@@ -75,7 +77,7 @@
     <Button
         android:id="@+id/botonIniciaSesion"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
         android:backgroundTint="@color/white"
         android:onClick="backToIniciarSesion"
         android:text="@string/inicia_sesion"
