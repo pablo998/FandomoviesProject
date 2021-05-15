@@ -26,10 +26,6 @@ public class CategoryDocuListAdapter extends ArrayAdapter<CategoryDocuItemCatalo
         clickListener = listener;
     }
 
-    @Override
-    public int getCount() {
-        return itemList.size();
-    }
 
     @Override
     public CategoryDocuItemCatalog getItem(int position) {

@@ -67,7 +67,7 @@ public class PeliculaDetailPresenter implements PeliculaDetailContract.Presenter
             state.product = product;
             //Call the model
             //TODO para cuando haya repo
-           // state.product = model.fetchPeliculaDetailData();
+            // state.product = model.fetchPeliculaDetailData();
         }
 
         view.get().displayPeliculaDetailData(state);

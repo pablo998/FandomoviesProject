@@ -26,43 +26,43 @@ public class MenuPresenter implements MenuContract.Presenter {
             state = new MenuState();
         }
     */
-        // call the model and update the state
-        //state.data = model.getStoredData();
+    // call the model and update the state
+    //state.data = model.getStoredData();
 
-        // use passed state if is necessary
-        //PreviousToMenuState savedState = getStateFromPreviousScreen();
-        //if (savedState != null) {
+    // use passed state if is necessary
+    //PreviousToMenuState savedState = getStateFromPreviousScreen();
+    //if (savedState != null) {
 
-            // update the model if is necessary
-            //model.onDataFromPreviousScreen(savedState.data);
+    // update the model if is necessary
+    //model.onDataFromPreviousScreen(savedState.data);
 
-            // update the state if is necessary
-            //state.data = savedState.data;
-        //}
+    // update the state if is necessary
+    //state.data = savedState.data;
+    //}
     //}
 
 
 
     //@Override
     //public void onResume() {
-        // Log.e(TAG, "onResume()");
+    // Log.e(TAG, "onResume()");
 
-        // use passed state if is necessary
-        //NextToMenuState savedState = getStateFromNextScreen();
-        //if (savedState != null) {
+    // use passed state if is necessary
+    //NextToMenuState savedState = getStateFromNextScreen();
+    //if (savedState != null) {
 
-            // update the model if is necessary
-            //model.onDataFromNextScreen(savedState.data);
+    // update the model if is necessary
+    //model.onDataFromNextScreen(savedState.data);
 
-            // update the state if is necessary
-            //state.data = savedState.data;
-        //}
+    // update the state if is necessary
+    //state.data = savedState.data;
+    //}
 
-        // call the model and update the state
-        //state.data = model.getStoredData();
+    // call the model and update the state
+    //state.data = model.getStoredData();
 
-        // update the view
-        //view.get().onDataUpdated(state);
+    // update the view
+    //view.get().onDataUpdated(state);
 
     //}
 
@@ -78,13 +78,12 @@ public class MenuPresenter implements MenuContract.Presenter {
 
     @Override
     public void documentaryButtonClicked() {
-        //falta implementación
         view.get().navigateToDocuScreen();
     }
 
-   // @Override
+    // @Override
     //public void onBackPressed() {
-        // Log.e(TAG, "onBackPressed()");
+    // Log.e(TAG, "onBackPressed()");
     //}
 
 
@@ -95,11 +94,11 @@ public class MenuPresenter implements MenuContract.Presenter {
     }
 
     //private NextToMenuState getStateFromNextScreen() {
-        //return mediator.getNextMenuScreenState();
+    //return mediator.getNextMenuScreenState();
     //}
 
-   // private void passStateToNextScreen(MenuToNextState state) {
-        //mediator.setNextMenuScreenState(state);
+    // private void passStateToNextScreen(MenuToNextState state) {
+    //mediator.setNextMenuScreenState(state);
     //}
 /*
     private void passStateToPreviousScreen(MenuToPreviousState state) {
