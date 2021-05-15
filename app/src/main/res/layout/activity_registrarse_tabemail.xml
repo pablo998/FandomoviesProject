@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/layoutBotonInputs"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/input"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:foregroundTint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxCollapsedPaddingTop="0dp"
+            app:boxStrokeErrorColor="#FFFFFF"
+            app:boxStrokeWidth="1dp"
+            app:counterEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:passwordToggleEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/nombreYapellidos"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="@string/nombre_apellidos_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/espacio1"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/InputLayoutPasswordd"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="1dp"
+            app:boxStrokeWidthFocused="0dp"
+            app:counterEnabled="false"
+            app:passwordToggleEnabled="true">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputPassword"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:backgroundTint="@color/white"
+                android:hint="@string/password_hint" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/espacioo2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/InputLayoutNumeroMovil"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:foregroundTint="@color/black"
+            app:boxBackgroundMode="outline"
+            app:boxStrokeWidth="1dp"
+            app:counterEnabled="false"
+            app:hintAnimationEnabled="false"
+            app:passwordToggleEnabled="false">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/InputEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:backgroundTint="@color/white"
+                android:hint="@string/tab_email" />
+
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Space
+            android:id="@+id/espacio2"
+            android:layout_width="match_parent"
+            android:layout_height="20dp" />
+
+        <Button
+            android:id="@+id/botonRegistrarme"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:backgroundTint="@color/azulApp"
+            android:onClick="goToMenu"
+            android:text="@string/boton_registrarme"
+            android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+            android:textSize="18sp"
+            app:layout_constraintTop_toTopOf="parent" />
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

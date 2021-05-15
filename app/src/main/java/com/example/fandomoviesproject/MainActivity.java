@@ -28,12 +28,12 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void iniciarSesion(View view) {
-        Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
+        Intent intent = new Intent(this,com.example.fandomoviesproject.registrarse.RegistrarseActivity.class);
         startActivity(intent);
     }
 
     public void IniciaSesion(View view) {
-        Intent intent = new Intent(this,activity_registrarte_numerodemoviltab.class);
+        Intent intent = new Intent(this,com.example.fandomoviesproject.registrarse.RegistrarseActivity.class);
         startActivity(intent);
     }
 }
