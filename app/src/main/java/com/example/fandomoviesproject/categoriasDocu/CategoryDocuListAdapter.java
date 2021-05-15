@@ -9,7 +9,6 @@ import android.widget.TextView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
-import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 
 import java.util.List;
 
@@ -55,7 +54,7 @@ public class CategoryDocuListAdapter extends ArrayAdapter<CategoryDocuItemCatalo
         itemView.setTag(itemList.get(position));
         itemView.setOnClickListener(clickListener);
 
-        final TextView contentView = itemView.findViewById(R.id.categoriaText);
+        final TextView contentView = itemView.findViewById(R.id.docuText);
         contentView.setText(itemList.get(position).content);
 
         return itemView;
