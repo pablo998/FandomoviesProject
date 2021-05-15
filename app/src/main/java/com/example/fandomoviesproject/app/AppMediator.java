@@ -25,6 +25,7 @@ import com.example.fandomoviesproject.buscarSeries.SeriesBuscarState;
 import com.example.fandomoviesproject.buscarDocus.DocusBuscarState;
 
 import com.example.fandomoviesproject.categoriasSeries.CategorySerieListState;
+import com.example.fandomoviesproject.perfil.perfilState;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListState;
 import com.example.fandomoviesproject.serieDetail.SerieDetailState;
 
@@ -83,6 +84,7 @@ public class AppMediator {
     private MenuState menuState;
     private static AppMediator INSTANCE;
 
+    private perfilState perfilState;
 
     private AppMediator() {
 
@@ -171,6 +173,9 @@ public class AppMediator {
         //product2 = null;
         return item;
     }
+
+    //pantalla del perfil
+    public perfilState getPerfilState(){return perfilState;}
 
     public void setCategoriaInPeliculaListScreen(CategoryItemCatalog item) {
         product1 = item;
