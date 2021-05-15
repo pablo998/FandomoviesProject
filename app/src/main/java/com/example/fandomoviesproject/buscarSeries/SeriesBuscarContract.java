@@ -1,5 +1,7 @@
 package com.example.fandomoviesproject.buscarSeries;
 
+import android.widget.TextView;
+
 import com.example.fandomoviesproject.data.SerieItem;
 
 import java.lang.ref.WeakReference;
@@ -12,9 +14,12 @@ interface SeriesBuscarContract {
         void injectPresenter(Presenter presenter);
         void displaySeriesBuscarData(SeriesBuscarViewModel viewModel);
 
+        void onClickCorazonButton(TextView titulo, TextView info);
         void navigateToBuscarPelisActivity();
         void navigateToBuscarDocusActivity();
-        void changeCorazonColor();
+        void onClickCarroButton(TextView titulo, TextView info);
+        void añadidoConExitoWarning();
+
         void goToPaginaWeb();
     }
 
@@ -27,8 +32,8 @@ interface SeriesBuscarContract {
         void navigateToBuscarPelisActivity();
         void navigateToBuscarDocusActivity();
 
-        void clickLike(SerieItem serie);
-        void clickComprar(SerieItem serie);
+        void CorazonButtonClicked(TextView titulo, TextView info);
+        void CarroButtonClicked(TextView titulo, TextView info);
     }
 
     interface Model {

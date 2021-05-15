@@ -1,13 +1,18 @@
 package com.example.fandomoviesproject.buscarPelis;
 
+import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,6 +32,7 @@ public class PelisBuscarAdapter
 
     private LayoutInflater mInflater;
     private Context mContext;
+    private int i;
 
     public PelisBuscarAdapter(Context context , ArrayList<PeliculaItem> mPeliList){
         this.mContext = context;
@@ -39,8 +45,8 @@ public class PelisBuscarAdapter
 
     class PeliViewHolder extends RecyclerView.ViewHolder {
         private ImageView mDocusLogo;
-        private ImageView mLikeImage;
-        private ImageView mBuyImage;
+        private ImageButton mLikeImage;
+        private ImageButton mBuyImage;
         private TextView mTitleText;
         private TextView mInfoText;
 
@@ -53,6 +59,61 @@ public class PelisBuscarAdapter
             mDocusLogo = itemView.findViewById(R.id.logo);
             mLikeImage = itemView.findViewById(R.id.likeboton);
             mBuyImage = itemView.findViewById(R.id.carroboton);
+
+            mBuyImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(mContext)
+                            .setTitle(R.string.realizarcompratitulo)
+                            .setMessage(R.string.realizarcompra)
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(R.string.siComprar, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with compra operation
+                                    if(mContext instanceof PelisBuscarActivity){
+                                        ((PelisBuscarActivity)mContext).onClickCarroButton(mTitleText,mInfoText);
+                                    }
+                                }
+                            })
+
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(R.string.no, null)
+                            .setIcon(R.drawable.carrito)
+                            .show();
+                }
+
+            });
+
+
+            mLikeImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(mContext)
+                            .setTitle(R.string.añadirfavoritotitulo)
+                            .setMessage(R.string.añadirfavorito)
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with favorito operation
+                                    if(mContext instanceof PelisBuscarActivity){
+                                        ((PelisBuscarActivity)mContext).onClickCorazonButton(mTitleText,mInfoText);
+                                    }
+                                }
+                            })
+
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(R.string.no, null)
+                            .setIcon(R.drawable.favorito)
+                            .show();
+                }
+
+            });
+
+
         }
 
         void bindTo(PeliculaItem mCurrent) {
@@ -105,10 +166,12 @@ public class PelisBuscarAdapter
         return mPeliList.size();
     }
 
+
     @Override
     public Filter getFilter() {
         return exampleFilter;
     }
+
 
     Filter exampleFilter = new Filter() {
 
@@ -122,7 +185,7 @@ public class PelisBuscarAdapter
 
             if(constraint != null || constraint.length() != 0) {
                 String filterPattern = constraint.toString().toLowerCase();
-                
+
                 for (PeliculaItem item : mPeliListFull) {
                     if (item.getTitle().toLowerCase().contains(filterPattern) ||
                             item.getInfo().toLowerCase().contains(filterPattern)) {

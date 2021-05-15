@@ -1,9 +1,16 @@
 package com.example.fandomoviesproject.buscarPelis;
 
+import android.util.Log;
+import android.widget.TextView;
+
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.ComprasItem;
+import com.example.fandomoviesproject.data.FavoritoItem;
 import com.example.fandomoviesproject.data.PeliculaItem;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
 
@@ -44,25 +51,36 @@ public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
 
      */
 
-    private void passDataToFavoritosListActivity(PeliculaItem item) {
-      //  mediator.setLikedPelicula(item);
+    private void passDataToFavoritosActivity(FavoritoItem item) {
+        mediator.setLiked(item);
     }
 
-    private void passDataToComprasListActivity(PeliculaItem item) {
-        //  mediator.setComprarPelicula(item);
+    private void passDataToComprasListActivity(ComprasItem item) {
+        mediator.setHeComprado(item);
+    }
+
+
+
+    @Override
+    public void CorazonButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        FavoritoItem peliculaFavorita = new FavoritoItem(tituloFav, infoFav, 0, 0);
+        passDataToFavoritosActivity(peliculaFavorita);
+        view.get().añadidoConExitoWarning();
     }
 
     @Override
-    public void clickLike(PeliculaItem item) {
-        passDataToFavoritosListActivity(item);
-        view.get().changeCorazonColor();
+    public void CarroButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
+        passDataToComprasListActivity(peliculaComprada);
+        //view.get().goToPaginaWeb();
     }
 
-    @Override
-    public void clickComprar(PeliculaItem item) {
-        passDataToComprasListActivity(item);
-        view.get().goToPaginaWeb();
-    }
+
+
 
     @Override
     public void navigateToBuscarSeriesActivity() {
@@ -85,4 +103,18 @@ public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
         this.model = model;
     }
 
+
+
+   /* @Override
+    public void onResume() {
+        Log.e(TAG, "onResume()");
+
+        if(state.titulosLiked.size() != 0){
+            view.get().displayPelisBuscarData(state);
+        }
+    }
+
+    */
 }
+
+

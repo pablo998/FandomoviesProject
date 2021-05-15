@@ -172,6 +172,24 @@
     <string name="valoracion_nombre">Usuario</string>
     <string name="ver_valoraciones_completo">Ver todas las valoraciones >></string>
     <string name="buscarItem">Buscar</string>
+    <string name="favoritos">Favoritos</string>
+    <string name="nohayFavs">Todavía no hay favoritos.</string>
+    <string name="eliminarFavTitle">Eliminar favorito</string>
+    <string name="eliminarFav">¿Desea eliminar este elemento de la lista de Favoritos?</string>
+    <string name="siDelete">Eliminar</string>
+    <string name="no">No</string>
+    <string name="añadirfavoritotitulo">Añadir a favoritos</string>
+    <string name="añadirfavorito">¿Desea añadir este elemento a la lista de Favoritos?</string>
+    <string name="siFav">Añadir</string>
+    <string name="añadidoConExito">Se ha añadido a la lista de Favoritos</string>
+    <string name="realizarcompratitulo">Realizar compra</string>
+    <string name="realizarcompra">¿Quiere obtener productos acerca de esta película?</string>
+    <string name="siComprar">Comprar</string>
+    <string name="borrarItem">Borrar</string>
+    <string name="eliminarComprasTitle">Eliminar historial de Compras</string>
+    <string name="eliminarCompras">¿Desea eliminar la lista de Compras?</string>
+    <string name="realizarcompraSerie">¿Quiere obtener productos acerca de esta serie?</string>
+    <string name="realizarcompraDocu">¿Quiere obtener productos acerca de este documental?</string>
 
     <array name="buscar_docus_Titulos">
         <item>Titulo 13456</item>
@@ -292,6 +310,16 @@
     </array>
     <array name="buscar_pelis_imageCarro">
         <item>@drawable/carrito</item>
+    </array>
+
+    <array name="corazon_favs">
+        <item>@drawable/favoritonegro</item>
+    </array>
+    <array name="carro_compras">
+        <item>@drawable/carrito</item>
+    </array>
+    <array name="delete_favs">
+        <item>@drawable/delete</item>
     </array>
 
 </resources>

@@ -1,7 +1,11 @@
 package com.example.fandomoviesproject.buscarDocus;
 
+import android.widget.TextView;
+
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.data.DocuItem;
+import com.example.fandomoviesproject.data.FavoritoItem;
 
 import java.lang.ref.WeakReference;
 
@@ -45,24 +49,31 @@ public class DocusBuscarPresenter implements DocusBuscarContract.Presenter {
 
      */
 
-    private void passDataToFavoritosListActivity(DocuItem item) {
-        //  mediator.setLikedDocumental(item);
+    private void passDataToFavoritosActivity(FavoritoItem item) {
+        mediator.setLiked(item);
     }
 
-    private void passDataToComprasListActivity(DocuItem item) {
-        //  mediator.setComprarDocumental(item);
-    }
 
-    @Override
-    public void clickLike(DocuItem item) {
-        passDataToFavoritosListActivity(item);
-        view.get().changeCorazonColor();
+    private void passDataToComprasListActivity(ComprasItem item) {
+        mediator.setHeComprado(item);
     }
 
     @Override
-    public void clickComprar(DocuItem item) {
-        passDataToComprasListActivity(item);
-        view.get().goToPaginaWeb();
+    public void CorazonButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        FavoritoItem peliculaFavorita = new FavoritoItem(tituloFav, infoFav, 0, 0);
+        passDataToFavoritosActivity(peliculaFavorita);
+        view.get().añadidoConExitoWarning();
+    }
+
+    @Override
+    public void CarroButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
+        passDataToComprasListActivity(peliculaComprada);
+        //view.get().goToPaginaWeb();
     }
 
     @Override

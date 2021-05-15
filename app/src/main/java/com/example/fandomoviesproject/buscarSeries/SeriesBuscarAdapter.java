@@ -1,6 +1,8 @@
 package com.example.fandomoviesproject.buscarSeries;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -53,6 +55,58 @@ public class SeriesBuscarAdapter
             mSeriesLogo = itemView.findViewById(R.id.logo);
             mLikeImage = itemView.findViewById(R.id.likeboton);
             mBuyImage = itemView.findViewById(R.id.carroboton);
+
+            mBuyImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(mContext)
+                            .setTitle(R.string.realizarcompratitulo)
+                            .setMessage(R.string.realizarcompraSerie)
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(R.string.siComprar, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with compra operation
+                                    if(mContext instanceof SeriesBuscarActivity){
+                                        ((SeriesBuscarActivity)mContext).onClickCarroButton(mTitleText,mInfoText);
+                                    }
+                                }
+                            })
+
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(R.string.no, null)
+                            .setIcon(R.drawable.carrito)
+                            .show();
+                }
+
+            });
+
+            mLikeImage.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    new AlertDialog.Builder(mContext)
+                            .setTitle(R.string.añadirfavoritotitulo)
+                            .setMessage(R.string.añadirfavorito)
+
+                            // Specifying a listener allows you to take an action before dismissing the dialog.
+                            // The dialog is automatically dismissed when a dialog button is clicked.
+                            .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int which) {
+                                    // Continue with favorito operation
+                                    if(mContext instanceof SeriesBuscarActivity){
+                                        ((SeriesBuscarActivity)mContext).onClickCorazonButton(mTitleText,mInfoText);
+                                    }
+                                }
+                            })
+
+                            // A null listener allows the button to dismiss the dialog and take no further action.
+                            .setNegativeButton(R.string.no, null)
+                            .setIcon(R.drawable.favorito)
+                            .show();
+                }
+
+            });
         }
 
         void bindTo(SerieItem mCurrent) {

@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -36,8 +38,6 @@ public class SeriesBuscarActivity extends AppCompatActivity implements SeriesBus
     private RecyclerView mRecyclerView;
     private Context context = this;
     private TabHost tabHost;
-    private ImageButton corazon;
-    private ImageButton carrito;
 
 
     @Override
@@ -67,7 +67,6 @@ public class SeriesBuscarActivity extends AppCompatActivity implements SeriesBus
         tabHost = findViewById(R.id.tabHostBuscar);
         tabHost.setup();
         setUpTabs();
-        linkButtonsCorazonAndCarrito();
 
         //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
 
@@ -106,9 +105,19 @@ public class SeriesBuscarActivity extends AppCompatActivity implements SeriesBus
 
     }
 
-    private void linkButtonsCorazonAndCarrito() {
-        //TODO Por linkear imagebuttons
+    @Override
+    public void onClickCorazonButton(TextView titulo, TextView info){
+        presenter.CorazonButtonClicked(titulo, info);
+    }
 
+    @Override
+    public void onClickCarroButton(TextView titulo, TextView info){
+        presenter.CarroButtonClicked(titulo, info);
+    }
+
+    @Override
+    public void añadidoConExitoWarning(){
+        Toast.makeText(context,R.string.añadidoConExito, Toast.LENGTH_LONG).show();
     }
 
     private void setUpTabs() {
@@ -148,10 +157,6 @@ public class SeriesBuscarActivity extends AppCompatActivity implements SeriesBus
         startActivity(intent);
     }
 
-    @Override
-    public void changeCorazonColor() {
-        //TODO POR IMPLEMENTAR changeCorazonColor
-    }
 
     @Override
     public void goToPaginaWeb() {
@@ -211,7 +216,7 @@ public class SeriesBuscarActivity extends AppCompatActivity implements SeriesBus
                 .obtainTypedArray(R.array.buscar_series_imageLike);
         TypedArray imageCarro = getResources()
                 .obtainTypedArray(R.array.buscar_series_imageCarro);
-            mSerieList.clear(); // Clear data (to avoid duplication)
+        mSerieList.clear(); // Clear data (to avoid duplication)
 
         for (int i = 0; i < titulosList.length; i++) {
             mSerieList.add(new SerieItem(

@@ -9,6 +9,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageButton;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -67,7 +69,6 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         tabHost = findViewById(R.id.tabHostBuscar);
         tabHost.setup();
         setUpTabs();
-        linkButtonsCorazonAndCarrito();
 
         //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
 
@@ -106,9 +107,19 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
 
     }
 
-    private void linkButtonsCorazonAndCarrito() {
-        //TODO Por linkear imagebuttons
+    @Override
+    public void onClickCorazonButton(TextView titulo, TextView info){
+        presenter.CorazonButtonClicked(titulo, info);
+    }
 
+    @Override
+    public void onClickCarroButton(TextView titulo, TextView info){
+        presenter.CarroButtonClicked(titulo, info);
+    }
+
+    @Override
+    public void añadidoConExitoWarning(){
+        Toast.makeText(context,R.string.añadidoConExito, Toast.LENGTH_LONG).show();
     }
 
     private void setUpTabs() {
@@ -146,11 +157,6 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     public void navigateToBuscarSeriesActivity() {
         Intent intent = new Intent(context, SeriesBuscarActivity.class);
         startActivity(intent);
-    }
-
-    @Override
-    public void changeCorazonColor() {
-        //TODO POR IMPLEMENTAR changeCorazonColor
     }
 
     @Override

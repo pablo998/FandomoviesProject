@@ -1,10 +1,14 @@
 package com.example.fandomoviesproject.app;
 
 import com.example.fandomoviesproject.categoriasDocu.CategoryDocuListState;
+import com.example.fandomoviesproject.compras.ComprasState;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.data.FavoritoItem;
 import com.example.fandomoviesproject.docuDetail.DocuDetailState;
 import com.example.fandomoviesproject.docusDeUnaCategoria.DocuListState;
+import com.example.fandomoviesproject.favoritos.FavoritosState;
 import com.example.fandomoviesproject.menu.MenuState;
 
 import com.example.fandomoviesproject.data.DocuItem;
@@ -28,6 +32,8 @@ import com.example.fandomoviesproject.categoriasPelis.CategoryListState;
 import com.example.fandomoviesproject.peliculaDetail.PeliculaDetailState;
 import com.example.fandomoviesproject.peliculasDeUnaCategoria.PeliculaListState;
 
+import java.util.ArrayList;
+
 public class AppMediator {
 
     //Peliculas
@@ -39,6 +45,10 @@ public class AppMediator {
     private CategorySerieListState CategorySerieListState = new CategorySerieListState();
     private SerieListState SerieListState = new SerieListState();
     private SerieDetailState serieDetailState = new SerieDetailState();
+
+    //Compras y Favoritos
+    private FavoritosState favoritosState = new FavoritosState();
+    private ComprasState comprasState = new ComprasState();
 
     //Documentales
     private CategoryDocuListState categoryDocuListState = new CategoryDocuListState();
@@ -64,6 +74,11 @@ public class AppMediator {
     private PeliculaItemCatalog pelicula;
     private DocuItem documental;
     private SerieItem serie;
+
+    private FavoritoItem favoritoItem;
+    private ArrayList<FavoritoItem> favoritosList;
+    private ArrayList<ComprasItem> comprasList;
+    private ComprasItem comprasItem;
 
     private MenuState menuState;
     private static AppMediator INSTANCE;
@@ -135,6 +150,15 @@ public class AppMediator {
     public SeriesBuscarState getSeriesBuscarState() {
         return seriesBuscarState;
     }
+
+    public FavoritosState getFavoritosState() {
+        return favoritosState;
+    }
+    public ComprasState getComprasState() {
+        return comprasState;
+    }
+
+
 
     public CategoryItemCatalog getProduct1() {
         CategoryItemCatalog item = product1;
@@ -224,6 +248,34 @@ public class AppMediator {
         //serie = null;
         return item;
     }
+
+    public void setLiked(FavoritoItem item){
+        if(favoritosList == null) {favoritosList = new ArrayList<>();}
+        FavoritoItem newFavoritoItem = new FavoritoItem(item.getTitle(), item.getInfo(), 0, 0);
+        favoritoItem = newFavoritoItem;
+        favoritosList.add(newFavoritoItem);
+        favoritoItem = null;
+    }
+
+    public void setHeComprado(ComprasItem item){
+        if(comprasList == null) {comprasList = new ArrayList<>();}
+        ComprasItem newComprasItem = new ComprasItem(item.getTitle(), item.getInfo(), 0);
+        comprasItem = newComprasItem;
+        comprasList.add(newComprasItem);
+        comprasItem = null;
+    }
+
+
+
+    public ArrayList<FavoritoItem> getLikedItems(){
+        return favoritosList;
+    }
+
+    public ArrayList<ComprasItem> getCompradoItems(){
+        return comprasList;
+    }
+
+
 
 
 }

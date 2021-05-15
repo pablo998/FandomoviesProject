@@ -1,6 +1,10 @@
 package com.example.fandomoviesproject.buscarSeries;
 
+import android.widget.TextView;
+
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.ComprasItem;
+import com.example.fandomoviesproject.data.FavoritoItem;
 import com.example.fandomoviesproject.data.SerieItem;
 
 import java.lang.ref.WeakReference;
@@ -44,24 +48,32 @@ public class SeriesBuscarPresenter implements SeriesBuscarContract.Presenter {
 
      */
 
-    private void passDataToFavoritosListActivity(SerieItem item) {
-        //  mediator.setLikedSerie(item);
+    private void passDataToFavoritosActivity(FavoritoItem item) {
+        mediator.setLiked(item);
     }
 
-    private void passDataToComprasListActivity(SerieItem item) {
-        //  mediator.setComprarSerie(item);
+
+    private void passDataToComprasListActivity(ComprasItem item) {
+        mediator.setHeComprado(item);
+    }
+
+
+    @Override
+    public void CorazonButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        FavoritoItem peliculaFavorita = new FavoritoItem(tituloFav, infoFav, 0, 0);
+        passDataToFavoritosActivity(peliculaFavorita);
+        view.get().añadidoConExitoWarning();
     }
 
     @Override
-    public void clickLike(SerieItem item) {
-        passDataToFavoritosListActivity(item);
-        view.get().changeCorazonColor();
-    }
-
-    @Override
-    public void clickComprar(SerieItem item) {
-        passDataToComprasListActivity(item);
-        view.get().goToPaginaWeb();
+    public void CarroButtonClicked(TextView titulo, TextView info) {
+        String tituloFav = titulo.getText().toString();
+        String infoFav = info.getText().toString();
+        ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
+        passDataToComprasListActivity(peliculaComprada);
+        //view.get().goToPaginaWeb();
     }
 
     @Override

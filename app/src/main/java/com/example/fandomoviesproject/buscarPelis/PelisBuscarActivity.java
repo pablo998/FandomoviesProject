@@ -4,11 +4,16 @@ package com.example.fandomoviesproject.buscarPelis;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.TypedArray;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.TabHost;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,8 +42,6 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
     private RecyclerView mRecyclerView;
     private Context context = this;
     private TabHost tabHost;
-    private ImageButton corazon;
-    private ImageButton carrito;
 
 
     @Override
@@ -68,7 +71,7 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         tabHost = findViewById(R.id.tabHostBuscar);
         tabHost.setup();
         setUpTabs();
-        linkButtonsCorazonAndCarrito();
+
 
         //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
 
@@ -107,10 +110,17 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
 
     }
 
-    private void linkButtonsCorazonAndCarrito() {
-        //TODO Por linkear imagebuttons
-
+    @Override
+    public void onClickCorazonButton(TextView titulo, TextView info){
+        presenter.CorazonButtonClicked(titulo, info);
     }
+
+    @Override
+    public void añadidoConExitoWarning(){
+        Toast.makeText(context,R.string.añadidoConExito, Toast.LENGTH_LONG).show();
+    }
+
+
 
     private void setUpTabs() {
         TabHost.TabSpec tabSpec = tabHost.newTabSpec("tab1");
@@ -140,7 +150,7 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
 
     @Override
     public void displayPelisBuscarData(PelisBuscarViewModel viewModel) {
-        //TODO pendiente para cuando REPOSITORIO este hecho
+        //TODO pendiente para cuando haya repositorio
     }
 
     @Override
@@ -149,10 +159,6 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         startActivity(intent);
     }
 
-    @Override
-    public void changeCorazonColor() {
-        //TODO POR IMPLEMENTAR changeCorazonColor
-    }
 
     @Override
     public void goToPaginaWeb() {
@@ -220,6 +226,7 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
                     imageLike.getResourceId(0, 0), imageCarro.getResourceId(0, 0))
             );
         }
+
         //sportsImageResources.recycle(); // Recycle typed array
         this.mAdapter.notifyDataSetChanged(); // Notify adapter of change
     }
@@ -230,10 +237,46 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         this.presenter = presenter;
     }
 
+
+
     @Override
-    public void onBackPressed()
-    {
-        finish();
+    protected void onResume(){
+        super.onResume();
+
+        //load data
+        // presenter.onResume();
     }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+
+        // presenter.onPause();
+    }
+
+
+    @Override
+    public void onBackPressed() {
+        super.onBackPressed();
+
+        // presenter.onBackPressed();
+    }
+
+
+
+
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+
+        //presenter.onDestroy();
+    }
+
+    @Override
+    public void onClickCarroButton(TextView titulo, TextView info){
+        presenter.CarroButtonClicked(titulo, info);
+    }
+
 
 }
