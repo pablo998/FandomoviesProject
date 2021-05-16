@@ -54,6 +54,7 @@ public class MenuActivity
         toogle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_home);
 
 
         // Show the title in the action bar

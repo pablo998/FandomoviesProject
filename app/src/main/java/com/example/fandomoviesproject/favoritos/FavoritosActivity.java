@@ -12,26 +12,35 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity;
+import com.example.fandomoviesproject.compras.ComprasActivity;
 import com.example.fandomoviesproject.data.PeliculaItem;
 import com.example.fandomoviesproject.favoritos.FavoritosAdapter;
 import com.example.fandomoviesproject.favoritos.FavoritosContract;
 import com.example.fandomoviesproject.favoritos.FavoritosScreen;
 import com.example.fandomoviesproject.favoritos.FavoritosViewModel;
 import com.example.fandomoviesproject.data.FavoritoItem;
+import com.example.fandomoviesproject.menu.MenuActivity;
+import com.example.fandomoviesproject.perfil.perfilActivity;
+import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 
 
-public class FavoritosActivity extends AppCompatActivity implements FavoritosContract.View {
+public class FavoritosActivity extends AppCompatActivity implements FavoritosContract.View, NavigationView.OnNavigationItemSelectedListener {
 
     public static String TAG = FavoritosActivity.class.getSimpleName();
     FavoritosContract.Presenter presenter;
@@ -43,13 +52,17 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
     private Context context = this;
     private ImageButton delete;
 
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_favoritos);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
         // Show the title in the action bar
@@ -84,6 +97,17 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
 
         // do some work
         presenter.fetchFavoritosData();
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawerLayout.addDrawerListener(toogle);
+        toogle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_fav);
     }
 
     private void linkButtonDelete() {
@@ -141,11 +165,11 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
         this.presenter = presenter;
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        finish();
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        finish();
+//    }
 
     @Override
     public void onClickDeleteButton(TextView mTitleText, TextView mInfoText) {
@@ -153,4 +177,42 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
         presenter.onClickDeleteButton(mTitleText,mInfoText);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_perfil:
+                Intent intent2 = new Intent(this, perfilActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_fav:
+                Intent intent3 = new Intent(this, FavoritosActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.nav_cart:
+                Intent intent4 = new Intent(this, ComprasActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.nav_help:
+                Intent intent5 = new Intent(this, AyudaActivity.class);
+                startActivity(intent5);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+
+        //presenter.onBackPressed();
+    }
 }
