@@ -4,6 +4,7 @@ package com.example.fandomoviesproject.compras;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,25 +12,37 @@ import android.view.MenuItem;
 import android.widget.Toast;
 
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
+import com.example.fandomoviesproject.menu.MenuActivity;
+import com.example.fandomoviesproject.perfil.perfilActivity;
+import com.google.android.material.navigation.NavigationView;
 
 
 import java.util.ArrayList;
 
 
-public class ComprasActivity extends AppCompatActivity implements ComprasContract.View {
+public class ComprasActivity extends AppCompatActivity implements ComprasContract.View, NavigationView.OnNavigationItemSelectedListener {
 
     public static String TAG = ComprasActivity.class.getSimpleName();
     ComprasContract.Presenter presenter;
     private ComprasAdapter mAdapter;
+
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    Toolbar toolbar;
 
     //TODO ESTO NO IRÍA AQUÍ
     private final ArrayList<ComprasItem> comprasList = new ArrayList<>();
@@ -42,7 +55,7 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_compras);
 
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
         // Show the title in the action bar
@@ -73,6 +86,18 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
 
         // do some work
         presenter.fetchComprasData();
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawerLayout.addDrawerListener(toogle);
+        toogle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_cart);
+
     }
 
 
@@ -143,11 +168,11 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
         this.presenter = presenter;
     }
 
-    @Override
-    public void onBackPressed()
-    {
-        finish();
-    }
+//    @Override
+//    public void onBackPressed()
+//    {
+//        finish();
+//    }
 
     @Override
     public void reiniciarPantalla()
@@ -155,4 +180,42 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
         recreate();
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_perfil:
+                Intent intent2 = new Intent(this, perfilActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_fav:
+                Intent intent3 = new Intent(this, FavoritosActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.nav_cart:
+                Intent intent4 = new Intent(this, ComprasActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.nav_help:
+                Intent intent5 = new Intent(this, AyudaActivity.class);
+                startActivity(intent5);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+
+        //presenter.onBackPressed();
+    }
 }
