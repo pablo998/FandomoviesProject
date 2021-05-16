@@ -199,6 +199,9 @@
     <string name="realizarcompraSerie">¿Quiere obtener productos acerca de esta serie?</string>
     <string name="realizarcompraDocu">¿Quiere obtener productos acerca de este documental?</string>
     <string name="usuario_de_prueba">fandomovie@ulpgc.es</string>
+    <string name="mi_perfil">Mi Perfil</string>
+    <string name="nav_drawer_open">Nav open</string>
+    <string name="nav_drawer_close">Nav close</string>
 
     <array name="buscar_docus_Titulos">
         <item>Titulo 13456</item>
