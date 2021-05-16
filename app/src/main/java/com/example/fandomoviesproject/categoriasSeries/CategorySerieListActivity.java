@@ -21,6 +21,7 @@ import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.compras.ComprasActivity;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
+import com.example.fandomoviesproject.menu.MenuActivity;
 import com.example.fandomoviesproject.perfil.perfilActivity;
 import com.google.android.material.navigation.NavigationView;
 
@@ -128,26 +129,29 @@ public class CategorySerieListActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_home:
-                Intent intent = new Intent(this, perfilActivity.class);
+                Intent intent = new Intent(this, MenuActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.nav_fav:
-                Intent intent2 = new Intent(this, FavoritosActivity.class);
+            case R.id.nav_perfil:
+                Intent intent2 = new Intent(this, perfilActivity.class);
                 startActivity(intent2);
                 break;
-            case R.id.nav_cart:
-                Intent intent3 = new Intent(this, ComprasActivity.class);
+            case R.id.nav_fav:
+                Intent intent3 = new Intent(this, FavoritosActivity.class);
                 startActivity(intent3);
                 break;
-            case R.id.nav_help:
-                Intent intent4 = new Intent(this, AyudaActivity.class);
+            case R.id.nav_cart:
+                Intent intent4 = new Intent(this, ComprasActivity.class);
                 startActivity(intent4);
+                break;
+            case R.id.nav_help:
+                Intent intent5 = new Intent(this, AyudaActivity.class);
+                startActivity(intent5);
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);
         return true;
     }
-
     @Override
     public void onBackPressed() {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
