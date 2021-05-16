@@ -1,5 +1,6 @@
 package com.example.fandomoviesproject.mainActivity;
 
+import android.text.Editable;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
@@ -27,6 +28,25 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
         state = mediator.getMainActivityState();
     }
 
+    @Override
+    public void updateView(){
+        if(state.numMoviloEmail != null){
+            view.get().updateEmailoNumMovil(state.numMoviloEmail);
+        }
+        if(state.contraseña != null){
+            view.get().updatePassword(state.contraseña);
+        }
+    }
+
+    @Override
+    public void textChanged(Editable text){
+        state.numMoviloEmail = text.toString();
+    }
+
+    @Override
+    public void passwordChanged(Editable password){
+        state.contraseña = password.toString();
+    }
 
     @Override
     public void onIniciarSesionButtonClick(TextView numMoviloEmail, TextView contraseña){

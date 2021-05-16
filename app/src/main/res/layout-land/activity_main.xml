@@ -34,7 +34,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/input"
+            android:id="@+id/inputLayoutEmailoNumMovil"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:foregroundTint="@color/black"
@@ -47,7 +47,7 @@
             app:passwordToggleEnabled="false">
 
             <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/input2"
+                android:id="@+id/inputEmailoNumMovil"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:backgroundTint="@color/white"

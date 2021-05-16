@@ -7,6 +7,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import com.example.fandomoviesproject.R;
@@ -31,8 +33,14 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        numMoviloEmailTyped = findViewById(R.id.inputEmailoNumMovil);
+        contraseña = findViewById(R.id.inputPassword);
+
         iniciarSesion = findViewById(R.id.botonIniciarSesion);
         botonRegistrate = findViewById(R.id.botonRegistrate);
+
+        numMoviloEmailTyped.addTextChangedListener(filterTextWatcher);
+        contraseña.addTextChangedListener(filterTextWatcherPassword);
 
         iniciarSesion.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -49,7 +57,51 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
         //do the setup
         MainActivityScreen.configure(this);
+
+        if(savedInstanceState != null){
+            presenter.updateView();
+        }
+
     }
+
+    private TextWatcher filterTextWatcher = new TextWatcher() {
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            presenter.textChanged((Editable) s);
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            presenter.textChanged(s);
+
+        }
+    };
+
+    private TextWatcher filterTextWatcherPassword = new TextWatcher() {
+
+        @Override
+        public void onTextChanged(CharSequence s, int start, int before, int count) {
+            presenter.passwordChanged((Editable) s);
+
+        }
+
+        @Override
+        public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+        }
+
+        @Override
+        public void afterTextChanged(Editable s) {
+            presenter.passwordChanged(s);
+
+        }
+    };
 
     public void navigateToMenuActivity() {
         Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
@@ -81,7 +133,20 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     }
 
     @Override
+    public void updateEmailoNumMovil(String  emailoNumMovil){
+        this.numMoviloEmailTyped.setText(emailoNumMovil);
+    }
+
+
+    @Override
+    public void updatePassword(String  password){
+        this.contraseña.setText(password);
+    }
+
+
+    @Override
     public void injectPresenter(MainActivityContract.Presenter presenter) {
         this.presenter = presenter;
     }
+
 }
