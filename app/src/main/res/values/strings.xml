@@ -202,6 +202,7 @@
     <string name="mi_perfil">Mi Perfil</string>
     <string name="nav_drawer_open">Nav open</string>
     <string name="nav_drawer_close">Nav close</string>
+    <string name="inicio">Inicio</string>
 
     <array name="buscar_docus_Titulos">
         <item>Titulo 13456</item>
