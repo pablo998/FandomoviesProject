@@ -4,8 +4,9 @@
 
     <item
         android:id="@+id/searchTool"
-        android:icon="@drawable/ic_lupa_negra"
+        android:icon="@drawable/ic_baseline_search_24"
         android:title="@string/buscarItem"
+        android:theme="@style/ToolbarTheme"
         app:showAsAction="always">
 
     </item>
