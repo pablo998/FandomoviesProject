@@ -55,7 +55,6 @@ public class MenuActivity
 
         navigationView.setNavigationItemSelectedListener(this);
 
-        navigationView.setCheckedItem(R.id.nav_home);
 
         // Show the title in the action bar
         ActionBar actionBar = getSupportActionBar();
