@@ -9,6 +9,7 @@ import com.example.fandomoviesproject.data.FavoritoItem;
 import com.example.fandomoviesproject.docuDetail.DocuDetailState;
 import com.example.fandomoviesproject.docusDeUnaCategoria.DocuListState;
 import com.example.fandomoviesproject.favoritos.FavoritosState;
+import com.example.fandomoviesproject.mainActivity.MainActivityState;
 import com.example.fandomoviesproject.menu.MenuState;
 
 import com.example.fandomoviesproject.data.DocuItem;
@@ -52,6 +53,9 @@ public class AppMediator {
     private FavoritosState favoritosState = new FavoritosState();
     private ComprasState comprasState = new ComprasState();
     private RegistrarseState registrarseState = new RegistrarseState();
+
+    //MainActivity
+    private MainActivityState mainActivityState = new MainActivityState();
 
     //Documentales
     private CategoryDocuListState categoryDocuListState = new CategoryDocuListState();
@@ -164,6 +168,10 @@ public class AppMediator {
     public RegistrarseState getRegistrarseState() {
         return registrarseState;
     }
+    public MainActivityState getMainActivityState() {
+        return mainActivityState;
+    }
+
 
 
 

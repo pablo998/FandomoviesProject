@@ -10,14 +10,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FandomoviesProject">
 
-        <activity android:name=".MainActivity">
-
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity android:name=".favoritos.FavoritosActivity">
 
             <intent-filter>
@@ -167,6 +159,13 @@
             </intent-filter>
         </activity>
         <activity android:name=".registrarse.RegistrarseActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".mainActivity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

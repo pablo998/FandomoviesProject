@@ -9,6 +9,8 @@
     <string name="nombre_app">Fandomovies</string>
     <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
     <string name="peliculas">Peliculas</string>
+    <string name="credencialesIncorrectasTitle">Credenciales incorrectas</string>
+    <string name="credencialesIncorrectas">Los datos que ha introducido no son correctos</string>
     <string name="camposporRellenarTitle">Faltan campos por rellenar</string>
     <string name="camposporRellenar">Rellene todos los campos para poder registrarse</string>
     <string name="emailYaEnUsoTitle">Email en uso</string>
