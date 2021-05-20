@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.cardview.widget.CardView;
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -29,7 +30,7 @@ public class MenuActivity
     public static String TAG = MenuActivity.class.getSimpleName();
 
     private MenuContract.Presenter presenter;
-    Button moviesButton, seriesButton, documentaryButton;
+    CardView moviesButton, seriesButton, documentaryButton;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
