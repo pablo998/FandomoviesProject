@@ -17,15 +17,21 @@ import androidx.appcompat.widget.Toolbar;
 import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.compras.ComprasActivity;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
 import com.example.fandomoviesproject.menu.MenuActivity;
 import com.example.fandomoviesproject.peliculaDetail.PeliculaDetailActivity;
 import com.example.fandomoviesproject.perfil.perfilActivity;
+import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListAdapter;
 import com.google.android.material.navigation.NavigationView;
 
 
@@ -36,8 +42,9 @@ public class PeliculaListActivity
 
     PeliculaListContract.Presenter presenter;
 
-    private ListView listView;
     private TextView categoriaElegida;
+    private PeliculaListAdapter listAdapter;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -50,15 +57,7 @@ public class PeliculaListActivity
         toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-        listView = findViewById(R.id.categories_movieslist2);
         categoriaElegida = findViewById(R.id.categoriaElegidaText);
-
-        // do the setup
-        PeliculaListScreen.configure(this);
-
-        // do some work
-        setCategoriaElegida();
-        presenter.fetchPeliculaListData();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -77,12 +76,32 @@ public class PeliculaListActivity
             actionBar.setTitle(R.string.peliculas);
         }
 
+        RecyclerView recyclerView = findViewById(R.id.categories_movieslist2);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new PeliculaListAdapter( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                PeliculaItemCatalog item = (PeliculaItemCatalog) view.getTag();
+                presenter.selectPeliculaListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
+
 
     /*
     if(savedInstanceState == null) {
       CatalogMediator.resetInstance();
     }
     */
+
+        // do the setup
+        PeliculaListScreen.configure(this);
+
+        // do some work
+        presenter.fetchPeliculaListData();
 
     }
 
@@ -93,16 +112,6 @@ public class PeliculaListActivity
         return true;
     }
 
-    private void setCategoriaElegida() {
-        categoriaElegida.setText("Categoría " + presenter.getIdReceived());
-    }
-
-    //TODO descomentar cuando haya repo el metodo de abajo
-    /*private void setCategoriaElegidaConRepositorio() {
-        categoriaElegida.setText(presenter.getCategoriaElegida());
-    }
-
-     */
 
 
     @Override
@@ -116,17 +125,19 @@ public class PeliculaListActivity
     public void displayPeliculaListData(PeliculaListViewModel viewModel) {
         Log.e(TAG, "displayPeliculaListData()");
 
-        // deal with the data
-        listView.setAdapter(new PeliculaListAdapter(
-                        this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        PeliculaItemCatalog item = (PeliculaItemCatalog) view.getTag();
-                        presenter.selectPeliculaListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                CategoryItemCatalog category = viewModel.category;
+                categoriaElegida.setText(category.content);
+
+
+                listAdapter.setItems(viewModel.products);
+            }
+        });
 
     }
 

@@ -146,7 +146,7 @@
                     android:layout_height="5dp" />
 
                 <TextView
-                    android:id="@+id/textView_repartoContenido"
+                    android:id="@+id/sinopsisContentPeli"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="10dp"
@@ -349,15 +349,15 @@
                         android:textColor="#5F70CF"
                         android:textSize="12sp" />
 
-<!--                    <TextView-->
-<!--                        android:id="@+id/textView_reparto_completo"-->
-<!--                        android:layout_width="match_parent"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="5sp"-->
-<!--                        android:text="@string/ver_reparto_completo"-->
-<!--                        android:textAlignment="center"-->
-<!--                        android:textColor="#5F70CF"-->
-<!--                        android:textStyle="bold" />-->
+                    <!--                    <TextView-->
+                    <!--                        android:id="@+id/textView_reparto_completo"-->
+                    <!--                        android:layout_width="match_parent"-->
+                    <!--                        android:layout_height="wrap_content"-->
+                    <!--                        android:padding="5sp"-->
+                    <!--                        android:text="@string/ver_reparto_completo"-->
+                    <!--                        android:textAlignment="center"-->
+                    <!--                        android:textColor="#5F70CF"-->
+                    <!--                        android:textStyle="bold" />-->
                 </LinearLayout>
 
             </LinearLayout>
@@ -550,15 +550,15 @@
                     android:textColor="#5F70CF"
                     android:textSize="12sp" />
 
-<!--                <TextView-->
-<!--                    android:id="@+id/textView_valoraciones_completo2"-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:padding="5sp"-->
-<!--                    android:text="@string/ver_valoraciones_completo"-->
-<!--                    android:textAlignment="center"-->
-<!--                    android:textColor="#5F70CF"-->
-<!--                    android:textStyle="bold" />-->
+                <!--                <TextView-->
+                <!--                    android:id="@+id/textView_valoraciones_completo2"-->
+                <!--                    android:layout_width="match_parent"-->
+                <!--                    android:layout_height="wrap_content"-->
+                <!--                    android:padding="5sp"-->
+                <!--                    android:text="@string/ver_valoraciones_completo"-->
+                <!--                    android:textAlignment="center"-->
+                <!--                    android:textColor="#5F70CF"-->
+                <!--                    android:textStyle="bold" />-->
             </LinearLayout>
 
         </LinearLayout>

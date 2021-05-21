@@ -4,6 +4,7 @@ import java.lang.ref.WeakReference;
 import java.util.List;
 
 import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.Repository;
 
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
@@ -30,12 +31,7 @@ interface CategoryListContract {
     }
 
     interface Model {
-        List<CategoryItemCatalog> fetchCategoryListData();
-        //TODO. QUEDA PENDIENTE
-        /*
         void fetchCategoryListData(
-                RepositoryContract.GetCategoryListCallback callback);
-
-         */
+                Repository.GetCategoryPeliListCallback callback);
     }
 }

@@ -6,7 +6,7 @@ import com.example.fandomoviesproject.data.CategoryItemCatalog;
 
 public class CategoryListViewModel {
 
-    public List<CategoryItemCatalog> products;
+    public List<CategoryItemCatalog> categories;
 
 }
 

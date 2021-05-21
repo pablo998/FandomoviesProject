@@ -6,16 +6,16 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
@@ -35,7 +35,7 @@ public class CategoryListActivity
 
     CategoryListContract.Presenter presenter;
 
-    private ListView listView;
+    private CategoryListAdapter listAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -54,13 +54,19 @@ public class CategoryListActivity
             actionBar.setTitle(getString(R.string.peliculas));
         }
 
-        listView = findViewById(R.id.categories_movieslist);
+        RecyclerView recyclerView = findViewById(R.id.categories_movieslist);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new CategoryListAdapter(new View.OnClickListener() {
 
-        // do the setup
-        CategoryListScreen.configure(this);
-
-        // do some work
-        presenter.fetchCategoryListData();
+            @Override
+            public void onClick(View view) {
+                CategoryItemCatalog item = (CategoryItemCatalog) view.getTag();
+                presenter.selectCategoryListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -71,6 +77,12 @@ public class CategoryListActivity
         toogle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        // do the setup
+        CategoryListScreen.configure(this);
+
+        // do some work
+        presenter.fetchCategoryListData();
 
     }
 
@@ -98,19 +110,18 @@ public class CategoryListActivity
 
     @Override
     public void displayCategoryListData(CategoryListViewModel viewModel) {
-        Log.e(TAG, "displayCategoryListData()");
+        Log.e(TAG, "displayCategoryPeliListData()");
 
-        // deal with the data
-        listView.setAdapter(new CategoryListAdapter(
-                        this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        CategoryItemCatalog item = (CategoryItemCatalog) view.getTag();
-                        presenter.selectCategoryListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                listAdapter.setItems(viewModel.categories);
+            }
+
+        });
 
     }
 

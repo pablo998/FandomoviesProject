@@ -1,8 +1,6 @@
 package com.example.fandomoviesproject.peliculaDetail;
 
 import java.lang.ref.WeakReference;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
-
 
 interface PeliculaDetailContract {
 
@@ -10,23 +8,18 @@ interface PeliculaDetailContract {
         void injectPresenter(Presenter presenter);
 
         void displayPeliculaDetailData(PeliculaDetailViewModel viewModel);
+        void navigateToURLtrailer(String URLtrailer);
     }
 
     interface Presenter {
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
-        String getPeliculaName();
-        // String getPeliculaNameConRepo();
+
+        void onClickTrailerButton();
         void fetchPeliculaDetailData();
     }
 
     interface Model {
-        //TODO. QUEDA PENDIENTE
-        /*
-        void fetchPeliculaDetailData(
-                RepositoryContract.GetPeliculaDetailCallback callback);
 
-         */
     }
-
 }

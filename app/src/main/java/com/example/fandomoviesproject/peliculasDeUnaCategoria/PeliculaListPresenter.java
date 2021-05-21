@@ -3,9 +3,14 @@ package com.example.fandomoviesproject.peliculasDeUnaCategoria;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 
 public class PeliculaListPresenter implements PeliculaListContract.Presenter {
@@ -39,37 +44,33 @@ public class PeliculaListPresenter implements PeliculaListContract.Presenter {
     }
 
 
-    @Override
-    public int getIdReceived(){
-        int idReceived = mediator.getProduct1().id;
-        return idReceived;
-    }
-/*
-    @Override
-    public String getCategoriaElegida(){
-        String categoriaElegida = mediator.getProduct1().content;
-        return categoriaElegida;
-    }
-
- */
-
     private void passDataToPeliculaDetailScreen(PeliculaItemCatalog item) {
         mediator.setPeliculaInPeliculaDetailScreen(item);
     }
 
+
     @Override
     public void fetchPeliculaListData() {
-        Log.e(TAG, "fetchPeliculaListData()");
+        // Log.e(TAG, "fetchPeliculaListData()");
 
-        int idReceived = getIdReceived();
-        if(idReceived != 0) {
-            model.createItemList(idReceived);
+        // set passed state
+        CategoryItemCatalog category = getDataFromCategoryPelisListScreen();
 
-            //Call the model
-            state.products = model.fetchPeliculaListData();
+        if (category != null) {
+            state.category = category;
         }
-        view.get().displayPeliculaListData(state);
 
+        // call the model
+        model.fetchPeliculaListData(state.category,
+                new RepositoryContract.GetPelisListCallback() {
+
+                    @Override
+                    public void setPelisList(List<PeliculaItemCatalog> products) {
+                        state.products = products;
+
+                        view.get().displayPeliculaListData(state);
+                    }
+                });
     }
 
 
@@ -77,6 +78,11 @@ public class PeliculaListPresenter implements PeliculaListContract.Presenter {
     public void selectPeliculaListData(PeliculaItemCatalog item) {
         passDataToPeliculaDetailScreen(item);
         view.get().navigateToPeliculaDetailScreen();
+    }
+
+    private CategoryItemCatalog getDataFromCategoryPelisListScreen() {
+        CategoryItemCatalog category = mediator.getProduct1();
+        return category;
     }
 
 

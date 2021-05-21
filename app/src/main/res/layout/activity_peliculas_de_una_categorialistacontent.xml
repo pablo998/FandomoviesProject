@@ -8,7 +8,7 @@
     app:cardBackgroundColor="@color/transparent">
 
     <TextView
-        android:id="@+id/documentalText"
+        android:id="@+id/peliculaTexto"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="27dp"

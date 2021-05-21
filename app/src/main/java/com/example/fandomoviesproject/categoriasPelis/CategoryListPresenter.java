@@ -3,9 +3,12 @@ package com.example.fandomoviesproject.categoriasPelis;
 import android.util.Log;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
@@ -40,26 +43,13 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
 
     @Override
     public void fetchCategoryListData() {
-        Log.e(TAG, "fetchCategoryListData()");
+        // Log.e(TAG, "fetchCategoryPeliListData()");
 
         // call the model
-        state.products = model.fetchCategoryListData();
-
-        view.get().displayCategoryListData(state);
-
-    }
-
-    //TODO ESTA METODO QUEDA PENDIENTE PARA CUANO SE IMPLEMENTE EL REPOSITORIO
-    /*
-    @Override
-    public void fetchCategoryListData() {
-        // Log.e(TAG, "fetchCategoryListData()");
-
-        // call the model
-        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
+        model.fetchCategoryListData(new RepositoryContract.GetCategoryPeliListCallback() {
 
             @Override
-            public void setCategoryList(List<CategoryItemCatalog> categories) {
+            public void setCategoryPeliList(List<CategoryItemCatalog> categories) {
                 state.categories = categories;
 
                 view.get().displayCategoryListData(state);
@@ -67,8 +57,6 @@ public class CategoryListPresenter implements CategoryListContract.Presenter {
         });
 
     }
-
-     */
 
     @Override
     public void selectCategoryListData(CategoryItemCatalog item) {

@@ -7,61 +7,72 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
+import java.util.ArrayList;
 import java.util.List;
 
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.categoriasSeries.CategorySerieListAdapter;
 import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 
-public class CategoryListAdapter extends ArrayAdapter<CategoryItemCatalog> {
+public class CategoryListAdapter extends RecyclerView.Adapter<CategoryListAdapter.ViewHolder> {
 
-    private final List<CategoryItemCatalog> itemList;
+    private List<CategoryItemCatalog> itemList;
     private final View.OnClickListener clickListener;
 
 
-    public CategoryListAdapter(
-            Context context, List<CategoryItemCatalog> items, View.OnClickListener listener) {
+    public CategoryListAdapter(View.OnClickListener listener) {
 
-        super(context, 0, items);
-
-        itemList = items;
+        itemList = new ArrayList();
         clickListener = listener;
     }
 
 
+    public void addItem(CategoryItemCatalog item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addItems(List<CategoryItemCatalog> items){
+        itemList.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<CategoryItemCatalog> items){
+        itemList = items;
+        notifyDataSetChanged();
+    }
+
+
     @Override
-    public int getCount() {
+    public int getItemCount() {
         return itemList.size();
     }
 
     @Override
-    public CategoryItemCatalog getItem(int position) {
-        return itemList.get(position);
+    public CategoryListAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_categorias_de_peliculaslista_content, parent, false);
+        return new CategoryListAdapter.ViewHolder(view);
     }
 
     @Override
-    public long getItemId(int position) {
-        return getItem(position).id;
+    public void onBindViewHolder(final CategoryListAdapter.ViewHolder holder, int position) {
+        holder.itemView.setTag(itemList.get(position));
+        holder.itemView.setOnClickListener(clickListener);
+
+        holder.contentView.setText(itemList.get(position).content);
+
     }
 
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View itemView = convertView;
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView contentView;
 
-        if (itemView == null) {
-            itemView = LayoutInflater
-                    .from(parent.getContext())
-                    .inflate(R.layout.activity_categorias_de_peliculaslista_content, parent, false);
+        ViewHolder(View view) {
+            super(view);
+            contentView = view.findViewById(R.id.categoriaText);
         }
-
-        itemView.setTag(itemList.get(position));
-        itemView.setOnClickListener(clickListener);
-
-        final TextView contentView = itemView.findViewById(R.id.categoriaText);
-        contentView.setText(itemList.get(position).content);
-
-        return itemView;
     }
-
-
 }
-
