@@ -16,14 +16,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.compras.ComprasActivity;
+import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
 import com.example.fandomoviesproject.menu.MenuActivity;
+import com.example.fandomoviesproject.peliculasDeUnaCategoria.PeliculaListAdapter;
 import com.example.fandomoviesproject.perfil.perfilActivity;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListAdapter;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListViewModel;
@@ -36,8 +42,9 @@ public class DocuListActivity
 
     private DocuListContract.Presenter presenter;
 
-    private ListView listView;
     private TextView categoriaElegida;
+    private DocuListAdapter listAdapter;
+
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -50,15 +57,7 @@ public class DocuListActivity
         toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-        listView = findViewById(R.id.categories_doculist2);
         categoriaElegida = findViewById(R.id.categoriaElegidaText);
-
-
-        // do the setup
-        DocuListScreen.configure(this);
-
-        setCategoriaElegida();
-        presenter.fetchDocuListData();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -75,6 +74,26 @@ public class DocuListActivity
             actionBar.setTitle(R.string.documentales);
         }
 
+        RecyclerView recyclerView = findViewById(R.id.categories_doculist2);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new DocuListAdapter( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                DocuItemCatalog item = (DocuItemCatalog) view.getTag();
+                presenter.selectDocuListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
+
+
+        // do the setup
+        DocuListScreen.configure(this);
+
+        // do some work
+        presenter.fetchDocuListData();
     }
 
     @Override
@@ -84,15 +103,6 @@ public class DocuListActivity
         return true;
     }
 
-    private void setCategoriaElegida() {
-        categoriaElegida.setText("Categoría " + presenter.getIdReceived());
-
-        //TODO descomentar cuando haya repo el metodo de abajo
-    /*private void setCategoriaElegidaConRepositorio() {
-        categoriaElegida.setText(presenter.getCategoriaElegida());
-
-     */
-    }
 
     @Override
     public void navigateToDocuDetailScreen() {
@@ -105,17 +115,19 @@ public class DocuListActivity
     public void displayDocuListData(DocuListViewModel viewModel) {
         Log.e(TAG, "displayDocuListData()");
 
-        // deal with the data
-        listView.setAdapter(new DocuListAdapter(
-                        this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        DocuItemCatalog item = (DocuItemCatalog) view.getTag();
-                        presenter.selectDocuListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                CategoryDocuItemCatalog category = viewModel.category;
+                categoriaElegida.setText(category.content);
+
+
+                listAdapter.setItems(viewModel.products);
+            }
+        });
 
     }
 

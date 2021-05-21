@@ -1,6 +1,10 @@
 package com.example.fandomoviesproject.docusDeUnaCategoria;
 
+import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListViewModel;
@@ -22,25 +26,13 @@ public interface DocuListContract {
     interface Presenter{
         void injectView(WeakReference<DocuListContract.View> view);
         void injectModel(DocuListContract.Model model);
+
         void fetchDocuListData();
         void selectDocuListData(DocuItemCatalog item);
-
-        int getIdReceived();
-        //TODO para cuando haya repo descomentar
-        //String getCategoriaElegida();
-
-
     }
 
     interface Model{
-        List<DocuItemCatalog> fetchDocuListData();
-        //TODO. QUEDA PENDIENTE
-        /*
-        void fetchSerieListData(
-                RepositoryContract.GetSerieListCallback callback);
-
-         */
-
-        void createItemList (int idReceived);
+        void fetchDocuListData(
+                CategoryDocuItemCatalog category, RepositoryContract.GetDocusListCallback callback);
     }
 }

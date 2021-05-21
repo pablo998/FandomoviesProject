@@ -3,11 +3,15 @@ package com.example.fandomoviesproject.docusDeUnaCategoria;
 import android.util.Log;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
 import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 public class DocuListPresenter implements DocuListContract.Presenter {
 
@@ -24,7 +28,6 @@ public class DocuListPresenter implements DocuListContract.Presenter {
     }
 
 
-
     @Override
     public void injectView(WeakReference<DocuListContract.View> view) {
         this.view = view;
@@ -35,11 +38,6 @@ public class DocuListPresenter implements DocuListContract.Presenter {
         this.model = model;
     }
 
-    @Override
-    public int getIdReceived(){
-        int idReceived = mediator.getProduct1Docu().id;
-        return idReceived;
-    }
 
     private void passDataToDocuDetailScreen(DocuItemCatalog item) {
         mediator.setDocuInDocuDetailScreen(item);
@@ -47,23 +45,38 @@ public class DocuListPresenter implements DocuListContract.Presenter {
 
     @Override
     public void fetchDocuListData() {
-        Log.e(TAG, "fetchDocuListData()");
+        // Log.e(TAG, "fetchDocuListData()");
 
-        int idReceived = getIdReceived();
-        if(idReceived != 0) {
-            model.createItemList(idReceived);
+        // set passed state
+        CategoryDocuItemCatalog category = getDataFromCategoryDocuListScreen();
 
-            //Call the model
-            state.products = model.fetchDocuListData();
+        if (category != null) {
+            state.category = category;
         }
-        view.get().displayDocuListData(state);
 
+        // call the model
+        model.fetchDocuListData(state.category,
+                new RepositoryContract.GetDocusListCallback() {
+
+                    @Override
+                    public void setDocusList(List<DocuItemCatalog> products) {
+                        state.products = products;
+
+                        view.get().displayDocuListData(state);
+                    }
+                });
     }
 
     @Override
     public void selectDocuListData(DocuItemCatalog item) {
         passDataToDocuDetailScreen(item);
         view.get().navigateToDocuDetailScreen();
+    }
+
+
+    private CategoryDocuItemCatalog getDataFromCategoryDocuListScreen() {
+        CategoryDocuItemCatalog category = mediator.getProduct1Docu();
+        return category;
     }
 
 

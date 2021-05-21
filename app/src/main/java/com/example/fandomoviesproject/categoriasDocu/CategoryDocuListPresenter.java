@@ -2,9 +2,12 @@ package com.example.fandomoviesproject.categoriasDocu;
 
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 public class CategoryDocuListPresenter implements CategoryDocuListContract.Presenter {
 
@@ -37,19 +40,26 @@ public class CategoryDocuListPresenter implements CategoryDocuListContract.Prese
     }
 
     @Override
-    public void fetchCategoryListData() {
+    public void fetchCategoryDocuListData() {
+        // Log.e(TAG, "fetchCategoryDocuListData()");
 
         // call the model
-        state.products = model.fetchCategoryDocuListData();
+        model.fetchCategoryDocuListData(new RepositoryContract.GetCategoryDocuListCallback() {
 
-        view.get().displayCategoryDocuListData(state);
+            @Override
+            public void setCategoryDocuList(List<CategoryDocuItemCatalog> categories) {
+                state.categories = categories;
+
+                view.get().displayCategoryDocuListData(state);
+            }
+        });
 
     }
 
     @Override
-    public void selectCategoryListData(CategoryDocuItemCatalog item) {
+    public void selectCategoryDocuListData(CategoryDocuItemCatalog item) {
         passDataToDocuScreen(item);
-        view.get().navigateToProductScreen();
+        view.get().navigateToProductDocuScreen();
 
     }
 

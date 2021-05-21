@@ -6,8 +6,10 @@ import android.util.Log;
 
 import androidx.room.Room;
 
+import com.example.fandomoviesproject.database.CategoryDocuDao;
 import com.example.fandomoviesproject.database.CategoryPeliDao;
 import com.example.fandomoviesproject.database.CategorySerieDao;
+import com.example.fandomoviesproject.database.DocuCategoryDao;
 import com.example.fandomoviesproject.database.FandomoviesDatabase;
 import com.example.fandomoviesproject.database.PeliCategoryDao;
 import com.example.fandomoviesproject.database.SerieCategoryDao;
@@ -527,4 +529,236 @@ public class Repository implements RepositoryContract {
 
         return json;
     }
+
+     /*
+    ---------------------------- DE AQUÍ HACIA ARRIBA PELIS, HACIA ABAJO DOCUS -----------------------------------------------------------
+     */
+
+    @Override
+    public void loadCatalogDocu(
+            final boolean clearFirst, final FetchCatalogDataDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(clearFirst) {
+                    database.clearAllTables();
+                }
+
+                boolean error = false;
+                if(getCategoryDocuDao().loadCategoriesDocu().size() == 0 ) {
+                    error = !loadCatalogDocuFromJSON(loadJSONDocuFromAsset());
+                }
+
+                if(callback != null) {
+                    callback.onCatalogDataDocuFetched(error);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getDocusList(
+            final CategoryDocuItemCatalog category, final GetDocusListCallback callback) {
+
+        getDocusList(category.id, callback);
+    }
+
+
+    @Override
+    public void getDocusList(
+            final int categoryId, final GetDocusListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setDocusList(getDocuCategoryDao().loadDocus(categoryId));
+                }
+            }
+        });
+
+    }
+
+
+    @Override
+    public void getDocu(final int id, final GetDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setDocu(getDocuCategoryDao().loadDocu(id));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getCategoryDocu(final int id, final GetCategoryDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setCategoryDocu(getCategoryDocuDao().loadCategoryDocu(id));
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getCategoryDocuList(final GetCategoryDocuListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setCategoryDocuList(getCategoryDocuDao().loadCategoriesDocu());
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void deleteDocu(
+            final DocuItemCatalog docu, final DeleteDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getDocuCategoryDao().deleteDocu(docu);
+                    callback.onDocuDeleted();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void updateDocu(
+            final DocuItemCatalog docu, final UpdateDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getDocuCategoryDao().updateDocu(docu);
+                    callback.onDocuUpdated();
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void deleteCategoryDocu(
+            final CategoryDocuItemCatalog category, final DeleteCategoryDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getCategoryDocuDao().deleteCategoryDocu(category);
+                    callback.onCategoryDocuDeleted();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void updateCategoryDocu(
+            final CategoryDocuItemCatalog category, final UpdateCategoryDocuCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getCategoryDocuDao().updateCategoryDocu(category);
+                    callback.onCategoryDocuUpdated();
+                }
+            }
+        });
+    }
+
+
+    private CategoryDocuDao getCategoryDocuDao() {
+        return database.categoryDocuDao();
+    }
+
+    private DocuCategoryDao getDocuCategoryDao() {
+        return database.docuCategoryDao();
+    }
+
+
+    private boolean loadCatalogDocuFromJSON(String json) {
+        Log.e(TAG, "loadCatalogDocuFromJSON()");
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(JSON_ROOTdocus);
+
+            if (jsonArray.length() > 0) {
+
+                final List<CategoryDocuItemCatalog> categories = Arrays.asList(
+                        gson.fromJson(jsonArray.toString(), CategoryDocuItemCatalog[].class)
+                );
+
+                for (CategoryDocuItemCatalog category: categories) {
+                    getCategoryDocuDao().insertCategory(category);
+                }
+
+                for (CategoryDocuItemCatalog category: categories) {
+                    for (DocuItemCatalog product: category.items) {
+                        product.categoryId = category.id;
+                        getDocuCategoryDao().insertProductDocu(product);
+                    }
+                }
+
+                return true;
+            }
+
+        } catch (JSONException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return false;
+    }
+
+    private String loadJSONDocuFromAsset() {
+        //Log.e(TAG, "loadJSONFromAsset()");
+
+        String json = null;
+
+        try {
+
+            InputStream is = context.getAssets().open(JSON_FILESDOCUS);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return json;
+    }
+
 }

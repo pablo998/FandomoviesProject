@@ -1,12 +1,8 @@
 package com.example.fandomoviesproject.docuDetail;
 
-import android.util.Log;
 
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
-import com.example.fandomoviesproject.data.PeliculaItemCatalog;
-import com.example.fandomoviesproject.data.SerieItemCatalog;
-
 import java.lang.ref.WeakReference;
 
 public class DocuDetailPresenter implements DocuDetailContract.Presenter {
@@ -34,11 +30,6 @@ public class DocuDetailPresenter implements DocuDetailContract.Presenter {
         this.model = model;
     }
 
-    @Override
-    public String getDocuName(){
-        int espacio = mediator.getProduct2Docu().content.indexOf(" ");
-        return mediator.getProduct2Docu().content.substring(espacio);
-    }
 
     private DocuItemCatalog getDataFromDocuListScreen() {
         DocuItemCatalog product = mediator.getProduct2Docu();
@@ -46,16 +37,31 @@ public class DocuDetailPresenter implements DocuDetailContract.Presenter {
     }
 
     @Override
+    public void onClickTrailerButton(){
+        view.get().navigateToURLtrailer(state.url_trailer);
+    }
+
+
+    @Override
     public void fetchDocuDetailData() {
-        Log.e(TAG, "fetchSerieDetailData()");
+        // Log.e(TAG, "fetchProductDetailData()");
 
         // set passed state
-        DocuItemCatalog product = getDataFromDocuListScreen();
-        if (product != null) {
-            state.product = product;
-            //Call the model
-            //TODO para cuando haya repo
-            // state.product = model.fetchSerieDetailData();
+        DocuItemCatalog serie = getDataFromDocuListScreen();
+        if(serie != null) {
+            state.product = serie;
+            state.content = serie.content;
+            state.fecha = serie.fecha;
+            state.url_trailer = serie.url_trailer;
+            state.url_imagen = serie.url_imagen;
+            state.sinopsis = serie.sinopsis;
+            state.actor1 = serie.actor1;
+            state.actor2 = serie.actor2;
+            state.actor3 = serie.actor3;
+            state.valoracion1 = serie.valoracion1;
+            state.valoracion2 = serie.valoracion2;
+            state.valoracion3 = serie.valoracion3;
+
         }
 
         view.get().displayDocuDetailData(state);

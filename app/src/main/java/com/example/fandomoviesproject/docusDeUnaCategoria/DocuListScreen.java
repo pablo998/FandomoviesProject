@@ -1,9 +1,9 @@
 package com.example.fandomoviesproject.docusDeUnaCategoria;
 
 import androidx.fragment.app.FragmentActivity;
-
 import com.example.fandomoviesproject.app.AppMediator;
-
+import com.example.fandomoviesproject.data.Repository;
+import com.example.fandomoviesproject.data.RepositoryContract;
 import java.lang.ref.WeakReference;
 
 public class DocuListScreen {
@@ -16,16 +16,12 @@ public class DocuListScreen {
 
 
         AppMediator mediator = AppMediator.getInstance();
-        //TODO Para cuando se haga el repo quitar descomentar linea de abajo
-        //RepositoryContract repository = CatalogRepository.getInstance(context.get());
+        RepositoryContract repository = Repository.getInstance(context.get());
 
         DocuListContract.Presenter presenter = new DocuListPresenter(mediator);
-        DocuListContract.Model model = new DocuListModel();
-        //TODO descomentar linea de abajo cuando repo este hecho
-        //SerieListModel model = new SerieListModel(repository);
+        DocuListModel model = new DocuListModel(repository);
         presenter.injectModel(model);
         presenter.injectView(new WeakReference<>(view));
-
         view.injectPresenter(presenter);
 
     }

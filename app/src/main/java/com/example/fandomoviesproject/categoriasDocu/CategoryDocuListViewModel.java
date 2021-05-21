@@ -6,6 +6,6 @@ import java.util.List;
 
 public class CategoryDocuListViewModel {
 
-    // put the view state here
-    public List<CategoryDocuItemCatalog> products;
+    // view state here
+    public List<CategoryDocuItemCatalog> categories;
 }

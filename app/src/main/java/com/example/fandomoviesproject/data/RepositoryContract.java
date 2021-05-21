@@ -134,4 +134,72 @@ public interface RepositoryContract {
     void updateCategoryPeli(
             CategoryItemCatalog category, Repository.UpdateCategoryPeliCallback callback);
 
+     /*
+    ---------------------------- DE AQUÍ HACIA ARRIBA PELIS, HACIA ABAJO DOCUS -----------------------------------------
+     */
+
+    interface FetchCatalogDataDocuCallback {
+        void onCatalogDataDocuFetched(boolean error);
+    }
+
+    interface GetDocusListCallback {
+        void setDocusList(List<DocuItemCatalog> docus);
+    }
+
+    interface GetDocuCallback {
+        void setDocu(DocuItemCatalog docu);
+    }
+
+    interface GetCategoryDocuListCallback {
+        void setCategoryDocuList(List<CategoryDocuItemCatalog> categories);
+    }
+
+    interface GetCategoryDocuCallback {
+        void setCategoryDocu(CategoryDocuItemCatalog category);
+    }
+
+    interface DeleteCategoryDocuCallback {
+        void onCategoryDocuDeleted();
+    }
+
+    interface UpdateCategoryDocuCallback {
+        void onCategoryDocuUpdated();
+    }
+
+    interface DeleteDocuCallback {
+        void onDocuDeleted();
+    }
+
+    interface UpdateDocuCallback {
+        void onDocuUpdated();
+    }
+
+
+    void loadCatalogDocu(
+            boolean clearFirst, Repository.FetchCatalogDataDocuCallback callback);
+
+    void getDocusList(
+            CategoryDocuItemCatalog category, Repository.GetDocusListCallback callback);
+
+    void getDocusList(
+            int categoryId, Repository.GetDocusListCallback callback);
+
+    void getDocu(int id, Repository.GetDocuCallback callback);
+    void getCategoryDocu(int id, Repository.GetCategoryDocuCallback callback);
+    void getCategoryDocuList(Repository.GetCategoryDocuListCallback callback);
+
+    void deleteDocu(
+            DocuItemCatalog product, Repository.DeleteDocuCallback callback);
+
+    void updateDocu(
+            DocuItemCatalog product, Repository.UpdateDocuCallback callback);
+
+    void deleteCategoryDocu(
+            CategoryDocuItemCatalog category, Repository.DeleteCategoryDocuCallback callback);
+
+    void updateCategoryDocu(
+            CategoryDocuItemCatalog category, Repository.UpdateCategoryDocuCallback callback);
+
+
 }
+

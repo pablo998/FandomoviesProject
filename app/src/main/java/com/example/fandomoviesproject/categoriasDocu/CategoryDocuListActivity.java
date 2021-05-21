@@ -17,11 +17,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
+import com.example.fandomoviesproject.categoriasPelis.CategoryListAdapter;
 import com.example.fandomoviesproject.compras.ComprasActivity;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
 import com.example.fandomoviesproject.menu.MenuActivity;
 import com.example.fandomoviesproject.perfil.perfilActivity;
@@ -35,7 +39,7 @@ public class CategoryDocuListActivity
 
     CategoryDocuListContract.Presenter presenter;
 
-    private ListView listView;
+    private CategoryDocuListAdapter listAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -54,14 +58,20 @@ public class CategoryDocuListActivity
             actionBar.setTitle(getString(R.string.documentaries));
         }
 
-        listView = findViewById(R.id.categories_doculist);
+        RecyclerView recyclerView = findViewById(R.id.categories_doculist);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new CategoryDocuListAdapter(new View.OnClickListener() {
 
+            @Override
+            public void onClick(View view) {
+                CategoryDocuItemCatalog item = (CategoryDocuItemCatalog) view.getTag();
+                presenter.selectCategoryDocuListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
 
-
-        // do the setup
-        CategoryDocuListScreen.configure(this);
-
-        presenter.fetchCategoryListData();
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -72,6 +82,12 @@ public class CategoryDocuListActivity
         toogle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+        // do the setup
+        CategoryDocuListScreen.configure(this);
+
+        //do some work
+        presenter.fetchCategoryDocuListData();
 
     }
 
@@ -96,23 +112,29 @@ public class CategoryDocuListActivity
 
     @Override
     public void displayCategoryDocuListData(CategoryDocuListViewModel viewModel) {
-        Log.e(TAG, "displayCategoryListData()");
+        Log.e(TAG, "displayCategoryDocuListData()");
 
-        // deal with the data
-        listView.setAdapter(new CategoryDocuListAdapter(this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        CategoryDocuItemCatalog item = (CategoryDocuItemCatalog) view.getTag();
-                        presenter.selectCategoryListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                if(listAdapter !=null){
+                    listAdapter.setItems(viewModel.categories);
+                    Log.e(TAG, "NO ES NULL EL ADAPTER");
+                }else{
+                    Log.e(TAG, "ES NULL EL ADAPTER");
+                }
+
+            }
+
+        });
 
     }
 
     @Override
-    public void navigateToProductScreen() {
+    public void navigateToProductDocuScreen() {
         Intent intent = new Intent(this, com.example.fandomoviesproject.docusDeUnaCategoria.DocuListActivity.class);
         //intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         startActivity(intent);

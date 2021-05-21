@@ -1,7 +1,10 @@
 package com.example.fandomoviesproject.categoriasDocu;
 
+import android.util.Log;
+
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,32 +13,30 @@ public class CategoryDocuListModel implements CategoryDocuListContract.Model {
 
     public static String TAG = CategoryDocuListModel.class.getSimpleName();
 
-    private final List<CategoryDocuItemCatalog> itemList = new ArrayList<>();
-    private final int COUNT = 20;
+    private RepositoryContract repository;
 
+    public CategoryDocuListModel(RepositoryContract repository) {
+        this.repository = repository;
 
-
-    public CategoryDocuListModel() {
-        for (int index = 1; index <= COUNT; index++) {
-            addProduct(createProduct(index));
-        }
-    }
-
-    private void addProduct(CategoryDocuItemCatalog item) {
-        itemList.add(item);
     }
 
     @Override
-    public List<CategoryDocuItemCatalog> fetchCategoryDocuListData() {
-        return itemList;
+    public void fetchCategoryDocuListData(
+            final RepositoryContract.GetCategoryDocuListCallback callback) {
+
+        Log.e(TAG, "fetchCategoryDocuListData()");
+
+        repository.loadCatalogDocu(
+                true, new RepositoryContract.FetchCatalogDataDocuCallback() {
+
+                    @Override
+                    public void onCatalogDataDocuFetched(boolean error) {
+                        if(!error) {
+                            repository.getCategoryDocuList(callback);
+                        }
+                    }
+                });
+
     }
 
-    private CategoryDocuItemCatalog createProduct(int position) {
-        String content = "CATEGORÍA " + position;
-
-        return new CategoryDocuItemCatalog(
-                position, content
-        );
-
-    }
 }

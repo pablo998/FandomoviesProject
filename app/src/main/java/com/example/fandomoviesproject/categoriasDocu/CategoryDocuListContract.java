@@ -4,6 +4,7 @@ package com.example.fandomoviesproject.categoriasDocu;
 import com.example.fandomoviesproject.categoriasSeries.CategorySerieListViewModel;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.Repository;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -15,7 +16,7 @@ public interface CategoryDocuListContract {
 
         void displayCategoryDocuListData(CategoryDocuListViewModel viewModel);
 
-        void navigateToProductScreen();
+        void navigateToProductDocuScreen();
     }
 
     interface Presenter{
@@ -24,13 +25,13 @@ public interface CategoryDocuListContract {
 
         void injectModel(CategoryDocuListContract.Model model);
 
-        void fetchCategoryListData();
+        void fetchCategoryDocuListData();
 
-        void selectCategoryListData(CategoryDocuItemCatalog item);
+        void selectCategoryDocuListData(CategoryDocuItemCatalog item);
     }
 
     interface Model{
-        List<CategoryDocuItemCatalog> fetchCategoryDocuListData();
-        //TODO. QUEDA PENDIENTE
+        void fetchCategoryDocuListData(
+                Repository.GetCategoryDocuListCallback callback);
     }
 }
