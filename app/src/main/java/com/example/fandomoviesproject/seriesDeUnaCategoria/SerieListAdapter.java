@@ -7,61 +7,71 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import androidx.recyclerview.widget.RecyclerView;
+
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class SerieListAdapter extends ArrayAdapter<SerieItemCatalog> {
+public class SerieListAdapter extends RecyclerView.Adapter<SerieListAdapter.ViewHolder> {
 
-    private final List<SerieItemCatalog> itemList;
+    private List<SerieItemCatalog> itemList;
     private final View.OnClickListener clickListener;
 
 
-    public SerieListAdapter(
-            Context context, List<SerieItemCatalog> items, View.OnClickListener listener) {
+    public SerieListAdapter(View.OnClickListener listener) {
 
-        super(context, 0, items);
-
-        itemList = items;
+        itemList = new ArrayList();
         clickListener = listener;
     }
 
 
+
+
+    public void addItem(SerieItemCatalog item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addItems(List<SerieItemCatalog> items){
+        itemList.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<SerieItemCatalog> items){
+        itemList = items;
+        notifyDataSetChanged();
+    }
+
     @Override
-    public int getCount() {
+    public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_series_de_una_categorialistacontent, parent, false);
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final ViewHolder holder, int position) {
+        holder.contentView.setText(itemList.get(position).content);
+
+        holder.itemView.setTag(itemList.get(position));
+        holder.itemView.setOnClickListener(clickListener);
+    }
+
+    @Override
+    public int getItemCount() {
         return itemList.size();
     }
 
-    @Override
-    public SerieItemCatalog getItem(int position) {
-        return itemList.get(position);
-    }
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView contentView;
 
-    @Override
-    public long getItemId(int position) {
-        return getItem(position).id;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        View itemView = convertView;
-
-        if (itemView == null) {
-            itemView = LayoutInflater
-                    .from(parent.getContext())
-                    .inflate(R.layout.activity_series_de_una_categorialistacontent, parent, false);
+        ViewHolder(View view) {
+            super(view);
+            contentView = view.findViewById(R.id.serieText);
         }
-
-        itemView.setTag(itemList.get(position));
-        itemView.setOnClickListener(clickListener);
-
-        final TextView contentView = itemView.findViewById(R.id.serieText);
-        contentView.setText(itemList.get(position).content);
-
-        return itemView;
     }
-
-
 }
 

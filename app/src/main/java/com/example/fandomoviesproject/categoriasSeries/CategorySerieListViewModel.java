@@ -6,7 +6,7 @@ import java.util.List;
 
 public class CategorySerieListViewModel {
 
-    public List<CategorySerieItemCatalog> products;
+    public List<CategorySerieItemCatalog> categories;
 
 }
 

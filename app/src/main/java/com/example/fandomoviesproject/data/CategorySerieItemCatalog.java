@@ -1,24 +1,27 @@
 package com.example.fandomoviesproject.data;
 
-import java.util.ArrayList;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
+
+import com.google.gson.annotations.SerializedName;
+
 import java.util.List;
 
+@Entity(tableName = "categoriesSeries")
 public class CategorySerieItemCatalog {
 
-    public final List<SerieItemCatalog> items;
-    public final int id;
-    public final String content;
+    @PrimaryKey
+    public int id;
 
-    public CategorySerieItemCatalog(int id, String content){
-        items = new ArrayList<>();
-        this.id = id;
-        this.content = content;
-    }
+    public String content;
+
+    @Ignore
+    @SerializedName("productsSeries")
+    public List<SerieItemCatalog> items;
 
     @Override
-    public String toString(){
-        return super.toString();
+    public String toString() {
+        return content;
     }
-
-
 }

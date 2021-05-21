@@ -11,10 +11,15 @@ import com.example.fandomoviesproject.data.PeliculaItemCatalog;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 
-@Database(entities = { CategoryItemCatalog.class, PeliculaItemCatalog.class}, version = 2)
+@Database(entities = { CategoryItemCatalog.class, PeliculaItemCatalog.class,
+        CategorySerieItemCatalog.class, SerieItemCatalog.class}, version = 1)
 public abstract class FandomoviesDatabase extends RoomDatabase {
 
     public abstract  CategoryPeliDao categoryPeliDao();
     public abstract PeliCategoryDao peliCategoryDao();
+
+    public abstract  CategorySerieDao categorySerieDao();
+    public abstract SerieCategoryDao serieCategoryDao();
+
 
 }

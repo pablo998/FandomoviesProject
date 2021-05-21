@@ -6,8 +6,10 @@ import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
+
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 
 public class CategorySerieListPresenter implements CategorySerieListContract.Presenter {
@@ -38,40 +40,26 @@ public class CategorySerieListPresenter implements CategorySerieListContract.Pre
         mediator.setCategoriaInSerieListScreen(item);
     }
 
+
     @Override
-    public void fetchCategoryListData() {
-        Log.e(TAG, "fetchCategoryListData()");
+    public void fetchCategorySerieListData() {
+        // Log.e(TAG, "fetchCategorySerieListData()");
 
         // call the model
-        state.products = model.fetchCategorySerieListData();
-
-        view.get().displayCategorySerieListData(state);
-
-    }
-
-    //TODO ESTA METODO QUEDA PENDIENTE PARA CUANO SE IMPLEMENTE EL REPOSITORIO
-    /*
-    @Override
-    public void fetchCategoryListData() {
-        // Log.e(TAG, "fetchCategoryListData()");
-
-        // call the model
-        model.fetchCategoryListData(new RepositoryContract.GetCategoryListCallback() {
+        model.fetchCategorySerieListData(new RepositoryContract.GetCategorySerieListCallback() {
 
             @Override
-            public void setCategoryList(List<CategoryItemCatalog> categories) {
+            public void setCategorySerieList(List<CategorySerieItemCatalog> categories) {
                 state.categories = categories;
 
-                view.get().displayCategoryListData(state);
+                view.get().displayCategorySerieListData(state);
             }
         });
 
     }
 
-     */
-
     @Override
-    public void selectCategoryListData(CategorySerieItemCatalog item) {
+    public void selectCategorySerieListData(CategorySerieItemCatalog item) {
         passDataToSerieScreen(item);
         view.get().navigateToProductScreen();
     }

@@ -7,8 +7,10 @@ import android.util.Log;
 import androidx.room.Room;
 
 import com.example.fandomoviesproject.database.CategoryPeliDao;
+import com.example.fandomoviesproject.database.CategorySerieDao;
 import com.example.fandomoviesproject.database.FandomoviesDatabase;
 import com.example.fandomoviesproject.database.PeliCategoryDao;
+import com.example.fandomoviesproject.database.SerieCategoryDao;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
@@ -62,6 +64,242 @@ public class Repository implements RepositoryContract {
         ).fallbackToDestructiveMigration().build();
 
     }
+
+
+        /*
+    ---------------------------- DE AQUÍ HACIA ABAJO SERIES -----------------------------------------------------------
+     */
+
+    @Override
+    public void loadCatalogSerie(
+            final boolean clearFirst, final FetchCatalogDataSerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(clearFirst) {
+                    database.clearAllTables();
+                }
+
+                boolean error = false;
+                if(getCategorySerieDao().loadCategoriesSeries().size() == 0 ) {
+                    error = !loadCatalogSerieFromJSON(loadJSONSeriesFromAsset());
+                }
+
+                if(callback != null) {
+                    callback.onCatalogDataSerieFetched(error);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getSeriesList(
+            final CategorySerieItemCatalog category, final GetSeriesListCallback callback) {
+
+        getSeriesList(category.id, callback);
+    }
+
+
+    @Override
+    public void getSeriesList(
+            final int categoryId, final GetSeriesListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setSeriesList(getSerieCategoryDao().loadSeries(categoryId));
+                }
+            }
+        });
+
+    }
+
+
+    @Override
+    public void getSerie(final int id, final GetSerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setSerie(getSerieCategoryDao().loadSerie(id));
+                }
+            }
+        });
+    }
+
+    @Override
+    public void getCategorySerie(final int id, final GetCategorySerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setCategorySerie(getCategorySerieDao().loadCategorySerie(id));
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getCategorySerieList(final GetCategorySerieListCallback callback) {
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    callback.setCategorySerieList(getCategorySerieDao().loadCategoriesSeries());
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void deleteSerie(
+            final SerieItemCatalog serie, final DeleteSerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getSerieCategoryDao().deleteSerie(serie);
+                    callback.onSerieDeleted();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void updateSerie(
+            final SerieItemCatalog serie, final UpdateSerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getSerieCategoryDao().updateSerie(serie);
+                    callback.onSerieUpdated();
+                }
+            }
+        });
+    }
+
+
+    @Override
+    public void deleteCategorySerie(
+            final CategorySerieItemCatalog category, final DeleteCategorySerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getCategorySerieDao().deleteCategorySerie(category);
+                    callback.onCategorySerieDeleted();
+                }
+            }
+        });
+    }
+
+    @Override
+    public void updateCategorySerie(
+            final CategorySerieItemCatalog category, final UpdateCategorySerieCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if(callback != null) {
+                    getCategorySerieDao().updateCategorySerie(category);
+                    callback.onCategorySerieUpdated();
+                }
+            }
+        });
+    }
+
+
+    private CategorySerieDao getCategorySerieDao() {
+        return database.categorySerieDao();
+    }
+
+    private SerieCategoryDao getSerieCategoryDao() {
+        return database.serieCategoryDao();
+    }
+
+
+    private boolean loadCatalogSerieFromJSON(String json) {
+        Log.e(TAG, "loadCatalogSerieFromJSON()");
+
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        Gson gson = gsonBuilder.create();
+
+        try {
+
+            JSONObject jsonObject = new JSONObject(json);
+            JSONArray jsonArray = jsonObject.getJSONArray(JSON_ROOTseries);
+
+            if (jsonArray.length() > 0) {
+
+                final List<CategorySerieItemCatalog> categories = Arrays.asList(
+                        gson.fromJson(jsonArray.toString(), CategorySerieItemCatalog[].class)
+                );
+
+                for (CategorySerieItemCatalog category: categories) {
+                    getCategorySerieDao().insertCategory(category);
+                }
+
+                for (CategorySerieItemCatalog category: categories) {
+                    for (SerieItemCatalog product: category.items) {
+                        product.categoryId = category.id;
+                        getSerieCategoryDao().insertProduct(product);
+                    }
+                }
+
+                return true;
+            }
+
+        } catch (JSONException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return false;
+    }
+
+    private String loadJSONSeriesFromAsset() {
+        //Log.e(TAG, "loadJSONFromAsset()");
+
+        String json = null;
+
+        try {
+
+            InputStream is = context.getAssets().open(JSON_FILESSERIES);
+            int size = is.available();
+            byte[] buffer = new byte[size];
+            is.read(buffer);
+            is.close();
+            json = new String(buffer, "UTF-8");
+
+        } catch (IOException error) {
+            Log.e(TAG, "error: " + error);
+        }
+
+        return json;
+    }
+
+    /*
+    ---------------------------- DE AQUÍ HACIA ARRIBA SERIES, HACIA ABAJO PELIS -----------------------------------------
+     */
 
     @Override
     public void loadCatalogPeli(

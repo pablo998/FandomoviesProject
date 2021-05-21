@@ -1,6 +1,7 @@
 package com.example.fandomoviesproject.categoriasSeries;
 
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.Repository;
 
 import java.lang.ref.WeakReference;
 import java.util.List;
@@ -24,18 +25,13 @@ interface CategorySerieListContract {
 
         void injectModel(Model model);
 
-        void fetchCategoryListData();
+        void fetchCategorySerieListData();
 
-        void selectCategoryListData(CategorySerieItemCatalog item);
+        void selectCategorySerieListData(CategorySerieItemCatalog item);
     }
 
     interface Model {
-        List<CategorySerieItemCatalog> fetchCategorySerieListData();
-        //TODO. QUEDA PENDIENTE
-        /*
         void fetchCategorySerieListData(
-                RepositoryContract.GetCategoryListCallback callback);
-
-         */
+                Repository.GetCategorySerieListCallback callback);
     }
 }

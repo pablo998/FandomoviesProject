@@ -16,10 +16,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.compras.ComprasActivity;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 import com.example.fandomoviesproject.favoritos.FavoritosActivity;
 import com.example.fandomoviesproject.menu.MenuActivity;
@@ -39,8 +42,9 @@ public class SerieListActivity
 
     SerieListContract.Presenter presenter;
 
-    private ListView listView;
     private TextView categoriaElegida;
+    private SerieListAdapter listAdapter;
+
 
     DrawerLayout drawerLayout;
     NavigationView navigationView;
@@ -54,15 +58,8 @@ public class SerieListActivity
         toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
-        listView = findViewById(R.id.categories_serieslist2);
         categoriaElegida = findViewById(R.id.categoriaElegidaText);
 
-        // do the setup
-        SerieListScreen.configure(this);
-
-        // do some work
-        setCategoriaElegida();
-        presenter.fetchSerieListData();
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
 
@@ -80,12 +77,31 @@ public class SerieListActivity
             actionBar.setTitle(R.string.series);
         }
 
+        RecyclerView recyclerView = findViewById(R.id.categories_serieslist2);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new SerieListAdapter( new View.OnClickListener() {
+
+            @Override
+            public void onClick(View view) {
+                SerieItemCatalog item = (SerieItemCatalog) view.getTag();
+                presenter.selectSerieListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
 
     /*
     if(savedInstanceState == null) {
       CatalogMediator.resetInstance();
     }
     */
+
+        // do the setup
+        SerieListScreen.configure(this);
+
+        // do some work
+        presenter.fetchSerieListData();
 
     }
 
@@ -96,16 +112,6 @@ public class SerieListActivity
         return true;
     }
 
-    private void setCategoriaElegida() {
-        categoriaElegida.setText("Categoría " + presenter.getIdReceived());
-    }
-
-    //TODO descomentar cuando haya repo el metodo de abajo
-    /*private void setCategoriaElegidaConRepositorio() {
-        categoriaElegida.setText(presenter.getCategoriaElegida());
-    }
-
-     */
 
 
     @Override
@@ -117,19 +123,21 @@ public class SerieListActivity
 
     @Override
     public void displaySerieListData(SerieListViewModel viewModel) {
-        Log.e(TAG, "displaySerieListData()");
+        Log.e(TAG, "displayProductListData()");
 
-        // deal with the data
-        listView.setAdapter(new SerieListAdapter(
-                        this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        SerieItemCatalog item = (SerieItemCatalog) view.getTag();
-                        presenter.selectSerieListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                CategorySerieItemCatalog category = viewModel.category;
+                categoriaElegida.setText(category.content);
+
+
+                listAdapter.setItems(viewModel.products);
+            }
+        });
 
     }
 

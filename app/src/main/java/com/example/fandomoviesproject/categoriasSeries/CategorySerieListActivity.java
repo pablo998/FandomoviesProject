@@ -6,7 +6,6 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.ListView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -15,6 +14,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.ayuda.AyudaActivity;
@@ -33,7 +34,7 @@ public class CategorySerieListActivity
 
     CategorySerieListContract.Presenter presenter;
 
-    private ListView listView;
+    private CategorySerieListAdapter listAdapter;
     DrawerLayout drawerLayout;
     NavigationView navigationView;
     Toolbar toolbar;
@@ -52,13 +53,19 @@ public class CategorySerieListActivity
             actionBar.setTitle(getString(R.string.series));
         }
 
-        listView = findViewById(R.id.categories_serieslist);
+        RecyclerView recyclerView = findViewById(R.id.categories_serieslist);
+        LinearLayoutManager manager = new LinearLayoutManager(this);
+        recyclerView.setLayoutManager(manager);
+        recyclerView.setHasFixedSize(true);
+        listAdapter = new CategorySerieListAdapter(new View.OnClickListener() {
 
-        // do the setup
-        CategorySerieListScreen.configure(this);
-
-        // do some work
-        presenter.fetchCategoryListData();
+            @Override
+            public void onClick(View view) {
+                CategorySerieItemCatalog item = (CategorySerieItemCatalog) view.getTag();
+                presenter.selectCategorySerieListData(item);
+            }
+        });
+        recyclerView.setAdapter(listAdapter);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
@@ -69,6 +76,13 @@ public class CategorySerieListActivity
         toogle.syncState();
 
         navigationView.setNavigationItemSelectedListener(this);
+
+
+        // do the setup
+        CategorySerieListScreen.configure(this);
+
+        // do some work
+        presenter.fetchCategorySerieListData();
     }
 
 
@@ -94,20 +108,19 @@ public class CategorySerieListActivity
     }
 
     @Override
-    public void displayCategorySerieListData(CategorySerieListViewModel viewModel) {
-        Log.e(TAG, "displayCategoryListData()");
+    public void displayCategorySerieListData(final CategorySerieListViewModel viewModel) {
+        Log.e(TAG, "displayCategorySerieListData()");
 
-        // deal with the data
-        listView.setAdapter(new CategorySerieListAdapter(
-                        this, viewModel.products, new View.OnClickListener() {
+        runOnUiThread(new Runnable() {
 
-                    @Override
-                    public void onClick(View view) {
-                        CategorySerieItemCatalog item = (CategorySerieItemCatalog) view.getTag();
-                        presenter.selectCategoryListData(item);
-                    }
-                })
-        );
+            @Override
+            public void run() {
+
+                // deal with the data
+                listAdapter.setItems(viewModel.categories);
+            }
+
+        });
 
     }
 

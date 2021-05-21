@@ -39,37 +39,36 @@ public class SerieDetailPresenter implements SerieDetailContract.Presenter {
     }
 
 
-    @Override
-    public String getSerieName(){
-        int espacio = mediator.getProduct2Serie().content.indexOf(" ");
-        return mediator.getProduct2Serie().content.substring(espacio);
-    }
-
-
-    /*@Override
-    public String getSerieNameConRepo(){
-        String nombreSerie = mediator.getProduct2Serie().content;
-        return nombreSerie;
-    }
-
-     */
-
     private SerieItemCatalog getDataFromSerieListScreen() {
         SerieItemCatalog product = mediator.getProduct2Serie();
         return product;
     }
 
     @Override
+    public void onClickTrailerButton(){
+        view.get().navigateToURLtrailer(state.url_trailer);
+    }
+
+    @Override
     public void fetchSerieDetailData() {
-        Log.e(TAG, "fetchSerieDetailData()");
+        // Log.e(TAG, "fetchProductDetailData()");
 
         // set passed state
-        SerieItemCatalog product = getDataFromSerieListScreen();
-        if (product != null) {
-            state.product = product;
-            //Call the model
-            //TODO para cuando haya repo
-           // state.product = model.fetchSerieDetailData();
+        SerieItemCatalog serie = getDataFromSerieListScreen();
+        if(serie != null) {
+            state.product = serie;
+            state.content = serie.content;
+            state.fecha = serie.fecha;
+            state.url_trailer = serie.url_trailer;
+            state.url_imagen = serie.url_imagen;
+            state.sinopsis = serie.sinopsis;
+            state.actor1 = serie.actor1;
+            state.actor2 = serie.actor2;
+            state.actor3 = serie.actor3;
+            state.valoracion1 = serie.valoracion1;
+            state.valoracion2 = serie.valoracion2;
+            state.valoracion3 = serie.valoracion3;
+
         }
 
         view.get().displaySerieDetailData(state);

@@ -3,11 +3,14 @@ package com.example.fandomoviesproject.seriesDeUnaCategoria;
 import android.util.Log;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListContract;
 import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListState;
 
 import java.lang.ref.WeakReference;
+import java.util.List;
 
 
 public class SerieListPresenter implements SerieListContract.Presenter {
@@ -40,19 +43,6 @@ public class SerieListPresenter implements SerieListContract.Presenter {
     }
 
 
-    @Override
-    public int getIdReceived(){
-        int idReceived = mediator.getProduct1Serie().id;
-        return idReceived;
-    }
-/*
-    @Override
-    public String getCategoriaElegida(){
-        String categoriaElegida = mediator.getProduct1Serie().content;
-        return categoriaElegida;
-    }
-
- */
 
     private void passDataToSerieDetailScreen(SerieItemCatalog item) {
         mediator.setSerieInSerieDetailScreen(item);
@@ -60,17 +50,26 @@ public class SerieListPresenter implements SerieListContract.Presenter {
 
     @Override
     public void fetchSerieListData() {
-        Log.e(TAG, "fetchSerieListData()");
+        // Log.e(TAG, "fetchSeriesListData()");
 
-        int idReceived = getIdReceived();
-        if(idReceived != 0) {
-            model.createItemList(idReceived);
+        // set passed state
+        CategorySerieItemCatalog category = getDataFromCategorySeriesListScreen();
 
-            //Call the model
-            state.products = model.fetchSerieListData();
+        if (category != null) {
+            state.category = category;
         }
-        view.get().displaySerieListData(state);
 
+        // call the model
+        model.fetchSerieListData(state.category,
+                new RepositoryContract.GetSeriesListCallback() {
+
+                    @Override
+                    public void setSeriesList(List<SerieItemCatalog> products) {
+                        state.products = products;
+
+                        view.get().displaySerieListData(state);
+                    }
+                });
     }
 
 
@@ -78,6 +77,11 @@ public class SerieListPresenter implements SerieListContract.Presenter {
     public void selectSerieListData(SerieItemCatalog item) {
         passDataToSerieDetailScreen(item);
         view.get().navigateToSerieDetailScreen();
+    }
+
+    private CategorySerieItemCatalog getDataFromCategorySeriesListScreen() {
+        CategorySerieItemCatalog category = mediator.getProduct1Serie();
+        return category;
     }
 
 
