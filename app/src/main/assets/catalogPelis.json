@@ -2,15 +2,15 @@
   "categoriesPelis": [
     {
       "id": 1,
-      "content": "PABLOPELIS",
+      "content": "Romántico",
       "productsPelis": [
         {
           "id": 1,
-          "content": "PaquitaPELIS",
-          "fecha": "3 de marzo de 1998PELIS",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
-          "url_imagen": "https://images.all-free-download.com/images/graphiclarge/goa_small_bird_202958.jpg",
-          "sinopsis": "Iban dos y se cayó el del centro bien caídoPELIS.",
+          "content": "Love Actually",
+          "fecha": "2003",
+          "url_trailer": "https://www.youtube.com/watch?v=H9Z3_ifFheQ",
+          "url_imagen": "https://pics.filmaffinity.com/Love_Actually-849925964-large.jpg",
+          "sinopsis": "En Londres, poco antes de las Navidades, se entrelazan una serie de historias divertidas y conmovedoras. \"Love, Actually\" es una manera abreviada de decir “Love Actually Is All Around” y éste es precisamente el argumento de la película: mires a donde mires, encontrarás el amor en todas partes. Todos los personajes, cada uno a su manera (un primer ministro, una vieja estrella del rock, una asistenta portuguesa que sólo habla su idioma), están relacionados con los aspectos más divertidos, tristes, ingenuos y estúpidos del amor. ",
           "actor1": "nombre del actor va aquí",
           "actor2": "actor 2 nombre ejemplo",
           "actor3": "nombre del actor/Actriz",
@@ -19,112 +19,303 @@
           "valoracion3": "Esta es valoración 3"
         },
         {
-          "id": 90,
-          "content": "Paquita2PELISprobando",
-          "fecha": "1 de junio de 1900"
+          "id": 16,
+          "content": "Titanic",
+          "fecha": "1997",
+          "url_trailer": "https://www.youtube.com/watch?v=FiRVcExwBVA",
+          "url_imagen": "https://www.ecartelera.com/carteles/2400/2425/002_m.jpg",
+          "sinopsis": "Jack (DiCaprio), un joven artista, gana en una partida de cartas un pasaje para viajar a América en el Titanic, el transatlántico más grande y seguro jamás construido. A bordo conoce a Rose (Kate Winslet), una joven de una buena familia venida a menos que va a contraer un matrimonio de conveniencia con Cal (Billy Zane), un millonario engreído a quien sólo interesa el prestigioso apellido de su prometida. Jack y Rose se enamoran, pero el prometido y la madre de ella ponen todo tipo de trabas a su relación. Mientras, el gigantesco y lujoso transatlántico se aproxima hacia un inmenso iceberg.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 17,
+          "content": "Bajo la misma estrella",
+          "fecha": "2014",
+          "url_trailer": "https://www.youtube.com/watch?v=9Lt8QAZkc94",
+          "url_imagen": "https://pics.filmaffinity.com/Bajo_la_misma_estrella-878748089-large.jpg",
+          "sinopsis": "A pesar de que un milagro médico ha conseguido reducir su tumor y darle unos años más de vida, la adolescente Hazel (Shailene Woodley) siempre se ha considerado una enferma terminal. Sin embargo, cuando el joven Gus (Ansel Elgort) entra a formar parte del grupo de ayuda para enfermos de cáncer juvenil, la vida de Hazel se transforma por completo. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 18,
+          "content": "Antes de ti",
+          "fecha": "2016",
+          "url_trailer": "https://www.youtube.com/watch?v=y-tS4DcM-Ug",
+          "url_imagen": "https://pics.filmaffinity.com/Antes_de_ti-594538815-large.jpg",
+          "sinopsis": "Louisa “Lou” Clark (Emilia Clarke), una chica inestable y creativa, reside en un pequeño pueblo de la campiña inglesa. Vive sin rumbo y va de un trabajo a otro para ayudar a su familia a llegar a fin de mes. Sin embargo, un nuevo trabajo pondrá a prueba su habitual alegría. En el castillo local, se ocupa de cuidar y acompañar a Will Traynor (Sam Claflin), un joven y rico banquero que se quedó paralítico tras un accidente.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
       ]
     },
     {
       "id": 2,
-      "content": "Lanzarote",
-      "details": "16 Best Places to Visit in the Canary Islands",
+      "content": "Ciencia Ficción",
       "productsPelis": [
         {
           "id": 2,
-          "content": "Timanfaya National Park",
-          "picture": "https://www.planetware.com/photos-large/E/spain-lanzarote-timanfaya-volcanic-landscape.jpg",
-          "details": "Lanzarote has a much more recent volcanic history than Tenerife - the cataclysmic eruptions that covered most of the island in molten lava and volcanic ash took place between 1730 and 1736. The seven-year series of eruptions buried 11 villages and drove the population from the island, which had previously been the garden of the Canaries. After the eruptions stopped, the farmers returned and found innovative ways to cultivate parts of their ash-covered land. The most dramatic of the volcanic landscapes, including a still-active volcano, are now protected as the UNESCO-listed Timanfaya National Park. You literally have to see it to believe it: huge areas of unearthly terrain covered in swirls of solidified lava, cracked into crevices by more molten lava still moving beneath it. To see the entire park, go to Islote de Hilario, at the top of a volcanic cone, where park rangers demonstrate the tremendous heat just beneath your feet. Dry brush thrown into a depression bursts into flame, and water poured down a pipe erupts back out in a boiling geyser. At a restaurant here, you can eat chicken you've watched grill over heat from the volcano below. There are more volcanic wonders nearby - a collapsed crater that forms a cove beach, where you can gather semi precious stones, sea caves formed by volcanic tubes, and red dunes of volcanic ash."
+          "content": "Interstellar",
+          "fecha": "2014",
+          "url_trailer": "https://www.youtube.com/watch?v=UoSSbmD9vqc",
+          "url_imagen": "https://m.media-amazon.com/images/M/MV5BZjdkOTU3MDktN2IxOS00OGEyLWFmMjktY2FiMmZkNWIyODZiXkEyXkFqcGdeQXVyMTMxODk2OTU@._V1_UY1200_CR90,0,630,1200_AL_.jpg",
+          "sinopsis": "Al ver que la vida en la Tierra está llegando a su fin, un grupo de exploradores dirigidos por el piloto Cooper (McConaughey) y la científica Amelia (Hathaway) emprende una misión que puede ser la más importante de la historia de la humanidad: viajar más allá de nuestra galaxia para descubrir algún planeta en otra que pueda garantizar el futuro de la raza humana.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
           "id": 12,
-          "content": "Cueva de los Verdes",
-          "picture": "https://www.planetware.com/photos-large/E/spain-lanzarote-cueva-de-los-verdes.jpg",
-          "details": "One of the most popular things to do on Lanzarote is to explore the seven-kilometer-long volcanic tube that extends from La Coruna mountain to the sea. These tubes were formed when the surface of a lava flow cooled and hardened while the molten river of lava still flowed beneath it. When the subterranean lava emptied into the ocean, it left the hollow tube deep underground. The two kilometers inside of the cave you can tour is in its original state - the only things that have been added are lights and walkways for safety. You enter the caves through a jameo - a hole created by the collapse of a thin place in the roof of the lava tube. Some of the larger chambers are as high as nine to 12 meters. The stone of the walls is red, orange, and black, formed by compounds such as iron oxide and calcium carbonate in the stone."
+          "content": "After Earth",
+          "fecha": "2013",
+          "url_trailer": "https://www.youtube.com/watch?v=_iuS_ZDCdUU",
+          "url_imagen": "https://i2.wp.com/noescinetodoloquereluce.com/wp-content/uploads/2013/03/after_earth.jpg?fit=400%2C593&ssl=1&w=640",
+          "sinopsis": "Tras una serie de cataclismos que forzaron a la humanidad a abandonar la Tierra, Nova Prime se convirtió en su nuevo hogar. Tras una larga misión fuera de ese planeta, el legendario general Cypher Raige regresa en compañía de su hijo Kitai. En medio de una tormenta de asteroides, la nave se avería y se estrella contra la Tierra, lugar desconocido y peligroso en el que todos los seres vivos no tienen más objetivo que eliminar a los hombres. Como Cypher ha resultado herido, Kitai debe recorrer ese mundo hostil en busca de la baliza de rescate. Siempre ha querido ser un soldado como su padre, y ahora se le presenta la oportunidad de cumplir su deseo.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
           "id": 13,
-          "content": "Puerto del Carmen",
-          "picture": "https://www.planetware.com/photos-large/E/spain-canary-islands-puerto-del-carmen.jpg",
-          "details": "The biggest tourist town on Lanzarote is lively Puerto del Carmen, surrounded by more than six kilometers of sandy beaches with calm waters. The old fishing village has been transformed into a bustling vacation destination with a wide selection of hotels and restaurants, but for all its tourist amenities, it has not lost the feel of a real Canarian town. Those visiting during the first two weeks of August will be delighted by the Fiesta de la Virgen del Carmen. This religious festival honors the patron saint of the fishing village, which is decked out with colorful bunting for the occasion. The village celebrates with a traditional procession of decorated boats. One of the boats holds the statue of the Virgen del Carmen, while other fishing boats follow in a twilight maritime parade."
+          "content": "Star wars",
+          "fecha": "1977",
+          "url_trailer": "https://www.youtube.com/watch?v=beAH5vea99k",
+          "url_imagen": "https://e00-elmundo.uecdn.es/television/programacion-tv/img/programas/74/9076.png",
+          "sinopsis": "La princesa Leia, líder del movimiento rebelde que desea reinstaurar la República en la galaxia en los tiempos ominosos del Imperio, es capturada por las Fuerzas Imperiales, capitaneadas por el implacable Darth Vader, el sirviente más fiel del Emperador. El intrépido y joven Luke Skywalker, ayudado por Han Solo, capitán de la nave espacial \"El Halcón Milenario\", y los androides, R2D2 y C3PO, serán los encargados de luchar contra el enemigo e intentar rescatar a la princesa para volver a instaurar la justicia en el seno de la galaxia.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
           "id": 14,
-          "content": "Puerto del probando",
-          "picture": "https://www.planetware.com/photos-large/E/spain-canary-islands-puerto-del-carmen.jpg",
-          "details": "The biggest tourist town on Lanzarote is lively Puerto del Carmen, surrounded by more than six kilometers of sandy beaches with calm waters. The old fishing village has been transformed into a bustling vacation destination with a wide selection of hotels and restaurants, but for all its tourist amenities, it has not lost the feel of a real Canarian town. Those visiting during the first two weeks of August will be delighted by the Fiesta de la Virgen del Carmen. This religious festival honors the patron saint of the fishing village, which is decked out with colorful bunting for the occasion. The village celebrates with a traditional procession of decorated boats. One of the boats holds the statue of the Virgen del Carmen, while other fishing boats follow in a twilight maritime parade."
+          "content": "Lucy",
+          "fecha": "2014",
+          "url_trailer": "https://www.youtube.com/watch?v=YibFcTkJu3U",
+          "url_imagen": "https://objetivismo.org/wp-content/uploads/2014/08/Lucy.png",
+          "sinopsis": "Louisa “Lou” Clark (Emilia Clarke), una chica inestable y creativa, reside en un pequeño pueblo de la campiña inglesa. Vive sin rumbo y va de un trabajo a otro para ayudar a su familia a llegar a fin de mes. Sin embargo, un nuevo trabajo pondrá a prueba su habitual alegría. En el castillo local, se ocupa de cuidar y acompañar a Will Traynor (Sam Claflin), un joven y rico banquero que se quedó paralítico tras un accidente.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
-          "id": 30,
-          "content":"PROBANDOPROBANDOOOOOO"
+          "id": 19,
+          "content": "Terminator",
+          "fecha": "1984",
+          "url_trailer": "https://www.youtube.com/watch?v=xWCBs-Ib1Fo",
+          "url_imagen": "https://es.web.img3.acsta.net/pictures/16/02/12/15/14/218373.jpg",
+          "sinopsis": "Los Ángeles, año 2029. Las máquinas dominan el mundo. Los rebeldes que luchan contra ellas tienen como líder a John Connor, un hombre que nació en los años ochenta. Para acabar con la rebelión, las máquinas deciden enviar al pasado a un robot -Terminator- cuya misión será eliminar a Sarah Connor, la madre de John, e impedir así su nacimiento.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
 
       ]
     },
     {
       "id": 3,
-      "content": "Gran Canaria",
-      "details": "16 Best Places to Visit in the Canary Islands",
+      "content": "Terror",
       "productsPelis": [
         {
           "id": 3,
-          "content": "Beaches of Gran Canaria",
-          "picture": "https://www.planetware.com/photos-large/E/spain-gran-canaria-maspalomas-dunes.jpg",
-          "details": "The south coast of Gran Canaria is an almost constant succession of beautiful golden sand beaches. Between Playa de San Agustin on the west and Puerto de Mogán to the east, sunseekers will find no less than six major beach resorts. The largest is Maspalomas, perhaps the island's most popular beach, painted with bright umbrellas and backed by a promenade and a line of restaurants, cafes, shops, and amusements. It's one of the island's liveliest beach scenes at any time of day or night. At one end is a protected reserve of huge sand dunes stretching in layers to the sea. Mountains of wind-riffled sand undulate above beaches, where dunes as high as 12 meters are constantly carved and shifted by sea and wind. You can wander for hours on foot, marveling at their desolate beauty, but it's more exotic to climb on a dromedary for a lurching ride through this spectacular dunescape. The capital city of Las Palmas has several excellent beaches, including Playa Las Canteras, with a wide, sandy shore and gentle waters thanks to a natural breakwater formed by volcanic rock. Part of the beach is a scuba diving area. La Playa Jinámar is a small beach with a dark-sand shoreline and moderate waves. Because of the clear, warm water, diving is popular off this coast, and an underwater park has been designated at Arinaga, north of Playa de San Agustin. There are diving schools at Maspalomas, Playa Ingles and several other points, and you'll find facilities for all manner of other water sports here, including sailing and windsurfing."
+          "content": "Paranormal Activity",
+          "fecha": "2007",
+          "url_trailer": "https://www.youtube.com/watch?v=Zm2jBTPyLlA",
+          "url_imagen": "https://pics.filmaffinity.com/Paranormal_Activity-966242275-large.jpg",
+          "sinopsis": "Una pareja feliz, joven y de clase media ve su vida atormentada por un espíritu demoníaco. Ella es una estudiante que está punto de graduarse como profesora, y él, un corredor de bolsa que trabaja desde su casa. Viven desde hace tres años en una casa que hasta el momento les parecía completamente normal; pero, inesperadamente, extraños fenómenos paranormales empiezan a perturbar su vida.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
           "id": 8,
-          "content": "Las Palmas de Gran Canaria",
-          "picture": "https://www.planetware.com/photos-large/E/amadores-beach-gran-canaria.jpg",
-          "details": "Las Palmas de Gran Canaria is a sun-drenched seaside town with an interesting historic legacy from its Spanish colonial past, dating from the 15th century. The city was founded in 1478, Spain's first colonial foothold in its westward expansion toward the New World. The impressive 16th-century Cathedral of Santa Ana has a Gothic interior, with unusual palm-shaped columns, and in the south wing is the Diocesan Museum, with a rich collection of religious art and gold and silver work. The interesting archaeological and ethnographic collections at the Museum of the Canary Islands reveal the pre-hispanic culture of the island. The 15th-century Casa de Colon was the home of the first governor, where Columbus stayed en route to the New World. Exhibits in the museum detail his explorations. The house is a beautiful example of Canarian architecture, with delicate wooden balconies, lovely patios, and a monumental doorway. The Néstor Museum exhibits the art work of Néstor Martín-Fernández de la Torre, one of the most renowned Spanish Symbolist painters. The museum displays his paintings, including portraits and landscapes, as well as his drawings, sketches, and craftwork. The Néstor Museum is part of the Pueblo Canario (Canaries Village) built in an idealized neo-Canarian style. Jardín Botánico Viera y Clavijo, seven kilometers from Las Palmas, is a spectacular botanical garden filled with native Canarian plant species and set in a beautiful valley."
+          "content": "Insidius",
+          "fecha": "2010",
+          "url_trailer": "https://www.youtube.com/watch?v=FRW3K0LlsD0",
+          "url_imagen": "https://www.ecartelera.com/carteles/4200/4292/002_m.jpg",
+          "sinopsis": "Josh (Patrick Wilson), su esposa Renai (Rose Byrne) y sus tres hijos acaban de mudarse a una vieja casa. Pero, tras un desgraciado accidente, uno de los niños entra en coma y, al mismo tiempo, empiezan a producirse en la casa extraños fenómenos que aterrorizan a la familia. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
 
       ]
     },
     {
       "id": 4,
-      "content": "Fuerteventura",
-      "details": "16 Best Places to Visit in the Canary Islands",
+      "content": "Comedia",
       "productsPelis": [
         {
           "id": 6,
-          "content": "The Beaches of Fuerteventura",
-          "picture": "https://www.planetware.com/photos-large/E/spain-fuerteventura-playa-esmeralda.jpg",
-          "details": "Miles of beaches on the island of Fuerteventura are almost empty, and even most of those with well-developed tourist infrastructures are uncrowded. The northeastern beaches are often quite windy, and the surf on its northern beaches is quite heavy - to the delight of surfers, who find some of Europe's finest waves here. Corralejo, a fishing port on the north coast, is a surfing center, with rentals, surf schools, and a strong surfer and watersports culture. Playa el Pozo, which has moderate waves and safe swimming waters, has a number of kiosks renting water sports equipment, beach chairs, and sun umbrellas, and there are several other choices along Corralejo's nearly 16 kilometers of sandy shore. But it is Playa Sotavento (leeward beach) that has earned Fuerteventura its reputation as a haven for beach lovers. It lines the entire south coast of the Jandia Peninsula, at the southern tip of the island. You can choose your paradise from nearly 30 kilometers of golden sand lapped by turquoise waters. While there are towns and tourist enclaves with all the amenities, it's the abundance of uncrowded beach space that attracts tourists to these fabled sands."
+          "content": "El Lobo de Wall Street",
+          "fecha": "2013",
+          "url_trailer": "https://www.youtube.com/watch?v=DO_96Ee_qWw",
+          "url_imagen": "https://pics.filmaffinity.com/El_lobo_de_Wall_Street-675195906-large.jpg",
+          "sinopsis": "Película basada en hechos reales del corredor de bolsa neoyorquino Jordan Belfort (Leonardo DiCaprio). A mediados de los años 80, Belfort era un joven honrado que perseguía el sueño americano, pero pronto en la agencia de valores aprendió que lo más importante no era hacer ganar a sus clientes, sino ser ambicioso y ganar una buena comisión. Su enorme éxito y fortuna le valió el mote de “El lobo de Wall Street”. Dinero. Poder. Mujeres. Drogas. Las tentaciones abundaban y el temor a la ley era irrelevante. Jordan y su manada de lobos consideraban que la discreción era una cualidad anticuada; nunca se conformaban con lo que tenían. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 20,
+          "content": "Infiltrados en clase",
+          "fecha": "2012",
+          "url_trailer": "https://www.youtube.com/watch?v=RK2MwSMjjFw",
+          "url_imagen": "https://es.web.img3.acsta.net/c_310_420/medias/nmedia/18/89/04/90/20036278.jpg",
+          "sinopsis": "Dos policías jóvenes se infiltran en un instituto, haciéndose pasar por alumnos, para desarticular una red de narcotráfico. Para Schmidt (Jonah Hill) y Jenko (Channing Tatum) ésta es una gran oportunidad para demostrar lo que valen. El problema es que todo lo que creían saber sobre la adolescencia, el sexo, las drogas y el rock and roll ya ha pasado a la historia: los chicos de hoy no se parecen en nada a los de antes. Adaptación cinematográfica en clave de comedia de \"Jóvenes policías\", una serie televisiva de los 80 protagonizada por Johnny Depp. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 21,
+          "content": "8 apellidos vascos",
+          "fecha": "2014",
+          "url_trailer": "https://www.youtube.com/watch?v=YfopzNHLp4o",
+          "url_imagen": "https://i.pinimg.com/originals/bc/8b/4e/bc8b4e94affdc8fddff5968ac1266890.jpg",
+          "sinopsis": "Rafa (Dani Rovira) es un joven señorito andaluz que no ha tenido que salir jamás de su Sevilla natal para conseguir lo único que le importa en la vida: el fino, la gomina, el Betis y las mujeres. Todo cambia cuando conoce una mujer que se resiste a sus encantos: es Amaia (Clara Lago), una chica vasca. Decidido a conquistarla, se traslada a un pueblo de las Vascongadas, donde se hace pasar por vasco para vencer su resistencia. Adopta el nombre de Antxon y varios apellidos vascos: Arguiñano, Igartiburu, Erentxun, Gabilondo, Urdangarín, Otegi, Zubizarreta... y Clemente.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
 
       ]
     },
     {
       "id": 5,
-      "content": "La Palma",
-      "details": "16 Best Places to Visit in the Canary Islands",
+      "content": "Superhéroes",
       "productsPelis": [
         {
           "id": 14,
-          "content": "Santa Cruz de la Palma",
-          "picture": "https://www.planetware.com/photos-large/E/santa-cruz-de-la-palma.jpg",
-          "details": "This pleasant seaside town has the most unspoiled seafront of any in the Canaries and still reflects the favored position it held in the 1500s, when it was one of only three Spanish ports allowed to trade with the New World. Stroll along the cobbled Calle O'Daley to see the handsome homes of wealthy merchants and appreciate the prosperity this town enjoyed in the 17th and 18th centuries. The 16th-century Iglesia del Salvador has a beautiful mudejar ceiling and a painted altarpiece. The Ayuntamiento (town hall) was once the cardinal's palace, built in 1569, and has a magnificent carved ceiling and Renaissance arcade. Every five years, the island celebrates its patron saint, the Virgin of Las Nieves, with Quinquennial Fiestas, following the same traditions the townspeople have enjoyed since 1680."
+          "content": "Vengadores: End game",
+          "fecha": "2019",
+          "url_trailer": "https://www.youtube.com/watch?v=UQ3bqYKnyhM",
+          "url_imagen": "https://play-lh.googleusercontent.com/LuXJCZplZKwVigsjQCipK5qUUiyW8NBHqEtAeMByuYu-QqFHzq0gSULnS-Ict6V_Pvi0",
+          "sinopsis": "Después de los eventos devastadores de 'Avengers: Infinity War', el universo está en ruinas debido a las acciones de Thanos, el Titán Loco. Con la ayuda de los aliados que quedaron, los Vengadores deberán reunirse una vez más para intentar deshacer sus acciones y restaurar el orden en el universo de una vez por todas, sin importar cuáles son las consecuencias... Cuarta y última entrega de la saga \"Vengadores\".",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         },
         {
           "id": 4,
-          "content": "Caldera de Taburiente National Park",
-          "picture": "https://www.planetware.com/photos-large/E/spain-canary-islands-caldera-de-taburiente.jpg",
-          "details": "Known as the Isla Bonita (Beautiful Island), La Palma is the greenest of the Canary Islands. Designated a UNESCO Biosphere Reserve, La Palma's landscape varies from pristine forests to sheer cliffs and black-sand beaches. Among its many protected environments is the Caldera de Taburiente National Park, where volcanic peaks rise to 2,400 meters, and lava flows descend to the sea. For those in search of idyllic surroundings, the park has wooded areas with streams and waterfalls. Along the rocky coastline, picturesque little bays are hidden away in between steep hillsides."
+          "content": "Deadpool",
+          "fecha": "2016",
+          "url_trailer": "https://www.youtube.com/watch?v=QyU7glpHg-c",
+          "url_imagen": "https://es.web.img3.acsta.net/pictures/15/12/04/10/48/099822.jpg",
+          "sinopsis": "Basado en el anti-héroe menos convencional de la Marvel, Deadpool narra el origen de un ex-operativo de la fuerzas especiales llamado Wade Wilson, reconvertido a mercenario, y que tras ser sometido a un cruel experimento adquiere poderes de curación rápida, adoptando Wade entonces el alter ego de Deadpool. Armado con sus nuevas habilidades y un oscuro y retorcido sentido del humor, Deadpool intentará dar caza al hombre que casi destruye su vida.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 22,
+          "content": "Spiderman",
+          "fecha": "2002",
+          "url_trailer": "https://www.youtube.com/watch?v=RcU2F0gFWoY",
+          "url_imagen": "https://static.wikia.nocookie.net/spiderman/images/8/85/Spider-Man2002Poster.png/revision/latest?cb=20131213162615&path-prefix=es",
+          "sinopsis": "Tras la muerte de sus padres, Peter Parker, un tímido estudiante, vive con su tía May y su tío Ben. Precisamente debido a su retraimiento no es un chico muy popular en el instituto. Un día le muerde una araña que ha sido modificada genéticamente; a la mañana siguiente, descubre estupefacto que posee la fuerza y la agilidad de ese insecto. Las aventuras del hombre araña se basan en el famoso cómic de Stan Lee y Steve Ditko. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
-
       ]
     },
     {
       "id": 6,
-      "content": "La Gomera",
-      "details": "16 Best Places to Visit in the Canary Islands",
+      "content": "Infantil",
       "productsPelis": [
         {
           "id": 15,
-          "content": "Parque Nacional de Garajonay",
-          "picture": "https://www.planetware.com/photos-large/E/spain-la-gomera-garajonay-national-park.jpg",
-          "details": "La Gomera rises so steeply from the Atlantic that it is impractical to build a road around its coast. Crowning the top half of the island is the world's largest pre-glacial forest, protected as Garajonay National Park, and a UNESCO World Heritage Site. Seventy percent of the 9,325-acre park is covered by a dense laurel forest, similar to those covering Europe in the Tertiary Period. These beautiful, green forests are home to many plants and animals that are indigenous only to this island, and the island's streams and springs are fed by clouds and mists that hover on the peaks in the park. The terrain is steep, and paths through the misty moss-draped forests open to breathtaking, if often vertigo-inspiring, views. The island capital of San Sebastián was where Christopher Columbus outfitted his ships before crossing the Atlantic in 1492."
+          "content": "Cars",
+          "fecha": "2006",
+          "url_trailer": "https://www.youtube.com/watch?v=1uq5eJHwio4",
+          "url_imagen": "https://pics.filmaffinity.com/Cars-746710621-large.jpg",
+          "sinopsis": "El aspirante a campeón de carreras Rayo McQueen parece que está a punto de conseguir el éxito, la fama y todo lo que había soñado, hasta que por error toma un desvío inesperado en la polvorienta y solitaria Ruta 66. Su actitud arrogante se desvanece cuando llega a una pequeña comunidad olvidada que le enseña las cosas importantes de la vida que había olvidado.",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 23,
+          "content": "Hotel Transilvania",
+          "fecha": "2012",
+          "url_trailer": "https://www.youtube.com/watch?v=dPyLt_8VBX0",
+          "url_imagen": "https://es.web.img3.acsta.net/medias/nmedia/18/90/47/93/20254074.jpg",
+          "sinopsis": "Desde su nacimiento, Mavis vive en el lujoso hotel Transylvania, que fue creado para proteger a los monstruos de la amenaza de los seres humanos. Cuando Mavis está a punto de cumplir la mayoría de edad (118 años), su padre, el conde Drácula, le prepara una fiesta a la que acuden los mejores amigos de la familia: desde Frankenstein al Hombre Invisible o la Momia; pero también asiste a la celebración un hombre que se enamora de Mavis. ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
+        },
+        {
+          "id": 24,
+          "content": "Bob esponja: Un héroe al rescate",
+          "fecha": "2020",
+          "url_trailer": "https://www.youtube.com/watch?v=p6BNtDyKQzg",
+          "url_imagen": "https://es.web.img3.acsta.net/pictures/19/11/13/16/57/1990423.jpg",
+          "sinopsis": "Los amigos son lo más importante para Bob Esponja, por lo que no dudará en salir de la comodidad de su hogar en Fondo de Bikini, junto con Patricio, para adentrarse en un mundo desconocido, arriesgando sus vidas, para salvar a su amigo de la infancia, Gary, de las garras del rey Poseidón que le ha secuestrado en la Ciudad Perdida de Atlantic City. ¿Serán capaces de lograrlo? ",
+          "actor1": "nombre del actor va aquí",
+          "actor2": "actor 2 nombre ejemplo",
+          "actor3": "nombre del actor/Actriz",
+          "valoracion1": "Esta sería la valoración 1 de documental",
+          "valoracion2": "Esta es valoración 2",
+          "valoracion3": "Esta es valoración 3"
         }
 
       ]
