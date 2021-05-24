@@ -273,8 +273,14 @@ public class AppMediator {
         return comprasList;
     }
 
+
+
     public ArrayList<User> getUsersRegistrados(){
         return usersRegistrados;
+    }
+
+    public void setUsersRegistrados(ArrayList<User> users){
+        this.usersRegistrados =users;
     }
 
     public void setUserRegistrado(User user){

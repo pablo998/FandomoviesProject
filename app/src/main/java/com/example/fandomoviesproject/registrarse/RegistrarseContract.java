@@ -1,11 +1,7 @@
 package com.example.fandomoviesproject.registrarse;
 
-
-
-
 import android.text.Editable;
-import android.widget.TextView;
-
+import com.google.android.material.textfield.TextInputEditText;
 import java.lang.ref.WeakReference;
 
 
@@ -28,8 +24,7 @@ public interface RegistrarseContract {
     interface Presenter {
         void injectView(WeakReference<RegistrarseContract.View> view);
         void injectModel(RegistrarseContract.Model model);
-        void onClickRegistrarme(int currentTab, TextView nombreYapellidos, TextView contraseña,
-                                TextView numMovil, TextView email);
+
         void textChanged(Editable text);
         void passwordChanged(Editable text);
         void numMovilChanged(Editable text);
@@ -38,23 +33,14 @@ public interface RegistrarseContract {
 
         void updateView();
 
+        void onRegistrarmeEmail(TextInputEditText nombreYapellidosTypedEmail,
+                                TextInputEditText contraseñaTypedEmail, TextInputEditText emailTyped);
+
+        void onRegistrarmeNumMovil(TextInputEditText nombreYapellidosTyped, TextInputEditText contraseñaTyped,
+                                   TextInputEditText numMovilTyped);
     }
 
-
-    public interface Model {
-
-        //TODO ESTO QUEDA PENDIENTE
-        /*
-        boolean comprobarQueNoEstaEmail(
-                RepositoryContract.GetCategoryListCallback callback);
-        boolean comprobarQueNoEstaNumMovil(
-                RepositoryContract.GetCategoryListCallback callback);
-
-        void guardarEnBaseDeDatos(
-                RepositoryContract.GetCategoryListCallback callback);
-
-         */
-
+    interface Model {
 
     }
 }

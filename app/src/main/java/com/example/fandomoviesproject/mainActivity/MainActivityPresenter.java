@@ -1,6 +1,7 @@
 package com.example.fandomoviesproject.mainActivity;
 
 import android.text.Editable;
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
@@ -48,25 +49,39 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
     @Override
     public void onIniciarSesionButtonClick(TextView numMoviloEmail, TextView contraseña){
-        if(numMoviloEmail != null && contraseña != null) {
+        if((numMoviloEmail.toString().length() >1) && (contraseña.toString().length() > 1)) {
             state.contraseña = contraseña.getText().toString();
             state.numMoviloEmail = numMoviloEmail.getText().toString();
+        }
 
             ArrayList<User> users = mediator.getUsersRegistrados();
             if (users == null) {
                 view.get().credencialesIncorrectas();
             } else {
                 for (int i = 0; i < users.size(); i++) {
-                    if (users.get(i).getNumMovil().equals(numMoviloEmail.toString()) ||
-                            users.get(i).getEmail().equals(numMoviloEmail.toString())) {
-                        if (users.get(i).getContraseña().equals(contraseña.toString())) {
+                    if(users.get(i).getNumMovil()==null){
+                        Log.e(TAG, "Buscando emails");
+                        String email = users.get(i).getEmail();
+                        System.out.println("email "+ email);
+                        if (users.get(i).getEmail().equals(numMoviloEmail.getText().toString())
+                        || users.get(i).getContraseña().equals(contraseña.toString())) {
+                            Log.e(TAG, "Match email");
                             passDataToMediator(users.get(i));
-                            view.get().navigateToMenuActivity();
+                                view.get().navigateToMenuActivity();
+                        }
+                    }else if(users.get(i).getEmail()==null){
+                        Log.e(TAG, "Buscando numsMovil");
+                        if (users.get(i).getNumMovil().equals(numMoviloEmail.getText().toString()) ||
+                             (users.get(i).getContraseña().equals(contraseña.toString()))) {
+                            Log.e(TAG, "Match numMovil");
+                            passDataToMediator(users.get(i));
+                                view.get().navigateToMenuActivity();
+
                         }
                     }
+
                 }
             }
-        }
     }
 
     private void passDataToMediator(User user) {

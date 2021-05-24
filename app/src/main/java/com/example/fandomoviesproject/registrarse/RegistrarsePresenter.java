@@ -4,10 +4,11 @@ import android.text.Editable;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.User;
+import com.google.android.material.textfield.TextInputEditText;
 
 import java.lang.ref.WeakReference;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
-
+import java.util.ArrayList;
 
 public class RegistrarsePresenter implements RegistrarseContract.Presenter {
 
@@ -44,6 +45,68 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
     }
 
     @Override
+    public void onRegistrarmeEmail(TextInputEditText nombreYapellidosTypedEmail,
+                                   TextInputEditText contraseñaTypedEmail, TextInputEditText emailTyped) {
+
+        ArrayList<User> users = mediator.getUsersRegistrados();
+        User userNuevo = new User(nombreYapellidosTypedEmail.toString(), contraseñaTypedEmail.toString(),
+                emailTyped.toString(), null);
+        if(users == null){
+            users = new ArrayList<>();
+            users.add(userNuevo);
+            mediator.setUsersRegistrados(users);
+            view.get().navigateToMenuActivity();
+        }else {
+            boolean estaCogido = false;
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getEmail().equals(emailTyped.toString())) {
+                    estaCogido = true;
+                }
+            }
+
+            if (estaCogido == true) {
+                view.get().emailYaRegistrado();
+            } else {
+                mediator.setUserRegistrado(userNuevo);
+                mediator.setUserActual(userNuevo);
+                view.get().navigateToMenuActivity();
+            }
+        }
+
+    }
+
+    @Override
+    public void onRegistrarmeNumMovil(TextInputEditText nombreYapellidosTyped,
+                                      TextInputEditText contraseñaTyped, TextInputEditText numMovilTyped) {
+
+        ArrayList<User> users = mediator.getUsersRegistrados();
+        User userNuevo = new User(nombreYapellidosTyped.toString(), contraseñaTyped.toString(),
+                null, numMovilTyped.toString());
+        if(users == null){
+            users = new ArrayList<>();
+            users.add(userNuevo);
+            mediator.setUsersRegistrados(users);
+        }else {
+            boolean estaCogido = false;
+            for (int i = 0; i < users.size(); i++) {
+                if (users.get(i).getNumMovil().equals(numMovilTyped.toString())) {
+                    estaCogido = true;
+                }
+            }
+
+            if (estaCogido == true) {
+                view.get().numeroDeMovilYaRegistrado();
+            } else {
+                mediator.setUserRegistrado(userNuevo);
+                mediator.setUserActual(userNuevo);
+                view.get().navigateToMenuActivity();
+            }
+        }
+
+
+    }
+
+    @Override
     public void onTabChanged(String tabId){
         if(tabId.equals("tab2")){
             state.tabSelected = 1;
@@ -71,51 +134,6 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
     @Override
     public void emailChanged(Editable email){
         state.email = email.toString();
-    }
-
-
-    @Override
-    public void onClickRegistrarme(int currentTab, TextView nombreYapellidos, TextView contraseña,
-                                   TextView numMovil, TextView email){
-        switch (currentTab){
-            case 0:
-                if(nombreYapellidos == null || contraseña == null || email == null){
-                    view.get().faltanCamposPorRellenar();
-                }else {
-                    state.contraseña = contraseña.getText().toString();
-                    state.email = email.getText().toString();
-                    state.nombreYapellidos = nombreYapellidos.getText().toString();
-                    state.tabSelected = currentTab;
-                    //if(model.comprobarQueNoEstaEmail(email) == true){
-                    // model.guardarEnBaseDeDatos(email);
-                    // view.get().navigateToMenuActivity();
-                    //}else{ view.get.emailYaRegistrado();}
-                }
-                break;
-            case 1:
-                if(nombreYapellidos == null || contraseña == null || numMovil == null){
-                    view.get().faltanCamposPorRellenar();
-                }else{
-                    state.contraseña = contraseña.getText().toString();
-                    state.numeroDeMovil = numMovil.getText().toString();
-                    state.nombreYapellidos = nombreYapellidos.getText().toString();
-                    state.tabSelected = currentTab;
-                    //if(model.comprobarQueNoEstaNumMovil(email) == true){
-                    // model.guardarEnBaseDeDatos(numMovil);
-                    // view.get().navigateToMenuActivity();
-                    //}else{ view.get.numeroDeMovilYaRegistrado();}
-                }
-                break;
-        }
-
-
-        //TODO pendiente
-        //comprobar tab
-        //si todos los campos estan rellenos (si no, view faltan campos) voy al modelo y chequeo que no este repe
-        //si esta repe llamo a view repetido
-        //si no esta llamo al modelo y guardo datos
-        //mediador set contraseña/email ¡¡¡¡NO!!!! PORQUE EL mediador tiene el estado
-        //llamo a view y voy al menu
     }
 
     @Override

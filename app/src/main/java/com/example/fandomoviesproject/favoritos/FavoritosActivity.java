@@ -38,7 +38,6 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
     FavoritosContract.Presenter presenter;
     private FavoritosAdapter mAdapter;
 
-    //TODO ESTO NO IRÍA AQUÍ
     private final ArrayList<FavoritoItem> favoritosList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private Context context = this;
@@ -73,10 +72,6 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
         // Give RecyclerView a default layout manager
         mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-        //linkButtonsDetele();
-
-        //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
-
         /*
          if(savedInstanceState == null) {
          CatalogMediator.resetInstance();
@@ -102,10 +97,6 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
         navigationView.setCheckedItem(R.id.nav_fav);
     }
 
-    private void linkButtonDelete() {
-        //TODO Por linkear imagebuttons
-
-    }
 
     public void todaviaNoHayFavoritos(){
         Toast.makeText(context,R.string.nohayFavs, Toast.LENGTH_LONG).show();

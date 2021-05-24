@@ -190,6 +190,7 @@
     <string name="añadirfavoritotitulo">Añadir a favoritos</string>
     <string name="añadirfavorito">¿Desea añadir este elemento a la lista de Favoritos?</string>
     <string name="siFav">Añadir</string>
+    <string name="registradoConExito">Registrado con éxito.</string>
     <string name="siWarning">Okay</string>
     <string name="añadidoConExito">Se ha añadido a la lista de Favoritos</string>
     <string name="realizarcompratitulo">Realizar compra</string>

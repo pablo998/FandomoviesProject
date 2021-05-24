@@ -7,20 +7,26 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TabHost;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.fandomoviesproject.ayuda.AyudaContract;
 import com.example.fandomoviesproject.ayuda.AyudaScreen;
 import com.example.fandomoviesproject.buscarDocus.DocusBuscarActivity;
+import com.example.fandomoviesproject.categoriasDocu.CategoryDocuListActivity;
 import com.google.android.material.tabs.TabItem;
 import com.example.fandomoviesproject.R;
 import com.google.android.material.textfield.TextInputEditText;
 
 
 public class RegistrarseActivity extends AppCompatActivity implements RegistrarseContract.View{
+
+    public static String TAG = RegistrarseActivity.class.getSimpleName();
 
     RegistrarseContract.Presenter presenter;
 
@@ -36,7 +42,7 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
     private Context context = this;
     private TabHost tabHost;
-    Button tengoCuenta;
+    Button tengoCuenta, registrarme;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +50,7 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
         setContentView(R.layout.activity_registrarse);
 
         tengoCuenta = findViewById(R.id.botonIniciaSesion);
+        registrarme = findViewById(R.id.botonRegistrarme);
 
         nombreYapellidosTyped = findViewById(R.id.nombreYapellidos);
         contraseñaTyped = findViewById(R.id.inputPassword);
@@ -66,6 +73,33 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
         setUpTabs();
 
         tabHost.setOnTabChangedListener(tabChanged);
+        registrarme.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tab = tabHost.getCurrentTab();
+                if(tab == 0){
+                    if((nombreYapellidosTypedEmail.getText().toString().length() > 1) &&
+                            (contraseñaTypedEmail.getText().toString().length() > 1) &&
+                            (emailTyped.getText().toString().length() > 1)){
+                        Log.e(TAG, "Campos rellenados email");
+                        presenter.onRegistrarmeEmail(nombreYapellidosTypedEmail, contraseñaTypedEmail, emailTyped);
+                    }else{
+                        Log.e(TAG, "Campos no rellenados email");
+                        faltanCamposPorRellenar();
+                    }
+                }else if(tab ==1){
+                    if((nombreYapellidosTyped.getText().toString().length() > 1)
+                            && (contraseñaTyped.getText().toString().length() > 1) &&
+                            (numMovilTyped.getText().toString().length() > 1)){
+                        Log.e(TAG, "Campos rellenados numMovil");
+                        presenter.onRegistrarmeNumMovil(nombreYapellidosTyped, contraseñaTyped, numMovilTyped);
+                    }else{
+                        Log.e(TAG, "Campos no rellenados numMovil");
+                        faltanCamposPorRellenar();
+                    }
+                }
+            }
+        });
 
         //do the setup
         RegistrarseScreen.configure(this);
@@ -179,21 +213,9 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
     };
 
 
-    public void onClickRegistrarme(View view) {
-        tabSelected = tabHost.getCurrentTab();
-        presenter.onClickRegistrarme(tabSelected, nombreYapellidosTyped, contraseñaTyped,
-                numMovilTyped, emailTyped); //ya estaría
-        /* Va comprueba que todos los campos esten rellenados y
-          le pide al modelo que busque en la base de datos si hay
-          un email que sea igual. Warning por pantalla si hay igual/campos no rellenados
-          Si no hay igual guardo datos (los 3) en base de datos
-          paso email a mediator con set. Y en otras pantallas (mi perfil y menu) lo cojo
-          y busco en la base de datos
-         */
-    }
-
     @Override
     public void navigateToMenuActivity() {
+        Toast.makeText(context,R.string.registradoConExito, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
         startActivity(intent);
     }
@@ -206,14 +228,13 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
                 // Specifying a listener allows you to take an action before dismissing the dialog.
                 // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.siWarning, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with operation
                     }
                 })
 
                 // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(R.string.no, null)
                 .show();
     }
 
@@ -225,14 +246,13 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
                 // Specifying a listener allows you to take an action before dismissing the dialog.
                 // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.siWarning, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with operation
                     }
                 })
 
                 // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(R.string.no, null)
                 .show();
     }
 
@@ -244,14 +264,13 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
                 // Specifying a listener allows you to take an action before dismissing the dialog.
                 // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.siWarning, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with operation
                     }
                 })
 
                 // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(R.string.no, null)
                 .show();
     }
 

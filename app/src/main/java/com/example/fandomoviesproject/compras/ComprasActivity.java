@@ -44,7 +44,6 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
     NavigationView navigationView;
     Toolbar toolbar;
 
-    //TODO ESTO NO IRÍA AQUÍ
     private final ArrayList<ComprasItem> comprasList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private Context context = this;
