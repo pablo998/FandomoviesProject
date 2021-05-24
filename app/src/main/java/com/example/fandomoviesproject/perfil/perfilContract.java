@@ -13,6 +13,7 @@ public interface perfilContract {
         void injectPresenter(Presenter presenter);
 
         void loadDataView(User userActual);
+        void onClickCerrarSesion();
     }
 
     interface Presenter{
@@ -20,6 +21,7 @@ public interface perfilContract {
         void injectModel(perfilContract.Model model);
 
         void loadData();
+        void onClickCerrarSesion();
     }
 
     interface Model{

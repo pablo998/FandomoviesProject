@@ -1,5 +1,9 @@
 package com.example.fandomoviesproject.perfil;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -11,6 +15,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.buscarDocus.DocusBuscarActivity;
 import com.example.fandomoviesproject.data.User;
 
 public class perfilActivity
@@ -21,7 +26,7 @@ public class perfilActivity
     private perfilContract.Presenter presenter;
 
     Button cerrarSesion;
-
+    private Context context = this;
     Toolbar toolbar;
     TextView nombreYapellidos;
     TextView contraseña;
@@ -44,7 +49,7 @@ public class perfilActivity
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                presenter.onClickCerrarSesion();
             }
         });
 
@@ -90,6 +95,30 @@ public class perfilActivity
             Log.e(TAG, "email NO, null, uso email");
             this.emailONumMovil.setText(userActual.getEmail());
         }
+    }
+
+    @Override
+    public void onClickCerrarSesion() {
+        new AlertDialog.Builder(context)
+                .setTitle(R.string.cerrarsesiontitle)
+                .setMessage(R.string.seguroCerrarSesion)
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(R.string.siCerrarSesion, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with compra operation
+                        Intent intent = new Intent(getApplicationContext(),
+                                com.example.fandomoviesproject.mainActivity.MainActivity.class);
+                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                        startActivity(intent);
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(R.string.no, null)
+                .show();
+
     }
 
 

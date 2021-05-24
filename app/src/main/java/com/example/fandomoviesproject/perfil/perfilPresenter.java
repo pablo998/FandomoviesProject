@@ -1,9 +1,12 @@
 package com.example.fandomoviesproject.perfil;
 
-import com.example.fandomoviesproject.app.AppMediator;
-import com.example.fandomoviesproject.data.User;
-import com.example.fandomoviesproject.menu.MenuContract;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.buscarDocus.DocusBuscarActivity;
+import com.example.fandomoviesproject.data.User;
 import java.lang.ref.WeakReference;
 
 public class perfilPresenter implements perfilContract.Presenter {
@@ -35,6 +38,11 @@ public class perfilPresenter implements perfilContract.Presenter {
     public void loadData() {
         User userActual = mediator.getUserActual();
         view.get().loadDataView(userActual);
+    }
+
+    @Override
+    public void onClickCerrarSesion() {
+        view.get().onClickCerrarSesion();
     }
 
 

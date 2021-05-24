@@ -60,8 +60,10 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
         }else {
             boolean estaCogido = false;
             for (int i = 0; i < users.size(); i++) {
-                if (users.get(i).getEmail().equals(emailTyped.toString())) {
-                    estaCogido = true;
+                if(users.get(i).getEmail() != null) {
+                    if (users.get(i).getEmail().equals(emailTyped.toString())) {
+                        estaCogido = true;
+                    }
                 }
             }
 
@@ -92,8 +94,10 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
         }else {
             boolean estaCogido = false;
             for (int i = 0; i < users.size(); i++) {
-                if (users.get(i).getNumMovil().equals(numMovilTyped.toString())) {
-                    estaCogido = true;
+                if(users.get(i).getNumMovil() != null) {
+                    if (users.get(i).getNumMovil().equals(numMovilTyped.toString())) {
+                        estaCogido = true;
+                    }
                 }
             }
 
