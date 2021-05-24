@@ -109,7 +109,7 @@
             android:layout_height="20dp" />
 
         <Button
-            android:id="@+id/botonRegistrarme"
+            android:id="@+id/botonRegistrarmeNumMovil"
             android:layout_width="match_parent"
             android:layout_height="56dp"
             android:backgroundTint="@color/azulApp"

@@ -42,7 +42,7 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
 
     private Context context = this;
     private TabHost tabHost;
-    Button tengoCuenta, registrarme;
+    Button tengoCuenta, registrarmeEmail, registrarmeNumMovil;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -50,7 +50,8 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
         setContentView(R.layout.activity_registrarse);
 
         tengoCuenta = findViewById(R.id.botonIniciaSesion);
-        registrarme = findViewById(R.id.botonRegistrarme);
+        registrarmeEmail = findViewById(R.id.botonRegistrarmeEmail);
+        registrarmeNumMovil = findViewById(R.id.botonRegistrarmeNumMovil);
 
         nombreYapellidosTyped = findViewById(R.id.nombreYapellidos);
         contraseñaTyped = findViewById(R.id.inputPassword);
@@ -73,7 +74,7 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
         setUpTabs();
 
         tabHost.setOnTabChangedListener(tabChanged);
-        registrarme.setOnClickListener(new View.OnClickListener() {
+        registrarmeEmail.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int tab = tabHost.getCurrentTab();
@@ -87,7 +88,15 @@ public class RegistrarseActivity extends AppCompatActivity implements Registrars
                         Log.e(TAG, "Campos no rellenados email");
                         faltanCamposPorRellenar();
                     }
-                }else if(tab ==1){
+                }
+            }
+        });
+
+        registrarmeNumMovil.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                int tab = tabHost.getCurrentTab();
+                if(tab ==1){
                     if((nombreYapellidosTyped.getText().toString().length() > 1)
                             && (contraseñaTyped.getText().toString().length() > 1) &&
                             (numMovilTyped.getText().toString().length() > 1)){

@@ -62,21 +62,27 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
                     if(users.get(i).getNumMovil()==null){
                         Log.e(TAG, "Buscando emails");
                         String email = users.get(i).getEmail();
-                        System.out.println("email "+ email);
+                        Log.e(TAG,"email "+ email);
                         if (users.get(i).getEmail().equals(numMoviloEmail.getText().toString())
-                        || users.get(i).getContraseña().equals(contraseña.toString())) {
+                        && users.get(i).getContraseña().equals(contraseña.getText().toString())) {
                             Log.e(TAG, "Match email");
                             passDataToMediator(users.get(i));
                                 view.get().navigateToMenuActivity();
+                        }else{
+                            view.get().credencialesIncorrectas();
                         }
                     }else if(users.get(i).getEmail()==null){
                         Log.e(TAG, "Buscando numsMovil");
-                        if (users.get(i).getNumMovil().equals(numMoviloEmail.getText().toString()) ||
-                             (users.get(i).getContraseña().equals(contraseña.toString()))) {
+                        String numMovil = users.get(i).getNumMovil();
+                        Log.e(TAG,"numMovil es "+ numMovil);
+                        if (users.get(i).getNumMovil().equals(numMoviloEmail.getText().toString()) &&
+                             (users.get(i).getContraseña().equals(contraseña.getText().toString()))) {
                             Log.e(TAG, "Match numMovil");
                             passDataToMediator(users.get(i));
                                 view.get().navigateToMenuActivity();
 
+                        }else {
+                            view.get().credencialesIncorrectas();
                         }
                     }
 

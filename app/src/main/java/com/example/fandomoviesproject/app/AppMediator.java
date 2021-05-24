@@ -283,7 +283,7 @@ public class AppMediator {
         this.usersRegistrados =users;
     }
 
-    public void setUserRegistrado(User user){
+    public void addUserRegistrado(User user){
         this.usersRegistrados.add(user);
     }
 

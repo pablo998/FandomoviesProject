@@ -49,12 +49,13 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
                                    TextInputEditText contraseñaTypedEmail, TextInputEditText emailTyped) {
 
         ArrayList<User> users = mediator.getUsersRegistrados();
-        User userNuevo = new User(nombreYapellidosTypedEmail.toString(), contraseñaTypedEmail.toString(),
-                emailTyped.toString(), null);
+        User userNuevo = new User(nombreYapellidosTypedEmail.getText().toString(), contraseñaTypedEmail.getText().toString(),
+                emailTyped.getText().toString(), null);
         if(users == null){
             users = new ArrayList<>();
             users.add(userNuevo);
             mediator.setUsersRegistrados(users);
+            mediator.setUserActual(userNuevo);
             view.get().navigateToMenuActivity();
         }else {
             boolean estaCogido = false;
@@ -67,7 +68,7 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
             if (estaCogido == true) {
                 view.get().emailYaRegistrado();
             } else {
-                mediator.setUserRegistrado(userNuevo);
+                mediator.addUserRegistrado(userNuevo);
                 mediator.setUserActual(userNuevo);
                 view.get().navigateToMenuActivity();
             }
@@ -80,12 +81,14 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
                                       TextInputEditText contraseñaTyped, TextInputEditText numMovilTyped) {
 
         ArrayList<User> users = mediator.getUsersRegistrados();
-        User userNuevo = new User(nombreYapellidosTyped.toString(), contraseñaTyped.toString(),
-                null, numMovilTyped.toString());
+        User userNuevo = new User(nombreYapellidosTyped.getText().toString(), contraseñaTyped.getText().toString(),
+                null, numMovilTyped.getText().toString());
         if(users == null){
             users = new ArrayList<>();
             users.add(userNuevo);
             mediator.setUsersRegistrados(users);
+            mediator.setUserActual(userNuevo);
+            view.get().navigateToMenuActivity();
         }else {
             boolean estaCogido = false;
             for (int i = 0; i < users.size(); i++) {
@@ -97,7 +100,7 @@ public class RegistrarsePresenter implements RegistrarseContract.Presenter {
             if (estaCogido == true) {
                 view.get().numeroDeMovilYaRegistrado();
             } else {
-                mediator.setUserRegistrado(userNuevo);
+                mediator.addUserRegistrado(userNuevo);
                 mediator.setUserActual(userNuevo);
                 view.get().navigateToMenuActivity();
             }
