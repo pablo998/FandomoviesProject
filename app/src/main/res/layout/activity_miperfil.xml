@@ -1,24 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:fitsSystemWindows="true"
+    >
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:contentDescription="@string/logo_registro">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar2"
-        style="@style/Theme.MyFancyTheme"
-        android:layout_width="match_parent"
-        android:theme="@style/ToolbarTheme"
-        android:layout_height="wrap_content"
-        android:background="@color/azulApp"
-        android:minHeight="?attr/actionBarSize"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:subtitleTextColor="@color/white"
-        app:titleTextColor="@color/white" />
+<!--    <androidx.appcompat.widget.Toolbar-->
+<!--        android:id="@+id/toolbar2"-->
+<!--        style="@style/Theme.MyFancyTheme"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:theme="@style/ToolbarTheme"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:background="@color/azulApp"-->
+<!--        android:minHeight="?attr/actionBarSize"/>-->
+
+         <include
+            layout="@layout/main_toolbar"
+            android:id="@+id/main_toolbar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:subtitleTextColor="@color/white"
+            app:titleTextColor="@color/white" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -29,7 +41,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2"
+        app:layout_constraintTop_toBottomOf="@+id/main_toolbar"
         app:srcCompat="@drawable/logoregistrate" />
 
     <TextView
@@ -137,3 +149,12 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/nav_view"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/main_header"
+        app:menu="@menu/main_menu">
+    </com.google.android.material.navigation.NavigationView>
+</androidx.drawerlayout.widget.DrawerLayout>

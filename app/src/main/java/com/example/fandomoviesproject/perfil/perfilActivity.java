@@ -11,15 +11,25 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.ayuda.AyudaActivity;
 import com.example.fandomoviesproject.buscarDocus.DocusBuscarActivity;
+import com.example.fandomoviesproject.compras.ComprasActivity;
 import com.example.fandomoviesproject.data.User;
+import com.example.fandomoviesproject.favoritos.FavoritosActivity;
+import com.example.fandomoviesproject.menu.MenuActivity;
+import com.google.android.material.navigation.NavigationView;
 
 public class perfilActivity
-        extends AppCompatActivity implements perfilContract.View{
+        extends AppCompatActivity implements perfilContract.View, NavigationView.OnNavigationItemSelectedListener{
 
     public static String TAG = perfilActivity.class.getSimpleName();
 
@@ -28,6 +38,8 @@ public class perfilActivity
     Button cerrarSesion;
     private Context context = this;
     Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
     TextView nombreYapellidos;
     TextView contraseña;
     TextView emailONumMovil;
@@ -37,7 +49,7 @@ public class perfilActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_miperfil);
 
-        toolbar = findViewById(R.id.toolbar2);
+        toolbar = findViewById(R.id.main_toolbar);
         setSupportActionBar(toolbar);
 
         nombreYapellidos = findViewById(R.id.inputNameApellMiPerfil);
@@ -45,6 +57,17 @@ public class perfilActivity
         emailONumMovil = findViewById(R.id.inputEmailNumMovMiPerfil);
 
         cerrarSesion = findViewById(R.id.botonCerrarSesionMiPerfil);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        navigationView = findViewById(R.id.nav_view);
+
+        navigationView.bringToFront();
+        ActionBarDrawerToggle toogle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawerLayout.addDrawerListener(toogle);
+        toogle.syncState();
+
+        navigationView.setNavigationItemSelectedListener(this);
+        navigationView.setCheckedItem(R.id.nav_perfil);
 
         cerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -135,6 +158,44 @@ public class perfilActivity
         return super.onOptionsItemSelected(item);
     }
 
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.nav_home:
+                Intent intent = new Intent(this, MenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_perfil:
+                Intent intent2 = new Intent(this, perfilActivity.class);
+                startActivity(intent2);
+                break;
+            case R.id.nav_fav:
+                Intent intent3 = new Intent(this, FavoritosActivity.class);
+                startActivity(intent3);
+                break;
+            case R.id.nav_cart:
+                Intent intent4 = new Intent(this, ComprasActivity.class);
+                startActivity(intent4);
+                break;
+            case R.id.nav_help:
+                Intent intent5 = new Intent(this, AyudaActivity.class);
+                startActivity(intent5);
+                break;
+        }
+        drawerLayout.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }else{
+            super.onBackPressed();
+        }
+
+        //presenter.onBackPressed();
+    }
 
 
 
