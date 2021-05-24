@@ -2,10 +2,10 @@
     <string name="app_name">Fandomovies</string>
     <string name="boton_iniciar_sesion">Iniciar Sesión</string>
     <string name="boton_registrarme">Registrarme</string>
-    <string name="password_hint">Contraseña</string>
+    <string name="password_hint">Contraseña:</string>
     <string name="numero_de_movil_email_hint">Número de móvil o Email</string>
     <string name="numero_de_movil_hint">Número de móvil</string>
-    <string name="nombre_apellidos_hint">Nombre y apellidos</string>
+    <string name="nombre_apellidos_hint">Nombre y apellidos:</string>
     <string name="nombre_app">Fandomovies</string>
     <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
     <string name="iniciadoCorrecto">Ha iniciado sesión.</string>
@@ -53,8 +53,8 @@
     <string name="title_activity_scrolling">ScrollingActivity</string>
     <string name="item_category">CATEGORÍA</string>
     <string name="infocuenta">Información de la cuenta</string>
-    <string name="infocuenta3">Email o número de móvil</string>
-    <string name="deseaborrar">¿Desea borrar su cuenta? Borrar cuenta.</string>
+    <string name="infocuenta3">Email o número de móvil:</string>
+    <string name="deseaCerrarSesion">¿Desea cerrar la sesión de su cuenta? Cerrar sesión.</string>
     <string name="ayuda_text">Ayuda</string>
     <string name="compras">Compras</string>
     <string name="flecha_back">Flecha de back</string>

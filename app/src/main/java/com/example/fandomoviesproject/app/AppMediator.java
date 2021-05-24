@@ -291,11 +291,9 @@ public class AppMediator {
         this.userActual= user;
     }
 
-    public User getUserActual(User user){
+    public User getUserActual(){
         return userActual;
     }
-
-
 
 
 }

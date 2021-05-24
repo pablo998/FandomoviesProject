@@ -10,10 +10,10 @@
         android:id="@+id/toolbar2"
         style="@style/Theme.MyFancyTheme"
         android:layout_width="match_parent"
+        android:theme="@style/ToolbarTheme"
         android:layout_height="wrap_content"
         android:background="@color/azulApp"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -24,7 +24,7 @@
         android:id="@+id/imageView2"
         android:layout_width="160dp"
         android:layout_height="160dp"
-        android:layout_marginTop="35dp"
+        android:layout_marginTop="10dp"
         android:contentDescription="@string/logo_registro"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -36,33 +36,45 @@
         android:id="@+id/textView5"
         android:layout_width="328dp"
         android:layout_height="56dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="16dp"
         android:text="@string/infocuenta"
+        android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/layoutBotonInputs"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.493"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
     <LinearLayout
         android:id="@+id/layoutBotonInputs"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="41dp"
-        android:layout_marginBottom="130dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="72dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toTopOf="@+id/botonCerrarSesionMiPerfil"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5">
 
         <TextView
-            android:id="@+id/textView2"
+            android:id="@+id/nombreYapellidosMiperfil"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:text="@string/nombre_apellidos_hint"
             android:textAlignment="textStart"
             android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/inputNameApellMiPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
             android:textSize="20sp" />
 
         <Space
@@ -71,10 +83,18 @@
             android:layout_height="20dp" />
 
         <TextView
+            android:id="@+id/contraseñaMiPerfil"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:text="@string/password_hint"
             android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/inputPassMiPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
             android:textSize="20sp" />
 
         <Space
@@ -83,11 +103,18 @@
             android:layout_height="20dp" />
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/emailOnumMovilMiperfil"
             android:layout_width="328dp"
             android:layout_height="56dp"
             android:text="@string/infocuenta3"
             android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/inputEmailNumMovMiPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
             android:textSize="20sp" />
 
         <Space
@@ -98,11 +125,11 @@
     </LinearLayout>
 
     <Button
-        android:id="@+id/botonIniciaSesion"
+        android:id="@+id/botonCerrarSesionMiPerfil"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/rojo"
-        android:text="@string/deseaborrar"
+        android:text="@string/deseaCerrarSesion"
         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
         android:textColor="@color/white"
         app:layout_constraintBottom_toBottomOf="parent"
