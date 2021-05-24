@@ -96,6 +96,20 @@ public class Repository implements RepositoryContract {
         });
 
     }
+    @Override
+    public void getAllSeriesList(final GetSeriesListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setSeriesList(getSerieCategoryDao().loadSeries());
+                }
+            }
+        });
+
+    }
 
     @Override
     public void getSeriesList(
@@ -329,6 +343,21 @@ public class Repository implements RepositoryContract {
     }
 
     @Override
+    public void getAllPelisList(final GetPelisListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setPelisList(getPeliCategoryDao().loadPelis());
+                }
+            }
+        });
+
+    }
+
+    @Override
     public void getPelisList(
             final CategoryItemCatalog category, final GetPelisListCallback callback) {
 
@@ -553,6 +582,21 @@ public class Repository implements RepositoryContract {
 
                 if(callback != null) {
                     callback.onCatalogDataDocuFetched(error);
+                }
+            }
+        });
+
+    }
+
+    @Override
+    public void getAllDocusList(final GetDocusListCallback callback) {
+
+        AsyncTask.execute(new Runnable() {
+
+            @Override
+            public void run() {
+                if (callback != null) {
+                    callback.setDocusList(getDocuCategoryDao().loadDocus());
                 }
             }
         });

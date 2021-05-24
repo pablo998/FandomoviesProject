@@ -6,8 +6,6 @@ import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Filter;
-import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,12 +14,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity;
 import com.example.fandomoviesproject.data.FavoritoItem;
-import com.example.fandomoviesproject.data.PeliculaItem;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 
 public class FavoritosAdapter

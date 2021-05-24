@@ -8,6 +8,8 @@ public interface RepositoryContract {
         void onCatalogDataSerieFetched(boolean error);
     }
 
+    void getAllSeriesList(final GetSeriesListCallback callback);
+
     interface GetSeriesListCallback {
         void setSeriesList(List<SerieItemCatalog> series);
     }
@@ -112,6 +114,8 @@ public interface RepositoryContract {
     void loadCatalogPeli(
             boolean clearFirst, Repository.FetchCatalogDataPeliCallback callback);
 
+    void getAllPelisList(Repository.GetPelisListCallback callback);
+
     void getPelisList(
             CategoryItemCatalog category, Repository.GetPelisListCallback callback);
 
@@ -174,6 +178,7 @@ public interface RepositoryContract {
         void onDocuUpdated();
     }
 
+    void getAllDocusList(final GetDocusListCallback callback);
 
     void loadCatalogDocu(
             boolean clearFirst, Repository.FetchCatalogDataDocuCallback callback);

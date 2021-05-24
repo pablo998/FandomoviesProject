@@ -1,12 +1,8 @@
 package com.example.fandomoviesproject.buscarPelis;
 
-import android.view.View;
 import android.widget.TextView;
-
-import com.example.fandomoviesproject.data.PeliculaItem;
-
+import com.example.fandomoviesproject.data.RepositoryContract;
 import java.lang.ref.WeakReference;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
 interface PelisBuscarContract {
 
@@ -16,11 +12,11 @@ interface PelisBuscarContract {
         void displayPelisBuscarData(PelisBuscarViewModel viewModel);
 
         void onClickCorazonButton(TextView titulo, TextView info);
-        void onClickCarroButton(TextView titulo, TextView info);
+        void onClickCarroButton(TextView titulo, TextView info, String URLcompra);
 
         void navigateToBuscarSeriesActivity();
         void navigateToBuscarDocusActivity();
-        void goToPaginaWeb();
+        void goToPaginaWeb(String URL);
         void añadidoConExitoWarning();
     }
 
@@ -28,28 +24,17 @@ interface PelisBuscarContract {
         void injectView(WeakReference<View> view);
         void injectModel(Model model);
 
-        //TODO descomentar linea de abajo cuando repo este hecho y se haya implementado el metodo
-        //void fetchPelisBuscarData();
+        void fetchPelisBuscarData();
         void navigateToBuscarSeriesActivity();
         void navigateToBuscarDocusActivity();
 
         void CorazonButtonClicked(TextView titulo, TextView info);
-        void CarroButtonClicked(TextView titulo, TextView info);
-
-        //  void onResume();
-        // void onStart();
-        // void onRestart();
-        //void onDestroy();
+        void CarroButtonClicked(TextView titulo, TextView info, String URLcompra);
     }
 
     interface Model {
 
-        //TODO ESTO QUEDA PENDIENTE
-        /*
-        void fetchPelisBuscarData(
-                RepositoryContract.GetCategoryListCallback callback);
-
-         */
+        void fetchPeliBuscarData(RepositoryContract.GetPelisListCallback callback);
     }
 
 

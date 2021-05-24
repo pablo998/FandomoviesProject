@@ -29,6 +29,8 @@ public class PeliculaItemCatalog {
     public String url_trailer;
     public String url_imagen;
     public String sinopsis;
+    public String url_comprar;
+
 
     public String actor1;
     public String actor2;
@@ -37,6 +39,10 @@ public class PeliculaItemCatalog {
     public String valoracion1;
     public String valoracion2;
     public String valoracion3;
+
+    public String directorYfecha;
+    public int imageResourceLike;
+    public int imageResourceCarro;
 
 
 

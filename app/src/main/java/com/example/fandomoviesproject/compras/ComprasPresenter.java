@@ -1,10 +1,6 @@
 package com.example.fandomoviesproject.compras;
 
 import com.example.fandomoviesproject.app.AppMediator;
-import com.example.fandomoviesproject.data.ComprasItem;
-import com.example.fandomoviesproject.data.PeliculaItem;
-import com.example.fandomoviesproject.compras.ComprasContract;
-import com.example.fandomoviesproject.compras.ComprasState;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

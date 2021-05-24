@@ -3,14 +3,11 @@ package com.example.fandomoviesproject.buscarPelis;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
-import android.media.Image;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -19,14 +16,13 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.NavUtils;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.buscarDocus.DocusBuscarActivity;
 import com.example.fandomoviesproject.buscarSeries.SeriesBuscarActivity;
-import com.example.fandomoviesproject.data.PeliculaItem;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
 
 import java.util.ArrayList;
 
@@ -37,8 +33,7 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
     PelisBuscarContract.Presenter presenter;
     private PelisBuscarAdapter mAdapter;
 
-    //TODO ESTO NO IRÍA AQUÍ
-    private final ArrayList<PeliculaItem> mPeliList = new ArrayList<>();
+    private ArrayList<PeliculaItemCatalog> mPeliList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private Context context = this;
     private TabHost tabHost;
@@ -72,9 +67,6 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         tabHost.setup();
         setUpTabs();
 
-
-        //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
-
         /*
          if(savedInstanceState == null) {
          CatalogMediator.resetInstance();
@@ -105,9 +97,14 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         PelisBuscarScreen.configure(this);
 
         // do some work
-        //presenter.fetchPelisListData();
-        initializeData();  //TODO ESTO HAY QUE QUITARLO CUANDO LA LINEA DE ARRIBA FUNCIONE
+        presenter.fetchPelisBuscarData();
+    }
 
+    @Override
+    public void goToPaginaWeb(String URLcompra){
+        Uri uri = Uri.parse(URLcompra); //missing 'http://' will cause crash
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
     @Override
@@ -150,19 +147,25 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
 
     @Override
     public void displayPelisBuscarData(PelisBuscarViewModel viewModel) {
-        //TODO pendiente para cuando haya repositorio
+        Log.e(TAG, "displayPeliculaListData()");
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                int size = viewModel.products.size();
+                Log.e(TAG, "la size es " + size);
+                mAdapter.setItems(viewModel.products);
+            }
+        });
+
     }
+
 
     @Override
     public void navigateToBuscarDocusActivity() {
         Intent intent = new Intent(context, DocusBuscarActivity.class);
         startActivity(intent);
-    }
-
-
-    @Override
-    public void goToPaginaWeb() {
-        //TODO POR IMPLEMENTAR goToPaginaWeb
     }
 
 
@@ -174,6 +177,14 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
         MenuItem searchItem = menu.findItem(R.id.app_bar_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
 
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                presenter.fetchPelisBuscarData();
+                searchView.onActionViewCollapsed();
+                return true;
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -183,7 +194,10 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
             @Override
             public boolean onQueryTextChange(String newText) {
                 mAdapter.getFilter().filter(newText);
-                if(newText == null || newText.length()== 0) initializeData();
+                if(newText == null || newText.length()== 0) {
+                    presenter.fetchPelisBuscarData();
+                }
+
                 return false;
             }
         });
@@ -202,33 +216,6 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-
-
-    //TODO Quitar cuando el repositorio este hecho
-    private void initializeData() {
-        String[] titulosList = getResources()
-                .getStringArray(R.array.buscar_pelis_Titulos);
-        String[] infoPeliList = getResources()
-                .getStringArray(R.array.buscar_pelis_Informacion);
-        TypedArray imageLogo = getResources()
-                .obtainTypedArray(R.array.buscar_pelis_imageLogo);
-        TypedArray imageLike = getResources()
-                .obtainTypedArray(R.array.buscar_pelis_imageLike);
-        TypedArray imageCarro = getResources()
-                .obtainTypedArray(R.array.buscar_pelis_imageCarro);
-        mPeliList.clear(); // Clear data (to avoid duplication)
-
-        for (int i = 0; i < titulosList.length; i++) {
-            mPeliList.add(new PeliculaItem(
-                    titulosList[i], infoPeliList[i], imageLogo.getResourceId(0, 0),
-                    imageLike.getResourceId(0, 0), imageCarro.getResourceId(0, 0))
-            );
-        }
-
-        //sportsImageResources.recycle(); // Recycle typed array
-        this.mAdapter.notifyDataSetChanged(); // Notify adapter of change
     }
 
 
@@ -274,8 +261,8 @@ public class PelisBuscarActivity extends AppCompatActivity implements PelisBusca
     }
 
     @Override
-    public void onClickCarroButton(TextView titulo, TextView info){
-        presenter.CarroButtonClicked(titulo, info);
+    public void onClickCarroButton(TextView titulo, TextView info, String URLcompra){
+        presenter.CarroButtonClicked(titulo, info, URLcompra);
     }
 
 

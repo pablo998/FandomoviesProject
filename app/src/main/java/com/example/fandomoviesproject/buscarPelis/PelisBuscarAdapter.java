@@ -1,6 +1,5 @@
 package com.example.fandomoviesproject.buscarPelis;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -12,53 +11,86 @@ import android.widget.Filterable;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.PeliculaItem;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+
+public class PelisBuscarAdapter extends RecyclerView.Adapter<PelisBuscarAdapter.ViewHolder>  implements Filterable {
+
+    private List<PeliculaItemCatalog> itemList;
+    private List<PeliculaItemCatalog> itemListFull;
+    public static String TAG = PelisBuscarAdapter.class.getSimpleName();
 
 
-public class PelisBuscarAdapter
-        extends RecyclerView.Adapter<PelisBuscarAdapter.PeliViewHolder> implements Filterable {
-
-    private ArrayList<PeliculaItem> mPeliList;
-    private ArrayList<PeliculaItem> mPeliListFull;
-
-    private LayoutInflater mInflater;
     private Context mContext;
-    private int i;
 
-    public PelisBuscarAdapter(Context context , ArrayList<PeliculaItem> mPeliList){
+
+    public PelisBuscarAdapter(Context context , ArrayList<PeliculaItemCatalog> itemList) {
         this.mContext = context;
-        mInflater = LayoutInflater.from(context);
-        this.mPeliList = mPeliList;
-        this.mPeliListFull = mPeliList;
+        this.itemList = itemList;
+        this.itemListFull = itemList;
+    }
+
+
+    public void addItem(PeliculaItemCatalog item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addItems(List<PeliculaItemCatalog> items){
+        itemList.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<PeliculaItemCatalog> items){
+        itemList = items;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public PelisBuscarAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_buscar_pelisfila, parent, false);
+        return new PelisBuscarAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final PelisBuscarAdapter.ViewHolder holder, int position) {
+        PeliculaItemCatalog mCurrent = itemList.get(position);
+        holder.bindTo(mCurrent);
+        holder.itemView.setTag(itemList.get(position));
 
     }
 
 
-    class PeliViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mDocusLogo;
-        private ImageButton mLikeImage;
-        private ImageButton mBuyImage;
-        private TextView mTitleText;
-        private TextView mInfoText;
+    @Override
+    public int getItemCount() {
+        return itemList.size();
+    }
 
-        public PeliViewHolder(View itemView, PelisBuscarAdapter adapter){
-            super(itemView);
 
-            // Initialize
-            mTitleText = itemView.findViewById(R.id.titulo);
-            mInfoText = itemView.findViewById(R.id.directorypublicacion);
-            mDocusLogo = itemView.findViewById(R.id.logo);
-            mLikeImage = itemView.findViewById(R.id.likeboton);
-            mBuyImage = itemView.findViewById(R.id.carroboton);
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView contentView;
+        final TextView direccionYpublicacion;
+        final ImageView logo;
+        final ImageButton mLikeImage;
+        final ImageButton mBuyImage;
+        String url_comprar;
+
+        ViewHolder(View view) {
+            super(view);
+            contentView = view.findViewById(R.id.titulo);
+            direccionYpublicacion = view.findViewById(R.id.directorypublicacion);
+            logo = view.findViewById(R.id.logo);
+            mLikeImage = view.findViewById(R.id.likeboton);
+            mBuyImage = view.findViewById(R.id.carroboton);
 
             mBuyImage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -73,7 +105,7 @@ public class PelisBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with compra operation
                                     if(mContext instanceof PelisBuscarActivity){
-                                        ((PelisBuscarActivity)mContext).onClickCarroButton(mTitleText,mInfoText);
+                                        ((PelisBuscarActivity)mContext).onClickCarroButton(contentView,direccionYpublicacion, url_comprar);
                                     }
                                 }
                             })
@@ -85,7 +117,6 @@ public class PelisBuscarAdapter
                 }
 
             });
-
 
             mLikeImage.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -100,7 +131,7 @@ public class PelisBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with favorito operation
                                     if(mContext instanceof PelisBuscarActivity){
-                                        ((PelisBuscarActivity)mContext).onClickCorazonButton(mTitleText,mInfoText);
+                                        ((PelisBuscarActivity)mContext).onClickCorazonButton(contentView,direccionYpublicacion);
                                     }
                                 }
                             })
@@ -113,57 +144,17 @@ public class PelisBuscarAdapter
 
             });
 
-
         }
 
-        void bindTo(PeliculaItem mCurrent) {
-            mTitleText.setText(mCurrent.getTitle());
-            mInfoText.setText(mCurrent.getInfo());
-
-            // Load images into ImageView using Glide
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLogo())
-                    .into(mDocusLogo);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLike())
-                    .into(mLikeImage);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceCarro())
-                    .into(mBuyImage);
+        void bindTo(PeliculaItemCatalog mCurrent) {
+            contentView.setText(mCurrent.content);
+            direccionYpublicacion.setText(mCurrent.directorYfecha);
+            logo.setImageResource(R.drawable.pelis);
+            mLikeImage.setImageResource(R.drawable.favorito);
+            mBuyImage.setImageResource(R.drawable.carrito);
+            url_comprar = mCurrent.url_comprar;
 
         }
-
-       /* @Override
-        public void onClick(View view){
-            // Get position of item that was clicked
-            int mPosition = getLayoutPosition();
-            // Use it to access selected item in word list
-            LinearLayout element = mDocuList.get(mPosition);
-            // Change word in word list
-            mWordList.set(mPosition, "Clicked! " + element);
-            // Notify adapter so it updates RecyclerView to show updated data
-            mAdapter.notifyDataSetChanged();
-        }
-        */
-    }
-
-
-    @Override
-    public PeliViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View mItemView = mInflater.inflate(
-                R.layout.activity_buscar_pelisfila,parent,false);
-        return new PeliViewHolder(mItemView, this);
-    }
-
-    @Override
-    public void onBindViewHolder(PeliViewHolder holder,int position) {
-        PeliculaItem mCurrent= mPeliList.get(position);
-        holder.bindTo(mCurrent);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mPeliList.size();
     }
 
 
@@ -178,17 +169,17 @@ public class PelisBuscarAdapter
         //run on background thread
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+            itemListFull = itemList;
 
             FilterResults results = new FilterResults();
-            ArrayList<PeliculaItem> filteredList = new ArrayList<>();
+            List<PeliculaItemCatalog> filteredList = new ArrayList<>();
 
 
             if(constraint != null || constraint.length() != 0) {
                 String filterPattern = constraint.toString().toLowerCase();
 
-                for (PeliculaItem item : mPeliListFull) {
-                    if (item.getTitle().toLowerCase().contains(filterPattern) ||
-                            item.getInfo().toLowerCase().contains(filterPattern)) {
+                for (PeliculaItemCatalog item : itemListFull) {
+                    if (item.content.toLowerCase().contains(filterPattern)) {
 
                         filteredList.add(item);
                     }
@@ -204,10 +195,12 @@ public class PelisBuscarAdapter
         //runs on a UI thread
         @Override
         protected void publishResults(CharSequence constraint, FilterResults filterResults) {
-            mPeliList.clear();
-            mPeliList.addAll((Collection<? extends PeliculaItem>) filterResults.values);
+            itemList.clear();
+            itemList.addAll((Collection<? extends PeliculaItemCatalog>) filterResults.values);
             notifyDataSetChanged();
         }
     };
 
+
 }
+

@@ -1,41 +1,26 @@
 package com.example.fandomoviesproject.buscarPelis;
 
-//TODO descomentar
-//import com.example.recyclerview.data.RepositoryContract;
+import android.util.Log;
+
+import com.example.fandomoviesproject.data.CategoryItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 public class PelisBuscarModel implements PelisBuscarContract.Model {
 
     public static String TAG = PelisBuscarModel.class.getSimpleName();
 
-    // TODO DE AQUI HASTA ABAJO QUEDA PENDIENTE HASTA QUE SE IMPLEMENTE EL REPOSITORIO
-
-    /*
     private RepositoryContract repository;
 
-    public PelisBuscarModel(RepositoryContract repository) {
+    public PelisBuscarModel(RepositoryContract repository){
         this.repository = repository;
-
     }
 
     @Override
-    public void fetchPelisBuscarData(
-            final RepositoryContract.GetCategoryListCallback callback) {
+    public void fetchPeliBuscarData(RepositoryContract.GetPelisListCallback callback) {
+        RepositoryContract.FetchCatalogDataPeliCallback callback1 = null;
 
-        Log.e(TAG, "fetchCategoryListData()");
-
-        repository.loadCatalog(new RepositoryContract.FetchCatalogDataCallback() {
-
-            @Override
-            public void onCatalogDataFetched(boolean error) {
-                if(!error) {
-                    repository.getPelisList(callback);
-                }
-            }
-        });
-
+        Log.e(TAG, "fetchPelisListData()");
+        repository.loadCatalogPeli(true,callback1);
+        repository.getAllPelisList(callback);
     }
-
-     */
-
 }
-

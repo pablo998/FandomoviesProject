@@ -3,8 +3,6 @@ package com.example.fandomoviesproject.favoritos;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
-import com.example.fandomoviesproject.data.FavoritoItem;
-import com.example.fandomoviesproject.data.PeliculaItem;
 
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;

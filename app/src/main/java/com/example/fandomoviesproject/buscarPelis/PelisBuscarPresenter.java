@@ -6,12 +6,11 @@ import android.widget.TextView;
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.data.FavoritoItem;
-import com.example.fandomoviesproject.data.PeliculaItem;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
-import java.util.ArrayList;
 import java.util.List;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
 
 public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
@@ -30,27 +29,6 @@ public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
     }
 
 
-    //TODO ESTA METODO QUEDA PENDIENTE PARA CUANO SE IMPLEMENTE EL REPOSITORIO
-    /*
-    @Override
-    public void fetchPelisBuscarData() {
-        // Log.e(TAG, "fetchCategoryListData()");
-
-        // call the model
-        model.fetchPelisListData(new RepositoryContract.GetCategoryListCallback() {
-
-            @Override
-            public void setCategoryList(List<CategoryItemCatalog> categories) {
-                state.categories = categories;
-
-                view.get().displayCategoryListData(state);
-            }
-        });
-
-    }
-
-     */
-
     private void passDataToFavoritosActivity(FavoritoItem item) {
         mediator.setLiked(item);
     }
@@ -59,6 +37,22 @@ public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
         mediator.setHeComprado(item);
     }
 
+
+    @Override
+    public void fetchPelisBuscarData() {
+        Log.e(TAG, "fetchPeliculaListData()");
+
+        // call the model
+        model.fetchPeliBuscarData(new RepositoryContract.GetPelisListCallback() {
+
+            @Override
+            public void setPelisList(List<PeliculaItemCatalog> products) {
+                state.products = products;
+
+                view.get().displayPelisBuscarData(state);
+            }
+        });
+    }
 
 
     @Override
@@ -71,12 +65,12 @@ public class PelisBuscarPresenter implements PelisBuscarContract.Presenter {
     }
 
     @Override
-    public void CarroButtonClicked(TextView titulo, TextView info) {
+    public void CarroButtonClicked(TextView titulo, TextView info, String URLcompra) {
         String tituloFav = titulo.getText().toString();
         String infoFav = info.getText().toString();
         ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
         passDataToComprasListActivity(peliculaComprada);
-        //view.get().goToPaginaWeb();
+        view.get().goToPaginaWeb(URLcompra);
     }
 
 
