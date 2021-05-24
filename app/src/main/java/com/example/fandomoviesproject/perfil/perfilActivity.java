@@ -2,6 +2,7 @@ package com.example.fandomoviesproject.perfil;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -90,4 +91,22 @@ public class perfilActivity
             this.emailONumMovil.setText(userActual.getEmail());
         }
     }
+
+
+    // Determines if Action bar item was selected. If true then do corresponding action.
+    @Override
+    public boolean onOptionsItemSelected (MenuItem item){
+        // handle presses on the action bar items
+        switch (item.getItemId()) {
+
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+
+
+
 }
