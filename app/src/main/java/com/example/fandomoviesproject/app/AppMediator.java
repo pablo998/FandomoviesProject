@@ -6,6 +6,7 @@ import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
 import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.data.DocuItemCatalog;
 import com.example.fandomoviesproject.data.FavoritoItem;
+import com.example.fandomoviesproject.data.User;
 import com.example.fandomoviesproject.docuDetail.DocuDetailState;
 import com.example.fandomoviesproject.docusDeUnaCategoria.DocuListState;
 import com.example.fandomoviesproject.favoritos.FavoritosState;
@@ -86,6 +87,8 @@ public class AppMediator {
     private static AppMediator INSTANCE;
 
     private perfilState perfilState;
+    private ArrayList<User> usersRegistrados;
+    private User userActual;
 
     private AppMediator() {
 
@@ -269,5 +272,24 @@ public class AppMediator {
     public ArrayList<ComprasItem> getCompradoItems(){
         return comprasList;
     }
+
+    public ArrayList<User> getUsersRegistrados(){
+        return usersRegistrados;
+    }
+
+    public void setUserRegistrado(User user){
+        this.usersRegistrados.add(user);
+    }
+
+    public void setUserActual(User user){
+        this.userActual= user;
+    }
+
+    public User getUserActual(User user){
+        return userActual;
+    }
+
+
+
 
 }

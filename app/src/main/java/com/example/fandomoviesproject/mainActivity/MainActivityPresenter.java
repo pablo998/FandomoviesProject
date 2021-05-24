@@ -4,8 +4,10 @@ import android.text.Editable;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.User;
 
 import java.lang.ref.WeakReference;
+import java.util.ArrayList;
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
 
 
@@ -46,15 +48,29 @@ public class MainActivityPresenter implements MainActivityContract.Presenter {
 
     @Override
     public void onIniciarSesionButtonClick(TextView numMoviloEmail, TextView contraseña){
-        if(numMoviloEmail != null && contraseña != null){
+        if(numMoviloEmail != null && contraseña != null) {
             state.contraseña = contraseña.getText().toString();
             state.numMoviloEmail = numMoviloEmail.getText().toString();
 
-            //if(model.comprobarQueNoEstaEmail(email) == true ||
-            //    model.comprobarQueNoEstaNumMovil(email) == true){
-            // view.get().navigateToMenuActivity();
-            //}else{ view.get.credencialesIncorrectas();}
+            ArrayList<User> users = mediator.getUsersRegistrados();
+            if (users == null) {
+                view.get().credencialesIncorrectas();
+            } else {
+                for (int i = 0; i < users.size(); i++) {
+                    if (users.get(i).getNumMovil().equals(numMoviloEmail.toString()) ||
+                            users.get(i).getEmail().equals(numMoviloEmail.toString())) {
+                        if (users.get(i).getContraseña().equals(contraseña.toString())) {
+                            passDataToMediator(users.get(i));
+                            view.get().navigateToMenuActivity();
+                        }
+                    }
+                }
+            }
         }
+    }
+
+    private void passDataToMediator(User user) {
+        mediator.setUserActual(user);
     }
 
     @Override

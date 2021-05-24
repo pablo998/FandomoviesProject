@@ -8,9 +8,10 @@
     <string name="nombre_apellidos_hint">Nombre y apellidos</string>
     <string name="nombre_app">Fandomovies</string>
     <string name="registrate_boton">¿No tienes una cuenta? Regístrate.</string>
+    <string name="iniciadoCorrecto">Ha iniciado sesión.</string>
     <string name="peliculas">Peliculas</string>
     <string name="credencialesIncorrectasTitle">Credenciales incorrectas</string>
-    <string name="credencialesIncorrectas">Los datos que ha introducido no son correctos</string>
+    <string name="credencialesIncorrectas">Los datos que ha introducido no son correctos o la cuenta no existe</string>
     <string name="camposporRellenarTitle">Faltan campos por rellenar</string>
     <string name="camposporRellenar">Rellene todos los campos para poder registrarse</string>
     <string name="emailYaEnUsoTitle">Email en uso</string>
@@ -189,6 +190,7 @@
     <string name="añadirfavoritotitulo">Añadir a favoritos</string>
     <string name="añadirfavorito">¿Desea añadir este elemento a la lista de Favoritos?</string>
     <string name="siFav">Añadir</string>
+    <string name="siWarning">Okay</string>
     <string name="añadidoConExito">Se ha añadido a la lista de Favoritos</string>
     <string name="realizarcompratitulo">Realizar compra</string>
     <string name="realizarcompra">¿Quiere obtener productos acerca de esta película?</string>

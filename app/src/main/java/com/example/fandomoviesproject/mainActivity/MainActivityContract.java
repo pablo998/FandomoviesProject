@@ -33,15 +33,6 @@ public interface MainActivityContract {
 
     public interface Model {
 
-        //TODO ESTO QUEDA PENDIENTE
-        /*
-        boolean comprobarQueNoEstaEmail(
-                RepositoryContract.GetCategoryListCallback callback);
-        boolean comprobarQueNoEstaNumMovil(
-                RepositoryContract.GetCategoryListCallback callback);
-         */
-
-
     }
 }
 

@@ -11,6 +11,8 @@ import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
+
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.registrarse.RegistrarseContract;
 import com.example.fandomoviesproject.registrarse.RegistrarseScreen;
@@ -104,6 +106,7 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
     };
 
     public void navigateToMenuActivity() {
+        Toast.makeText(context,R.string.iniciadoCorrecto, Toast.LENGTH_LONG).show();
         Intent intent = new Intent(this,com.example.fandomoviesproject.menu.MenuActivity.class);
         startActivity(intent);
     }
@@ -121,14 +124,13 @@ public class MainActivity extends AppCompatActivity implements MainActivityContr
 
                 // Specifying a listener allows you to take an action before dismissing the dialog.
                 // The dialog is automatically dismissed when a dialog button is clicked.
-                .setPositiveButton(R.string.siFav, new DialogInterface.OnClickListener() {
+                .setPositiveButton(R.string.siWarning, new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         // Continue with operation
                     }
                 })
 
                 // A null listener allows the button to dismiss the dialog and take no further action.
-                .setNegativeButton(R.string.no, null)
                 .show();
     }
 
