@@ -8,60 +8,96 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.SerieItem;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
+
+public class SeriesBuscarAdapter extends RecyclerView.Adapter<SeriesBuscarAdapter.ViewHolder>  implements Filterable {
+
+    private List<SerieItemCatalog> itemList;
+    private List<SerieItemCatalog> itemListFull;
+    public static String TAG = SeriesBuscarAdapter.class.getSimpleName();
 
 
-public class SeriesBuscarAdapter
-        extends RecyclerView.Adapter<SeriesBuscarAdapter.SerieViewHolder> implements Filterable {
-
-    private ArrayList<SerieItem> mSerieList;
-    private ArrayList<SerieItem> mSerieListFull;
-
-    private LayoutInflater mInflater;
     private Context mContext;
 
-    public SeriesBuscarAdapter(Context context , ArrayList<SerieItem> mSerieList){
+
+    public SeriesBuscarAdapter(Context context , ArrayList<SerieItemCatalog> itemList) {
         this.mContext = context;
-        mInflater = LayoutInflater.from(context);
-        this.mSerieList = mSerieList;
-        this.mSerieListFull = mSerieList;
+        this.itemList = itemList;
+        this.itemListFull = itemList;
+    }
+
+
+    public void addItem(SerieItemCatalog item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addItems(List<SerieItemCatalog> items){
+        itemList.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<SerieItemCatalog> items){
+        itemList = items;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public SeriesBuscarAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_buscar_seriesfila, parent, false);
+        return new SeriesBuscarAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final SeriesBuscarAdapter.ViewHolder holder, int position) {
+        SerieItemCatalog mCurrent = itemList.get(position);
+        holder.bindTo(mCurrent);
+        holder.itemView.setTag(itemList.get(position));
 
     }
 
 
-    class SerieViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mSeriesLogo;
-        private ImageView mLikeImage;
-        private ImageView mBuyImage;
-        private TextView mTitleText;
-        private TextView mInfoText;
+    @Override
+    public int getItemCount() {
+        return itemList.size();
+    }
 
-        public SerieViewHolder(View itemView, SeriesBuscarAdapter adapter){
-            super(itemView);
 
-            // Initialize
-            mTitleText = itemView.findViewById(R.id.titulo);
-            mInfoText = itemView.findViewById(R.id.directorypublicacion);
-            mSeriesLogo = itemView.findViewById(R.id.logo);
-            mLikeImage = itemView.findViewById(R.id.likeboton);
-            mBuyImage = itemView.findViewById(R.id.carroboton);
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView contentView;
+        final TextView direccionYpublicacion;
+        final ImageView logo;
+        final ImageButton mLikeImage;
+        final ImageButton mBuyImage;
+        String url_comprar;
+
+        ViewHolder(View view) {
+            super(view);
+            contentView = view.findViewById(R.id.titulo);
+            direccionYpublicacion = view.findViewById(R.id.directorypublicacion);
+            logo = view.findViewById(R.id.logo);
+            mLikeImage = view.findViewById(R.id.likeboton);
+            mBuyImage = view.findViewById(R.id.carroboton);
 
             mBuyImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     new AlertDialog.Builder(mContext)
                             .setTitle(R.string.realizarcompratitulo)
-                            .setMessage(R.string.realizarcompraSerie)
+                            .setMessage(R.string.realizarcompra)
 
                             // Specifying a listener allows you to take an action before dismissing the dialog.
                             // The dialog is automatically dismissed when a dialog button is clicked.
@@ -69,7 +105,7 @@ public class SeriesBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with compra operation
                                     if(mContext instanceof SeriesBuscarActivity){
-                                        ((SeriesBuscarActivity)mContext).onClickCarroButton(mTitleText,mInfoText);
+                                        ((SeriesBuscarActivity)mContext).onClickCarroButton(contentView,direccionYpublicacion, url_comprar);
                                     }
                                 }
                             })
@@ -95,7 +131,7 @@ public class SeriesBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with favorito operation
                                     if(mContext instanceof SeriesBuscarActivity){
-                                        ((SeriesBuscarActivity)mContext).onClickCorazonButton(mTitleText,mInfoText);
+                                        ((SeriesBuscarActivity)mContext).onClickCorazonButton(contentView,direccionYpublicacion);
                                     }
                                 }
                             })
@@ -107,79 +143,43 @@ public class SeriesBuscarAdapter
                 }
 
             });
-        }
-
-        void bindTo(SerieItem mCurrent) {
-            mTitleText.setText(mCurrent.getTitle());
-            mInfoText.setText(mCurrent.getInfo());
-
-            // Load images into ImageView using Glide
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLogo())
-                    .into(mSeriesLogo);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLike())
-                    .into(mLikeImage);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceCarro())
-                    .into(mBuyImage);
 
         }
 
-       /* @Override
-        public void onClick(View view){
-            // Get position of item that was clicked
-            int mPosition = getLayoutPosition();
-            // Use it to access selected item in word list
-            LinearLayout element = mDocuList.get(mPosition);
-            // Change word in word list
-            mWordList.set(mPosition, "Clicked! " + element);
-            // Notify adapter so it updates RecyclerView to show updated data
-            mAdapter.notifyDataSetChanged();
+        void bindTo(SerieItemCatalog mCurrent) {
+            contentView.setText(mCurrent.content);
+            direccionYpublicacion.setText(mCurrent.directorYfecha);
+            logo.setImageResource(R.drawable.play);
+            mLikeImage.setImageResource(R.drawable.favorito);
+            mBuyImage.setImageResource(R.drawable.carrito);
+            url_comprar = mCurrent.url_comprar;
+
         }
-        */
     }
 
-
-    @Override
-    public SerieViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View mItemView = mInflater.inflate(
-                R.layout.activity_buscar_seriesfila,parent,false);
-        return new SerieViewHolder(mItemView, this);
-    }
-
-    @Override
-    public void onBindViewHolder(SerieViewHolder holder,int position) {
-        SerieItem mCurrent= mSerieList.get(position);
-        holder.bindTo(mCurrent);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mSerieList.size();
-    }
 
     @Override
     public Filter getFilter() {
         return exampleFilter;
     }
 
+
     Filter exampleFilter = new Filter() {
 
         //run on background thread
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+            itemListFull = itemList;
 
             FilterResults results = new FilterResults();
-            ArrayList<SerieItem> filteredList = new ArrayList<>();
+            List<SerieItemCatalog> filteredList = new ArrayList<>();
 
 
             if(constraint != null || constraint.length() != 0) {
                 String filterPattern = constraint.toString().toLowerCase();
-                
-                for (SerieItem item : mSerieListFull) {
-                    if (item.getTitle().toLowerCase().contains(filterPattern) ||
-                            item.getInfo().toLowerCase().contains(filterPattern)) {
+
+                for (SerieItemCatalog item : itemListFull) {
+                    if (item.content.toLowerCase().contains(filterPattern)) {
 
                         filteredList.add(item);
                     }
@@ -195,10 +195,12 @@ public class SeriesBuscarAdapter
         //runs on a UI thread
         @Override
         protected void publishResults(CharSequence constraint, FilterResults filterResults) {
-            mSerieList.clear();
-            mSerieList.addAll((Collection<? extends SerieItem>) filterResults.values);
+            itemList.clear();
+            itemList.addAll((Collection<? extends SerieItemCatalog>) filterResults.values);
             notifyDataSetChanged();
         }
     };
 
+
 }
+

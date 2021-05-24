@@ -1,40 +1,26 @@
 package com.example.fandomoviesproject.buscarSeries;
 
-//TODO descomentar import com.example.recyclerview.data.RepositoryContract;
+import android.util.Log;
+
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 public class SeriesBuscarModel implements SeriesBuscarContract.Model {
 
     public static String TAG = SeriesBuscarModel.class.getSimpleName();
 
-    // TODO DE AQUI HASTA ABAJO QUEDA PENDIENTE HASTA QUE SE IMPLEMENTE EL REPOSITORIO
-
-    /*
     private RepositoryContract repository;
 
-    public SeriesBuscarModel(RepositoryContract repository) {
+    public SeriesBuscarModel(RepositoryContract repository){
         this.repository = repository;
-
     }
 
     @Override
-    public void fetchSeriesBuscarData(
-            final RepositoryContract.GetCategoryListCallback callback) {
+    public void fetchSerieBuscarData(RepositoryContract.GetSeriesListCallback callback) {
+        RepositoryContract.FetchCatalogDataSerieCallback callback1 = null;
 
-        Log.e(TAG, "fetchCategoryListData()");
-
-        repository.loadCatalog(new RepositoryContract.FetchCatalogDataCallback() {
-
-            @Override
-            public void onCatalogDataFetched(boolean error) {
-                if(!error) {
-                    repository.getSeriesList(callback);
-                }
-            }
-        });
-
+        Log.e(TAG, "fetchSeriesListData()");
+        repository.loadCatalogSerie(true,callback1);
+        repository.getAllSeriesList(callback);
     }
-
-     */
-
 }
 

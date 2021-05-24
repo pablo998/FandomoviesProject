@@ -1,14 +1,16 @@
 package com.example.fandomoviesproject.buscarSeries;
 
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.ComprasItem;
 import com.example.fandomoviesproject.data.FavoritoItem;
-import com.example.fandomoviesproject.data.SerieItem;
+import com.example.fandomoviesproject.data.RepositoryContract;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 import java.lang.ref.WeakReference;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
+import java.util.List;
 
 
 public class SeriesBuscarPresenter implements SeriesBuscarContract.Presenter {
@@ -27,26 +29,21 @@ public class SeriesBuscarPresenter implements SeriesBuscarContract.Presenter {
     }
 
 
-    //TODO ESTA METODO QUEDA PENDIENTE PARA CUANO SE IMPLEMENTE EL REPOSITORIO
-    /*
     @Override
     public void fetchSeriesBuscarData() {
-        // Log.e(TAG, "fetchCategoryListData()");
+        Log.e(TAG, "fetchSeriesListData()");
 
         // call the model
-        model.fetchSeriesListData(new RepositoryContract.GetCategoryListCallback() {
+        model.fetchSerieBuscarData(new RepositoryContract.GetSeriesListCallback() {
 
             @Override
-            public void setCategoryList(List<CategoryItemCatalog> categories) {
-                state.categories = categories;
+            public void setSeriesList(List<SerieItemCatalog> products) {
+                state.series = products;
 
-                view.get().displayCategoryListData(state);
+                view.get().displaySeriesBuscarData(state);
             }
         });
-
     }
-
-     */
 
     private void passDataToFavoritosActivity(FavoritoItem item) {
         mediator.setLiked(item);
@@ -62,18 +59,18 @@ public class SeriesBuscarPresenter implements SeriesBuscarContract.Presenter {
     public void CorazonButtonClicked(TextView titulo, TextView info) {
         String tituloFav = titulo.getText().toString();
         String infoFav = info.getText().toString();
-        FavoritoItem peliculaFavorita = new FavoritoItem(tituloFav, infoFav, 0, 0);
-        passDataToFavoritosActivity(peliculaFavorita);
+        FavoritoItem serieFavorita = new FavoritoItem(tituloFav, infoFav, 0, 0);
+        passDataToFavoritosActivity(serieFavorita);
         view.get().añadidoConExitoWarning();
     }
 
     @Override
-    public void CarroButtonClicked(TextView titulo, TextView info) {
+    public void CarroButtonClicked(TextView titulo, TextView info, String urlComprar) {
         String tituloFav = titulo.getText().toString();
         String infoFav = info.getText().toString();
-        ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
-        passDataToComprasListActivity(peliculaComprada);
-        //view.get().goToPaginaWeb();
+        ComprasItem serieComprada = new ComprasItem(tituloFav, infoFav, 0);
+        passDataToComprasListActivity(serieComprada);
+        view.get().goToPaginaWeb(urlComprar);
     }
 
     @Override

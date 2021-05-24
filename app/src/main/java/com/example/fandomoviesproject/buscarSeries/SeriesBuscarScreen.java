@@ -3,10 +3,11 @@ package com.example.fandomoviesproject.buscarSeries;
 import androidx.fragment.app.FragmentActivity;
 
 import com.example.fandomoviesproject.app.AppMediator;
+import com.example.fandomoviesproject.data.Repository;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
-//import es.ulpgc.eite.cleancode.visitcanary.data.CatalogRepository;
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
+
 
 
 public class SeriesBuscarScreen {
@@ -17,15 +18,12 @@ public class SeriesBuscarScreen {
                 new WeakReference<>((FragmentActivity) view);
 
         AppMediator mediator = AppMediator.getInstance();
-        //TODO Para cuando se haga el repo quitar descomentar linea de abajo
-        // RepositoryContract repository = CatalogRepository.getInstance(context.get());
+        RepositoryContract repository = Repository.getInstance(context.get());
 
         SeriesBuscarContract.Presenter presenter=new SeriesBuscarPresenter(mediator);
-        //TODO descomentar linea de abajo cuando repo este hecho
-        // SeriesBuscarModel model = new SeriesBuscarModel(repository);
+        SeriesBuscarModel model = new SeriesBuscarModel(repository);
         presenter.injectView(new WeakReference<>(view));
-        //TODO descomentar cuando repo este hecho linea de abajo
-        // presenter.injectModel(model);
+        presenter.injectModel(model);
         view.injectPresenter(presenter);
 
     }

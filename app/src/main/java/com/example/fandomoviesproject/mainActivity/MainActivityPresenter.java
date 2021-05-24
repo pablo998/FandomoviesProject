@@ -4,10 +4,6 @@ import android.text.Editable;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
-import com.example.fandomoviesproject.data.ComprasItem;
-import com.example.fandomoviesproject.data.FavoritoItem;
-import com.example.fandomoviesproject.data.SerieItem;
-import com.example.fandomoviesproject.registrarse.RegistrarseContract;
 
 import java.lang.ref.WeakReference;
 //import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;

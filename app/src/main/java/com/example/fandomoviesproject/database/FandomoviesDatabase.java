@@ -13,7 +13,7 @@ import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 @Database(entities = { CategoryItemCatalog.class, PeliculaItemCatalog.class,
         CategorySerieItemCatalog.class, SerieItemCatalog.class, CategoryDocuItemCatalog.class,
-        DocuItemCatalog.class}, version = 1)
+        DocuItemCatalog.class}, version = 2)
 public abstract class FandomoviesDatabase extends RoomDatabase {
 
     public abstract  CategoryPeliDao categoryPeliDao();

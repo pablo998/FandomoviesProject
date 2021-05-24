@@ -20,11 +20,7 @@ import com.bumptech.glide.RequestManager;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.request.RequestOptions;
 import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.SerieItem;
 import com.example.fandomoviesproject.data.SerieItemCatalog;
-import com.example.fandomoviesproject.serieDetail.SerieDetailContract;
-import com.example.fandomoviesproject.serieDetail.SerieDetailScreen;
-import com.example.fandomoviesproject.serieDetail.SerieDetailViewModel;
 
 
 public class SerieDetailActivity

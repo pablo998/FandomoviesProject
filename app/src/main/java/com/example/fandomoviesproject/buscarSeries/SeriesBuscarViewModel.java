@@ -1,11 +1,11 @@
 package com.example.fandomoviesproject.buscarSeries;
 
-import com.example.fandomoviesproject.data.SerieItem;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
 
 import java.util.List;
 
 public class SeriesBuscarViewModel {
 
-    public List<SerieItem> series;
+    public List<SerieItemCatalog> series;
 }
 

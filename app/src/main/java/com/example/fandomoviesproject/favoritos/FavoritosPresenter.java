@@ -41,8 +41,7 @@ public class FavoritosPresenter implements FavoritosContract.Presenter {
     @Override
     public void onClickDeleteButton(TextView mTitleText, TextView mInfoText) {
         for (int i = 0; i < state.favoritos.size(); i++) {
-            if((state.favoritos.get(i).getTitle().equals(mTitleText.getText().toString())) ||
-                    (state.favoritos.get(i).getInfo().equals(mInfoText.getText().toString())))
+            if((state.favoritos.get(i).getTitle().equals(mTitleText.getText().toString())))
                 state.favoritos.remove(i);
         }
         view.get().reiniciarPantalla();
