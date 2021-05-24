@@ -1,12 +1,12 @@
 package com.example.fandomoviesproject.buscarDocus;
 
-import com.example.fandomoviesproject.data.DocuItem;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
 
 import java.util.List;
 
 public class DocusBuscarViewModel {
 
-    public List<DocuItem> documentales;
+    public List<DocuItemCatalog> documentales;
 }
 
 

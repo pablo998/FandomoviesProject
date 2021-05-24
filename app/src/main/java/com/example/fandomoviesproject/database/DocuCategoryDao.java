@@ -26,7 +26,7 @@ public interface DocuCategoryDao {
     @Delete
     void deleteDocu(DocuItemCatalog product);
 
-    @Query("SELECT * FROM productsPelis")
+    @Query("SELECT * FROM productsDocumentales")
     List<DocuItemCatalog> loadDocus();
 
     @Query("SELECT * FROM productsDocumentales WHERE id = :id LIMIT 1")

@@ -12,8 +12,6 @@ import com.example.fandomoviesproject.favoritos.FavoritosState;
 import com.example.fandomoviesproject.mainActivity.MainActivityState;
 import com.example.fandomoviesproject.menu.MenuState;
 
-import com.example.fandomoviesproject.data.DocuItem;
-
 import com.example.fandomoviesproject.data.PeliculaItemCatalog;
 import com.example.fandomoviesproject.data.CategoryItemCatalog;
 import com.example.fandomoviesproject.data.CategorySerieItemCatalog;
@@ -78,7 +76,6 @@ public class AppMediator {
 
 
     private PeliculaItemCatalog pelicula;
-    private DocuItem documental;
 
     private FavoritoItem favoritoItem;
     private ArrayList<FavoritoItem> favoritosList;
@@ -245,17 +242,6 @@ public class AppMediator {
         //pelicula = null;
         return item;
     }
-
-    public void setDocumental(DocuItem item) {
-        documental = item;
-    }
-
-    public DocuItem getDocumental() {
-        DocuItem item = documental;
-        //documental = null;
-        return item;
-    }
-
 
 
     public void setLiked(FavoritoItem item){

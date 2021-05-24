@@ -3,11 +3,11 @@ package com.example.fandomoviesproject.buscarDocus;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.res.TypedArray;
+import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ImageButton;
 import android.widget.TabHost;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.fandomoviesproject.R;
 import com.example.fandomoviesproject.buscarPelis.PelisBuscarActivity;
 import com.example.fandomoviesproject.buscarSeries.SeriesBuscarActivity;
-import com.example.fandomoviesproject.data.DocuItem;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
 
 import java.util.ArrayList;
 
@@ -33,13 +33,11 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     DocusBuscarContract.Presenter presenter;
     private DocusBuscarAdapter mAdapter;
 
-    //TODO ESTO NO IRÍA AQUÍ
-    private final ArrayList<DocuItem> mDocuList = new ArrayList<>();
+    private final ArrayList<DocuItemCatalog> mDocuList = new ArrayList<>();
     private RecyclerView mRecyclerView;
     private Context context = this;
     private TabHost tabHost;
-    private ImageButton corazon;
-    private ImageButton carrito;
+
 
 
     @Override
@@ -70,7 +68,6 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         tabHost.setup();
         setUpTabs();
 
-        //TODO AQUI FALTA PONER UN ONCLICK LISTENER PARA BOTONES
 
         /*
          if(savedInstanceState == null) {
@@ -102,8 +99,8 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         DocusBuscarScreen.configure(this);
 
         // do some work
-        //presenter.fetchDocusListData();
-        initializeData();  //TODO ESTO HAY QUE QUITARLO CUANDO LA LINEA DE ARRIBA FUNCIONE
+        presenter.fetchDocusBuscarData();
+
 
     }
 
@@ -113,8 +110,8 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     }
 
     @Override
-    public void onClickCarroButton(TextView titulo, TextView info){
-        presenter.CarroButtonClicked(titulo, info);
+    public void onClickCarroButton(TextView titulo, TextView info, String urlComprar){
+        presenter.CarroButtonClicked(titulo, info, urlComprar);
     }
 
     @Override
@@ -150,7 +147,18 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
 
     @Override
     public void displayDocusBuscarData(DocusBuscarViewModel viewModel) {
-        //TODO pendiente para cuando REPOSITORIO este hecho
+        Log.e(TAG, "displayPeliculaListData()");
+
+        runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+                int size = viewModel.documentales.size();
+                Log.e(TAG, "la size es " + size);
+                mAdapter.setItems(viewModel.documentales);
+            }
+        });
+
     }
 
     @Override
@@ -160,8 +168,10 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
     }
 
     @Override
-    public void goToPaginaWeb() {
-        //TODO POR IMPLEMENTAR goToPaginaWeb
+    public void goToPaginaWeb(String URLcompra){
+        Uri uri = Uri.parse(URLcompra); //missing 'http://' will cause crash
+        Intent intent = new Intent(Intent.ACTION_VIEW, uri);
+        startActivity(intent);
     }
 
 
@@ -173,6 +183,14 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
         MenuItem searchItem = menu.findItem(R.id.app_bar_search);
         SearchView searchView = (SearchView) searchItem.getActionView();
 
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                presenter.fetchDocusBuscarData();
+                searchView.onActionViewCollapsed();
+                return true;
+            }
+        });
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
             public boolean onQueryTextSubmit(String query) {
@@ -182,7 +200,10 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
             @Override
             public boolean onQueryTextChange(String newText) {
                 mAdapter.getFilter().filter(newText);
-                if(newText == null || newText.length()== 0) initializeData();
+                if(newText == null || newText.length()== 0) {
+                    presenter.fetchDocusBuscarData();
+                }
+
                 return false;
             }
         });
@@ -201,30 +222,6 @@ public class DocusBuscarActivity extends AppCompatActivity implements DocusBusca
                 return true;
         }
         return super.onOptionsItemSelected(item);
-    }
-
-    //TODO Quitar cuando el repositorio este hecho
-    private void initializeData() {
-        String[] titulosList = getResources()
-                .getStringArray(R.array.buscar_docus_Titulos);
-        String[] infoDocuList = getResources()
-                .getStringArray(R.array.buscar_docus_Informacion);
-        TypedArray imageLogo = getResources()
-                .obtainTypedArray(R.array.buscar_docus_imageLogo);
-        TypedArray imageLike = getResources()
-                .obtainTypedArray(R.array.buscar_docus_imageLike);
-        TypedArray imageCarro = getResources()
-                .obtainTypedArray(R.array.buscar_docus_imageCarro);
-        mDocuList.clear(); // Clear data (to avoid duplication)
-
-        for (int i = 0; i < titulosList.length; i++) {
-            mDocuList.add(new DocuItem(
-                    titulosList[i], infoDocuList[i], imageLogo.getResourceId(0, 0),
-                    imageLike.getResourceId(0, 0), imageCarro.getResourceId(0, 0))
-            );
-        }
-        //sportsImageResources.recycle(); // Recycle typed array
-        this.mAdapter.notifyDataSetChanged(); // Notify adapter of change
     }
 
 

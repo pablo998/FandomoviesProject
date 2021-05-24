@@ -1,15 +1,16 @@
 package com.example.fandomoviesproject.buscarDocus;
 
+import android.util.Log;
 import android.widget.TextView;
 
 import com.example.fandomoviesproject.app.AppMediator;
 import com.example.fandomoviesproject.data.ComprasItem;
-import com.example.fandomoviesproject.data.DocuItem;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
 import com.example.fandomoviesproject.data.FavoritoItem;
+import com.example.fandomoviesproject.data.RepositoryContract;
 
 import java.lang.ref.WeakReference;
-
-//import es.ulpgc.eite.cleancode.visitcanary.data.RepositoryContract;
+import java.util.List;
 
 
 public class DocusBuscarPresenter implements DocusBuscarContract.Presenter {
@@ -27,27 +28,24 @@ public class DocusBuscarPresenter implements DocusBuscarContract.Presenter {
         state = mediator.getDocusBuscarState();
     }
 
-
-    //TODO ESTA METODO QUEDA PENDIENTE PARA CUANO SE IMPLEMENTE EL REPOSITORIO
-    /*
     @Override
     public void fetchDocusBuscarData() {
-        // Log.e(TAG, "fetchCategoryListData()");
+        Log.e(TAG, "fetchDocuListData()");
 
         // call the model
-        model.fetchDocusListData(new RepositoryContract.GetCategoryListCallback() {
+        model.fetchDocuBuscarData(new RepositoryContract.GetDocusListCallback() {
 
             @Override
-            public void setCategoryList(List<CategoryItemCatalog> categories) {
-                state.categories = categories;
+            public void setDocusList(List<DocuItemCatalog> products) {
+                state.documentales = products;
 
-                view.get().displayCategoryListData(state);
+                view.get().displayDocusBuscarData(state);
             }
         });
-
     }
 
-     */
+
+
 
     private void passDataToFavoritosActivity(FavoritoItem item) {
         mediator.setLiked(item);
@@ -68,12 +66,12 @@ public class DocusBuscarPresenter implements DocusBuscarContract.Presenter {
     }
 
     @Override
-    public void CarroButtonClicked(TextView titulo, TextView info) {
+    public void CarroButtonClicked(TextView titulo, TextView info, String urlComprar) {
         String tituloFav = titulo.getText().toString();
         String infoFav = info.getText().toString();
         ComprasItem peliculaComprada = new ComprasItem(tituloFav, infoFav, 0);
         passDataToComprasListActivity(peliculaComprada);
-        //view.get().goToPaginaWeb();
+        view.get().goToPaginaWeb(urlComprar);
     }
 
     @Override

@@ -3,64 +3,108 @@ package com.example.fandomoviesproject.buscarDocus;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.media.Image;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Filter;
 import android.widget.Filterable;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.bumptech.glide.Glide;
-import com.example.fandomoviesproject.R;
-import com.example.fandomoviesproject.data.DocuItem;
-
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
+
+import com.bumptech.glide.Glide;
+import com.example.fandomoviesproject.R;
+import com.example.fandomoviesproject.data.DocuItemCatalog;
+import com.example.fandomoviesproject.data.PeliculaItemCatalog;
+import com.example.fandomoviesproject.data.SerieItemCatalog;
+import com.example.fandomoviesproject.seriesDeUnaCategoria.SerieListAdapter;
+
+public class DocusBuscarAdapter extends RecyclerView.Adapter<DocusBuscarAdapter.ViewHolder>  implements Filterable {
+
+    private List<DocuItemCatalog> itemList;
+    private List<DocuItemCatalog> itemListFull;
+    public static String TAG = DocusBuscarAdapter.class.getSimpleName();
 
 
-public class DocusBuscarAdapter
-        extends RecyclerView.Adapter<DocusBuscarAdapter.DocuViewHolder> implements Filterable {
-
-    private ArrayList<DocuItem> mDocuList;
-    private ArrayList<DocuItem> mDocuListFull;
-
-    private LayoutInflater mInflater;
     private Context mContext;
 
-    public DocusBuscarAdapter(Context context , ArrayList<DocuItem> mDocuList){
+
+    public DocusBuscarAdapter(Context context , ArrayList<DocuItemCatalog> itemList) {
         this.mContext = context;
-        mInflater = LayoutInflater.from(context);
-        this.mDocuList = mDocuList;
-        this.mDocuListFull = mDocuList;
+        this.itemList = itemList;
+        this.itemListFull = itemList;
+    }
+
+
+    public void addItem(DocuItemCatalog item){
+        itemList.add(item);
+        notifyDataSetChanged();
+    }
+
+    public void addItems(List<DocuItemCatalog> items){
+        itemList.addAll(items);
+        notifyDataSetChanged();
+    }
+
+    public void setItems(List<DocuItemCatalog> items){
+        itemList = items;
+        notifyDataSetChanged();
+    }
+
+    @Override
+    public DocusBuscarAdapter.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext())
+                .inflate(R.layout.activity_buscar_pelisfila, parent, false);
+        return new DocusBuscarAdapter.ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(final DocusBuscarAdapter.ViewHolder holder, int position) {
+        DocuItemCatalog mCurrent = itemList.get(position);
+        holder.bindTo(mCurrent);
+        holder.itemView.setTag(itemList.get(position));
 
     }
 
 
-    class DocuViewHolder extends RecyclerView.ViewHolder {
-        private ImageView mDocusLogo;
-        private ImageView mLikeImage;
-        private ImageView mBuyImage;
-        private TextView mTitleText;
-        private TextView mInfoText;
+    @Override
+    public int getItemCount() {
+        return itemList.size();
+    }
 
-        public DocuViewHolder(View itemView, DocusBuscarAdapter adapter){
-            super(itemView);
 
-            // Initialize
-            mTitleText = itemView.findViewById(R.id.titulo);
-            mInfoText = itemView.findViewById(R.id.directorypublicacion);
-            mDocusLogo = itemView.findViewById(R.id.logo);
-            mLikeImage = itemView.findViewById(R.id.likeboton);
-            mBuyImage = itemView.findViewById(R.id.carroboton);
+
+    class ViewHolder extends RecyclerView.ViewHolder {
+        final TextView contentView;
+        final TextView direccionYpublicacion;
+        final ImageView logo;
+        final ImageButton mLikeImage;
+        final ImageButton mBuyImage;
+        String url_comprar;
+
+        ViewHolder(View view) {
+            super(view);
+            contentView = view.findViewById(R.id.titulo);
+            direccionYpublicacion = view.findViewById(R.id.directorypublicacion);
+            logo = view.findViewById(R.id.logo);
+            mLikeImage = view.findViewById(R.id.likeboton);
+            mBuyImage = view.findViewById(R.id.carroboton);
+
             mBuyImage.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
                     new AlertDialog.Builder(mContext)
                             .setTitle(R.string.realizarcompratitulo)
-                            .setMessage(R.string.realizarcompraDocu)
+                            .setMessage(R.string.realizarcompra)
 
                             // Specifying a listener allows you to take an action before dismissing the dialog.
                             // The dialog is automatically dismissed when a dialog button is clicked.
@@ -68,7 +112,7 @@ public class DocusBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with compra operation
                                     if(mContext instanceof DocusBuscarActivity){
-                                        ((DocusBuscarActivity)mContext).onClickCarroButton(mTitleText,mInfoText);
+                                        ((DocusBuscarActivity)mContext).onClickCarroButton(contentView,direccionYpublicacion, url_comprar);
                                     }
                                 }
                             })
@@ -94,7 +138,7 @@ public class DocusBuscarAdapter
                                 public void onClick(DialogInterface dialog, int which) {
                                     // Continue with favorito operation
                                     if(mContext instanceof DocusBuscarActivity){
-                                        ((DocusBuscarActivity)mContext).onClickCorazonButton(mTitleText,mInfoText);
+                                        ((DocusBuscarActivity)mContext).onClickCorazonButton(contentView,direccionYpublicacion);
                                     }
                                 }
                             })
@@ -106,79 +150,43 @@ public class DocusBuscarAdapter
                 }
 
             });
-        }
-
-        void bindTo(DocuItem mCurrent) {
-            mTitleText.setText(mCurrent.getTitle());
-            mInfoText.setText(mCurrent.getInfo());
-
-            // Load images into ImageView using Glide
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLogo())
-                    .into(mDocusLogo);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceLike())
-                    .into(mLikeImage);
-            Glide.with(mContext)
-                    .load(mCurrent.getImageResourceCarro())
-                    .into(mBuyImage);
 
         }
 
-       /* @Override
-        public void onClick(View view){
-            // Get position of item that was clicked
-            int mPosition = getLayoutPosition();
-            // Use it to access selected item in word list
-            LinearLayout element = mDocuList.get(mPosition);
-            // Change word in word list
-            mWordList.set(mPosition, "Clicked! " + element);
-            // Notify adapter so it updates RecyclerView to show updated data
-            mAdapter.notifyDataSetChanged();
+        void bindTo(DocuItemCatalog mCurrent) {
+            contentView.setText(mCurrent.content);
+            direccionYpublicacion.setText(mCurrent.directorYfecha);
+            logo.setImageResource(R.drawable.docuslogo);
+            mLikeImage.setImageResource(R.drawable.favorito);
+            mBuyImage.setImageResource(R.drawable.carrito);
+            url_comprar = mCurrent.url_comprar;
+
         }
-        */
     }
 
-
-    @Override
-    public DocuViewHolder onCreateViewHolder(ViewGroup parent, int viewType){
-        View mItemView = mInflater.inflate(
-                R.layout.activity_buscar_documentalesfila,parent,false);
-        return new DocuViewHolder(mItemView, this);
-    }
-
-    @Override
-    public void onBindViewHolder(DocuViewHolder holder,int position) {
-        DocuItem mCurrent= mDocuList.get(position);
-        holder.bindTo(mCurrent);
-    }
-
-    @Override
-    public int getItemCount() {
-        return mDocuList.size();
-    }
 
     @Override
     public Filter getFilter() {
         return exampleFilter;
     }
 
+
     Filter exampleFilter = new Filter() {
 
         //run on background thread
         @Override
         protected FilterResults performFiltering(CharSequence constraint) {
+            itemListFull = itemList;
 
             FilterResults results = new FilterResults();
-            ArrayList<DocuItem> filteredList = new ArrayList<>();
+            List<DocuItemCatalog> filteredList = new ArrayList<>();
 
 
             if(constraint != null || constraint.length() != 0) {
                 String filterPattern = constraint.toString().toLowerCase();
-                
-                for (DocuItem item : mDocuListFull) {
-                    if (item.getTitle().toLowerCase().contains(filterPattern) ||
-                            item.getInfo().toLowerCase().contains(filterPattern)) {
+
+                for (DocuItemCatalog item : itemListFull) {
+                    if (item.content.toLowerCase().contains(filterPattern)) {
 
                         filteredList.add(item);
                     }
@@ -194,10 +202,12 @@ public class DocusBuscarAdapter
         //runs on a UI thread
         @Override
         protected void publishResults(CharSequence constraint, FilterResults filterResults) {
-            mDocuList.clear();
-            mDocuList.addAll((Collection<? extends DocuItem>) filterResults.values);
+            itemList.clear();
+            itemList.addAll((Collection<? extends DocuItemCatalog>) filterResults.values);
             notifyDataSetChanged();
         }
     };
 
+
 }
+
