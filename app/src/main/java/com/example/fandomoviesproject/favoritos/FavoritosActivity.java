@@ -172,8 +172,8 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
                 startActivity(intent2);
                 break;
             case R.id.nav_fav:
-                Intent intent3 = new Intent(this, FavoritosActivity.class);
-                startActivity(intent3);
+                Toast toast = Toast.makeText(this, R.string.yaestafavs, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case R.id.nav_cart:
                 Intent intent4 = new Intent(this, ComprasActivity.class);

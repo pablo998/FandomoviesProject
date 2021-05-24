@@ -10,6 +10,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -166,8 +167,8 @@ public class perfilActivity
                 startActivity(intent);
                 break;
             case R.id.nav_perfil:
-                Intent intent2 = new Intent(this, perfilActivity.class);
-                startActivity(intent2);
+                Toast toast = Toast.makeText(this, R.string.yaestamiperfil, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case R.id.nav_fav:
                 Intent intent3 = new Intent(this, FavoritosActivity.class);

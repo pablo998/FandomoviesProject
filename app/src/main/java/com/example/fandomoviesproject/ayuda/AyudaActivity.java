@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -107,8 +108,8 @@ public class AyudaActivity extends AppCompatActivity implements AyudaContract.Vi
                 startActivity(intent4);
                 break;
             case R.id.nav_help:
-                Intent intent5 = new Intent(this, AyudaActivity.class);
-                startActivity(intent5);
+                Toast toast = Toast.makeText(this, R.string.yaestaayuda, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
         }
         drawerLayout.closeDrawer(GravityCompat.START);

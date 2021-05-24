@@ -195,8 +195,8 @@ public class ComprasActivity extends AppCompatActivity implements ComprasContrac
                 startActivity(intent3);
                 break;
             case R.id.nav_cart:
-                Intent intent4 = new Intent(this, ComprasActivity.class);
-                startActivity(intent4);
+                Toast toast = Toast.makeText(this, R.string.yaestacompras, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case R.id.nav_help:
                 Intent intent5 = new Intent(this, AyudaActivity.class);

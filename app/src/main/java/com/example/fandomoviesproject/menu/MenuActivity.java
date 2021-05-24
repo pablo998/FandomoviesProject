@@ -6,6 +6,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
@@ -207,8 +208,8 @@ public class MenuActivity
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()){
             case R.id.nav_home:
-                Intent intent = new Intent(this, MenuActivity.class);
-                startActivity(intent);
+                Toast toast = Toast.makeText(this, R.string.yaestainicio, Toast.LENGTH_SHORT);
+                toast.show();
                 break;
             case R.id.nav_perfil:
                 Intent intent2 = new Intent(this, perfilActivity.class);
