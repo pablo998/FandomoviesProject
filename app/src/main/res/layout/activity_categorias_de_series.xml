@@ -61,6 +61,7 @@
             <androidx.viewpager2.widget.ViewPager2
                 android:id="@+id/viewpager2"
                 android:layout_width="match_parent"
+                android:background="@drawable/seriesboton"
                 android:layout_height="match_parent" />
 
         </androidx.cardview.widget.CardView>
