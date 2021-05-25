@@ -1,5 +1,6 @@
 package com.example.fandomoviesproject.app;
 
+import com.example.fandomoviesproject.ayuda.AyudaState;
 import com.example.fandomoviesproject.categoriasDocu.CategoryDocuListState;
 import com.example.fandomoviesproject.compras.ComprasState;
 import com.example.fandomoviesproject.data.CategoryDocuItemCatalog;
@@ -64,6 +65,9 @@ public class AppMediator {
     private PelisBuscarState pelisBuscarState = new PelisBuscarState();
     private DocusBuscarState docusBuscarState = new DocusBuscarState();
     private SeriesBuscarState seriesBuscarState = new SeriesBuscarState();
+
+    //Pantalla Ayuda
+    private AyudaState ayudaState = new AyudaState();
 
     //Peliculas
     private PeliculaItemCatalog product2;
@@ -169,6 +173,8 @@ public class AppMediator {
     public MainActivityState getMainActivityState() {
         return mainActivityState;
     }
+    public AyudaState getAyudaState() { return ayudaState; }
+
 
 
 

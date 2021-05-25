@@ -13,15 +13,9 @@ public class AyudaScreen {
         AppMediator mediator = AppMediator.getInstance();
 
         AyudaContract.Presenter presenter = new AyudaPresenter(mediator);
-
-        //TODO descomentar linea de abajo cuando repo este hecho
-        //AyudaModel model = new AyudaModel(repository);
         AyudaModel model = new AyudaModel();
         presenter.injectView(new WeakReference<>(view));
         presenter.injectModel(model);
-
-        //TODO descomentar cuando repo este hecho linea de abajo
-        //presenter.injectModel(model);
         view.injectPresenter(presenter);
 
     }

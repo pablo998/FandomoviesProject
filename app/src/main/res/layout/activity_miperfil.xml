@@ -26,7 +26,8 @@
          <include
             layout="@layout/main_toolbar"
             android:id="@+id/main_toolbar"
-            app:layout_constraintEnd_toEndOf="parent"
+             android:theme="@style/ToolbarTheme"
+             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:subtitleTextColor="@color/white"
