@@ -251,7 +251,14 @@ public class AppMediator {
         if(favoritosList == null) {favoritosList = new ArrayList<>();}
         FavoritoItem newFavoritoItem = new FavoritoItem(item.getTitle(), item.getInfo(), 0, 0);
         favoritoItem = newFavoritoItem;
-        favoritosList.add(newFavoritoItem);
+        boolean repetido = false;
+        for(int i=0; i<favoritosList.size(); i++){
+            if(favoritosList.get(i).getTitle().equals(newFavoritoItem.getTitle())){
+                repetido = true;
+            }
+        }
+        if(repetido==false)
+            favoritosList.add(newFavoritoItem);
         favoritoItem = null;
     }
 

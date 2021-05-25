@@ -112,11 +112,11 @@ public class FavoritosActivity extends AppCompatActivity implements FavoritosCon
                 .obtainTypedArray(R.array.delete_favs);
 
         for (int i = 0; i < viewModel.favoritos.size(); i++) {
-            favoritosList.add(new FavoritoItem(
-                    viewModel.favoritos.get(i).getTitle(), viewModel.favoritos.get(i).getInfo(), imageCorazon.getResourceId(0, 0),
-                    imageDelete.getResourceId(0, 0))
-            );
-        }
+                favoritosList.add(new FavoritoItem(
+                        viewModel.favoritos.get(i).getTitle(), viewModel.favoritos.get(i).getInfo(), imageCorazon.getResourceId(0, 0),
+                        imageDelete.getResourceId(0, 0))
+                );
+            }
         this.mAdapter.notifyDataSetChanged(); // Notify adapter of change
     }
 
