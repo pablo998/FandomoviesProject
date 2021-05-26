@@ -8,64 +8,86 @@
           "id": 1,
           "content": "Deep Blue",
           "fecha": "2003",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=LsKnO7Ipl2M",
           "url_imagen": "https://images-na.ssl-images-amazon.com/images/I/71ghEGo5UIL._SY550_.jpg",
-          "sinopsis": "El fondo del mar expuesto tras un rodaje de tres años en el que se visitaron más de doscientos parajes.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"
+          "sinopsis": "Aclamado documental marino. Realizado a lo largo de 3 años de rodaje, y 5 de proyecto, con un presupuesto de 15 millones de euros y en paralelo con la serie televisiva \"Planeta Azul\". Rodada en los siete mares y más de 200 lugares de la geografía del planeta, su principal responsable, Alastair Fothergill, es un experto documentalista y directivo de la BBC Natural History Unit. La bella y espectacular banda musical de George Fenton está interpretada por la Orquesta Filarmónica de Berlín.",
+          "actor1": "Alastair Fothergill",
+          "actor2": "Andy Byatt",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
         },
         {
           "id": 7,
           "content": "El viaje del emperador",
           "fecha": "2005",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=y8qvqa52gjk",
           "url_imagen": "https://www.sax.es/files/images/El_viaje_del_emperador.interior.jpg",
-          "sinopsis": "Cada año, cientos de miles de pingüinos Emperador abandonan la seguridad del océano para adentrarse en la desértica tierra helada.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"
+          "sinopsis": "Documental sobre la emigración de los pingüinos en la Antártida. Cada año en la Antártida da comienzo un emocionante y hermoso viaje. Cientos de miles de pingüinos Emperador abandonan la seguridad del océano para adentrarse en la desértica tierra helada. Una región tan dura y extrema que ningún otro ser vivo se atreve a habitar. Toda la comunidad de pingüinos marchan a través de este difícil paisaje de hielo. Con resolución y valentía conducidos por su necesidad de reproducirse con el fin de la supervivencia de la especie. Esta es la historia de una familia de pingüinos. De cómo tras decenas de kilómetros y tras poner un único huevo, la madre regresa al mar a comer mientras el padre se queda para incubar el huevo a la espera de que la madre regrese. Los padres permanecen 4 meses incubando y sin alimentarse. Cuando los pequeños nacen, las madres tan sólo tienen 48 horas para regresar o ellos morirán. Tantos unos como otros estarán sujetos a condiciones extremas de supervivencia con temperaturas de más de 40 grados bajo cero, todo ello con el fin de prolongar la especie.",
+          "actor1": "Luc Jacquet",
+          "actor2": "Michel Fessler",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
         },
         {
           "id": 9,
           "content": "Océanos",
           "fecha": "2009",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=TqGAA6GsJ3s",
           "url_imagen": "https://images-na.ssl-images-amazon.com/images/I/91BJnXpHLRL._SL1500_.jpg",
-          "sinopsis": "Una de las mayores y más espectaculares producciones de la historia. Conviértete en un pez más en este documental en el que nadarás entre delfines, tiburones y otras maravillas marinas.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "sinopsis": "Surcar los mares a 10 nudos cazando atunes, acompañar a los delfines en sus inverosímiles piruetas, nadar con el gran tiburón blanco, hombro, contra aleta... es como ser un pez más entre ellos. Después de la película \"Le peuple migrateur\", Jacques Perrin y Jacques Cluzaud nos transportan, gracias unas novísimas técnicas de rodaje, a lo más intrincado de los océanos para descubrir allí a unas criaturas marinas ignoradas y desconocidas. Océanos se pregunta acerca de la impronta del hombre en la vida silvestre respondiendo por medio de emotivas imágenes a la pregunta: “el Océano, ¿qué viene a ser el Océano?”. Con un presupuesto de más de 50 millones de euros, \"Océanos\" está publicitada como la mayor y más espectacular producción documental de la historia.",
+          "actor1": "Jacques Perrin",
+          "actor2": "Jacques Cluzaud",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        },
         {
           "id": 10,
           "content": "One Life",
           "fecha": "2011",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=ZknxPkp5ki8",
           "url_imagen": "https://images-na.ssl-images-amazon.com/images/S/pv-target-images/de954e4b79568a85f1dae17161686fed6a366a82ab407907dba365c30510bf38._RI_V_TTW_.jpg",
-          "sinopsis": "Daniel Craig narra esta celebración de la vida en el reino animal.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "sinopsis": "Durante más de cinco millones de años, la vida en la Tierra ha evolucionado hasta convertirse en la increíble riqueza y variedad que vemos hoy. Este documental es una celebración de la vida y trae algunas de las historias más brillantes e imaginativas del reino animal a la pantalla grande. Narrado por Daniel Craig.",
+          "actor1": "Michael Gunton",
+          "actor2": "Martha Holmes",
+          "actor3": "Daniel Craig",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        },
         {
           "id": 11,
-          "content": "Microsmos",
+          "content": "Microcosmos",
           "fecha": "1996",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=76R2EKEnoJQ",
           "url_imagen": "https://pics.filmaffinity.com/Microcosmos-113728323-large.jpg",
-          "sinopsis": "No hace falta recorrer el mundo para fascinarse, infinidad de insectos y criaturas microscópicas viven muy cerca de nosotros.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "sinopsis": "Aclamadísimo documental de naturaleza sobre el mundo de los insectos y de las criaturas microscópicas que habitan en jardines y bosques bien cercanos.",
+          "actor1": "Claude Nuridsany",
+          "actor2": "Marie Perennou",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        },
         {
           "id": 5,
           "content": "Nómadas del viento",
           "fecha": "2001",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=XFtqKRRn4XQ",
           "url_imagen": "https://hips.hearstapps.com/es.h-cdn.co/fotoes/images/peliculas/nomadas-del-viento/112283-1-esl-ES/Nomadas-del-viento1.jpg?resize=320:*",
-          "sinopsis": "40 países bajo sus pies en 4 años de trabajo para descubrir la magia sobre los diferentes patrones migratorios de las aves.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "sinopsis": "Ambicioso documental sobre la migración de las aves, un viaje que recorre más de 40 países. 4 años de trabajo y más de 140 personas contribuyeron a la creación de un singular estudio, no sólo de las diferentes aves migratorias y sus patrones migratorios, sino del ecléctico, espectacular y sorprendente planeta en el que vivimos. Estuvo nominado al Oscar al mejor documental. ",
+          "actor1": "Jacques Perrin",
+          "actor2": "Michel Debats",
+          "actor3": "Jacques Cluzaud",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        }
 
       ]
     },
@@ -77,32 +99,44 @@
           "id": 2,
           "content": "Women at War: 1939-1945",
           "fecha": "2016",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=LPMEYMA8Z7w",
           "url_imagen": "https://pics.filmaffinity.com/Lundi_en_histoires_Women_at_War_1939_1945-120233460-large.jpg",
           "sinopsis": "Documental que recoge las valerosas historias de mujeres excepcionales que participaron en el frente durante la Primera Guerra Mundial.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "actor1": "Fabien Beziat",
+          "actor2": "Hugues Nancy",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        },
         {
           "id": 12,
           "content": "El contable de Auschwitz",
           "fecha": "2018",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=pBIcWC8ITGM",
           "url_imagen": "https://pics.filmaffinity.com/The_Accountant_of_Auschwitz-834648497-large.jpg",
           "sinopsis": "Documental sobre el juicio a Oskar Gröning, conocido como \"el contable de Auschwitz\", que comenzó cuando él tenía 94 años de edad.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "actor1": "Matthew Shoychet",
+          "actor2": "",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bien hecho en toda mi vida"
+        },
         {
           "id": 13,
           "content": "Roma: Imperio sin límites",
           "fecha": "2016",
           "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
           "url_imagen": "https://pics.filmaffinity.com/mary_beard_s_ultimate_rome_empire_without_limit-702058513-large.jpg",
-          "sinopsis": "¿Cómo y por qué se formó el Imperio Romano? ¿Cuál fue la causa de su final? ¿Cómo vivía el pueblo? Mary Beard, Premio Princesa de Asturias de Ciencias Sociales 2016, viaja por todo el territorio del desaparecido Imperio para responder estas preguntas.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "sinopsis": "¿Cómo y por qué se formó el Imperio Romano? ¿Cuál fue la causa de su final? ¿Cómo vivía el pueblo? ¿En qué innovaron? Mary Beard, Premio Princesa de Asturias de Ciencias Sociales 2016, viaja por todo el territorio del desaparecido Imperio para responder estas preguntas. La catedrática de Cambridge y un equipo de científicos especializados analizan los éxitos y los fracasos de la Antigua Roma, así como la gran herencia que nos han llegado. Mary Beard viaja por España, Irán, Egipto, Escocia, Italia, Grecia, Alemania...mostrando el gran legado del imperio romano. La historia del Imperio Romano desde una perspectiva global: su historia, sus construcciones, sus batallas, su cultura, su comida, sus gentes, sus costumbres... Y todo en clave tan rigurosa como entretenida, porque Mary Beard rompe estereotipos y cuenta la Historia con verdadera pasión. ",
+          "actor1": "Chris Mitchell",
+          "actor2": "Mary Beard",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super entretenido e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan interesante en toda mi vida"
+        }
       ]
     },
     {
@@ -111,24 +145,32 @@
       "productsDocumentales": [
         {
           "id": 3,
-          "content": "Cosmos",
+          "content": "Cosmos: A Space-time Odyssey",
           "fecha": "1980/2014",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=xsSN160RN_8",
           "url_imagen": "https://pics.filmaffinity.com/Cosmos_A_Space_Time_Odyssey_Serie_de_TV-349239180-large.jpg",
-          "sinopsis": "¿Qué lugar ocupamos los seres humanos en el universo? Desde el origen de la vida, al origen del tiempo, al inicio de todo lo que existe, este documental pone en perspectiva el verdadero tamaño de la humanidad:",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "sinopsis": "Más de 30 años después de que Carl Sagan buscase los límites del universo y del hombre a través de la ciencia, la nueva Cosmos propone un nuevo viaje hacia las estrellas. Presentado por el prestigioso astrofísico Neil deGrasse Tyson, esta continuación explora cómo descubrimos las leyes de la naturaleza y encontramos nuestro lugar en el tiempo y el espacio.",
+          "actor1": "Ann Druyan",
+          "actor2": "Steven Soter",
+          "actor3": "Neil deGrasse Tyson",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        },
         {
           "id": 8,
-          "content": "La chispa",
-          "fecha": "2014",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
-          "url_imagen": "http://www.area-documental.com/iconos/The.Story.of.Electricity.1of3.Spark.jpg",
-          "sinopsis": "El Profesor Jim Al-Khalili nos explica la electrizante historia de nuestra búsqueda para dominar la fuerza más misteriosa de la naturaleza: la electricidad. ",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "content": "Dentro del volcán",
+          "fecha": "2016",
+          "url_trailer": "https://www.youtube.com/watch?v=fEypbGZzflU",
+          "url_imagen": "https://pics.filmaffinity.com/Dentro_del_volc_n-202339638-large.jpg",
+          "sinopsis": "El aclamado director Werner Herzog visita varios volcanes activos alrededor del mundo. Herzog y el especialista en volcanes Clive Oppenheimer emprenden una aventura por todo el mundo explorando algunos de los volcanes más conocidos de Indonesia, Etiopía, Islandia y Corea del Norte. Relacionándose con científicos e indígenas de cada zona, buscan entender la compleja y antigua conexión que existe entre los seres humanos y una de las grandes maravillas de la naturaleza.",
+          "actor1": "Werner Herzog",
+          "actor2": "Clive Oppenheimer",
+          "actor3": "Tim D. White",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan bonito en toda mi vida"
+        }
       ]
     },
     {
@@ -137,14 +179,18 @@
       "productsDocumentales": [
         {
           "id": 6,
-          "content": "Mundos alienígenas",
-          "fecha": "2016",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
-          "url_imagen": "https://static.wikia.nocookie.net/doblaje/images/1/1f/AAAABW3o_mTEUnWM4-ZRq5v9ioq5WoaXweovLif4xmBOwfqNX7BAhVOwi8eruAKCkmQcF1oCs-i7os4njN13evAJRwRG_HgWNy4jcCVvktXAf0te5F_i_-m3pBTBNx6AaA.jpg/revision/latest?cb=20201202164522&path-prefix=es",
-          "sinopsis": "Somos la generación de seres humanos que van a saber si estamos solos o no en el universo. Este episodio explora la búsqueda de exoplanetas, desde los filósofos de la Grecia antigua, a los descubrimientos hechos posible con el Telescopio Kepler.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "content": "Alienígenas: Caso Abierto",
+          "fecha": "2012",
+          "url_trailer": "https://www.youtube.com/watch?v=YCHO6wPg1AU",
+          "url_imagen": "https://m.media-amazon.com/images/M/MV5BMTk0Mjk3ODA0M15BMl5BanBnXkFtZTgwOTgxNzU5NTE@._V1_.jpg",
+          "sinopsis": "En abril de 2011 y ante una gran expectación mundial, el FBI hacía públicos los archivos de The vault (la cripta), un compendio de dos mil documentos, la mayoría secretos durante décadas, sobre presencia extraterrestre, fenómenos inexplicables y sucesos paranormales. En ‘Alienígenas: caso abierto’, Discovery MAX explora el contenido de esta increíble colección de expedientes X. Cada episodio estará dedicado a uno de los casos más llamativos y examinará la información que el gobierno estadounidense ha mantenido oculta durante tantos años. ",
+          "actor1": "Kevin Lowe",
+          "actor2": "Richard Mathiasen",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido espectacular e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan entretenido en toda mi vida"
+        }
       ]
     },
     {
@@ -155,22 +201,30 @@
           "id": 14,
           "content": "Código Negro",
           "fecha": "2017",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=aaJpgH9kmuw",
           "url_imagen": "http://www.area-documental.com/iconos/Black.Code.jpg",
-          "sinopsis": "Descubre lo que ocurre con el Big Data cuando los gobiernos manipulan internet para censurar y monitorizar a los ciudadanos, y como los ciudadanos están contraatacando.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"},
+          "sinopsis": "Descubre lo que ocurre con el Big Data cuando los gobiernos manipulan internet para censurar y monitorizar a los ciudadanos, y como los ciudadanos están contraatacando. Esta batalla por el control del ciberespacio desafiará nuestra idea de la privacidad y de la democracia hasta sus cimientos. El documental es un análisis del impacto global que internet supone sobre la libertad de expresión, el derecho a la intimidad y el desarrollo del activismo.",
+          "actor1": "Nick de Pencier",
+          "actor2": "",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan intrigante en toda mi vida"
+        },
         {
           "id": 4,
           "content": "Ferrari: Carrera a la inmortalidad",
           "fecha": "2017",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "url_trailer": "https://www.youtube.com/watch?v=stmrxe1nDUk",
           "url_imagen": "https://pics.filmaffinity.com/ferrari_race_to_immortality-337753545-large.jpg",
-          "sinopsis": "En la década de 1950, la icónica escudería Ferrari luchaba para estar en la cima de la Formula 1 en una de las décadas más mortales en la historia de las carreras.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "sinopsis": "En la década de 1950, la icónica escudería Ferrari luchaba para estar en la cima de la Formula 1 en una de las décadas más mortales en la historia de las carreras. Este documental relata la historia de los triunfos y las derrotas, los éxitos y las tragedias, de los mejores conductores de Ferrari en una época, los años 50, donde entre semana se disfrutaba la vida y los domingos era ganar o morir. ",
+          "actor1": "Daryl Goodrich",
+          "actor2": "",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "No había visto un documental tan entretenidp en toda mi vida"
+        }
       ]
     },
     {
@@ -180,13 +234,17 @@
         {
           "id": 15,
           "content": "Arte y copia",
-          "fecha": "2019",
-          "url_trailer": "https://www.youtube.com/watch?v=Vese9a_nu5A",
+          "fecha": "2009",
+          "url_trailer": "https://www.sensacine.com/peliculas/pelicula-142540/",
           "url_imagen": "https://www.area-documental.com/iconos/Art.And.Copy.jpg",
           "sinopsis": "El documental revela la obra y el talento de algunos de los creativos publicitarios más influyentes de nuestra época, gente que ha impactado profundamente en la cultura de nuestra época, pero que son virtualmente desconocidos fuera de la industria.",
-          "actor1": "nombre del actor va aquí",
-          "actor2": "actor 2 nombre ejemplo",
-          "actor3": "nombre del actor/Actriz"}
+          "actor1": "Doug Pray",
+          "actor2": "Charlie Moss",
+          "actor3": "",
+          "valoracion1": "Gran documental. Me ha parecido super bonito e interesante",
+          "valoracion2": "Excelente. Me ha encantado",
+          "valoracion3": "ENo había visto un documental tan bonito en toda mi vida"
+        }
       ]
     }
   ]
