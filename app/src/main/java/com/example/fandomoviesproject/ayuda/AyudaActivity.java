@@ -63,8 +63,11 @@ public class AyudaActivity extends AppCompatActivity implements AyudaContract.Vi
         }
 
 
-          //do the setup
+         //do the setup
          AyudaScreen.configure(this);
+
+        //do some work
+        presenter.fetchAyudaData();
 
     }
 

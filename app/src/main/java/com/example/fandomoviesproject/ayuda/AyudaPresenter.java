@@ -1,7 +1,7 @@
 package com.example.fandomoviesproject.ayuda;
 
 import com.example.fandomoviesproject.app.AppMediator;
-
+import com.example.fandomoviesproject.compras.ComprasState;
 
 
 import java.lang.ref.WeakReference;
@@ -11,12 +11,13 @@ public class AyudaPresenter implements AyudaContract.Presenter {
     public static String TAG = AyudaPresenter.class.getSimpleName();
 
     private WeakReference<AyudaContract.View> view;
+    private AyudaState state;
     private AyudaContract.Model model;
     private AppMediator mediator;
 
     public AyudaPresenter(AppMediator mediator) {
         this.mediator = mediator;
-
+        state = mediator.getAyudaState();
     }
 
     @Override
@@ -31,7 +32,9 @@ public class AyudaPresenter implements AyudaContract.Presenter {
 
     @Override
     public void fetchAyudaData() {
-        //TODO pendiente
+        String ayudaText = model.fetchAyudaData();
+        state.informacion = ayudaText;
+        view.get().displayAyudaData(state);
     }
 
 }

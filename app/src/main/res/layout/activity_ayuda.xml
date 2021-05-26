@@ -46,11 +46,19 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="100sp" />
+
         <TextView
             android:id="@+id/ayuda_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/ayuda_text" />
+            android:fontFamily="sans-serif"
+            android:paddingStart="10sp"
+            android:paddingEnd="10sp"
+            android:textAlignment="center"
+            android:textSize="25sp" />
     </LinearLayout>
 
 

@@ -11,7 +11,6 @@ public interface AyudaContract {
         void injectPresenter(AyudaContract.Presenter presenter);
 
         void displayAyudaData(AyudaViewModel viewModel);
-
     }
 
     interface Presenter {
@@ -22,9 +21,8 @@ public interface AyudaContract {
     }
 
 
-    public interface Model {
-
-        //void fetchAyudaData();
+    interface Model {
+        String fetchAyudaData();
 
     }
 }
