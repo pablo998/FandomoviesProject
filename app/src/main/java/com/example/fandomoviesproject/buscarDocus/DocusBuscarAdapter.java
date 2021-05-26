@@ -104,7 +104,7 @@ public class DocusBuscarAdapter extends RecyclerView.Adapter<DocusBuscarAdapter.
                 public void onClick(View view) {
                     new AlertDialog.Builder(mContext)
                             .setTitle(R.string.realizarcompratitulo)
-                            .setMessage(R.string.realizarcompra)
+                            .setMessage(R.string.realizarcompraDocu)
 
                             // Specifying a listener allows you to take an action before dismissing the dialog.
                             // The dialog is automatically dismissed when a dialog button is clicked.
